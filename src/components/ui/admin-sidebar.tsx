@@ -46,10 +46,6 @@ export function AdminSidebar() {
   const isActive = (path: string) => pathname === path
 
   const [mobileMenuOpen, setMobileOpen] = useState(false)
-      
-      //Agegar un console log para mostrar la 
-      // ruta que en la que se esta
-      console.log("Ruta actual: ", pathname)
       const [usuario, setUsuario] = useState<any>(null);
   
       useEffect(() => {
