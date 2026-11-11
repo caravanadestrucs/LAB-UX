@@ -1,5 +1,11 @@
 "use client"
 
+// TODO(bundle): recharts (~200kb) solo se usa vía ChartContainer. Si este componente
+// se usa en rutas críticas (home/admin), considerar dynamic(() => import) o
+// cargarlo solo en la ruta que lo necesite. Actualmente 0 consumidores en src/
+// fuera de este archivo — mantener pero no ampliar sin code-split.
+// Complejidad >50 líneas, no se aplica dynamic trivial aquí.
+
 import * as React from "react"
 import * as RechartsPrimitive from "recharts"
 
