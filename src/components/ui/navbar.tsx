@@ -37,10 +37,6 @@ type Checked = DropdownMenuCheckboxItemProps["checked"]
 export function Navbar() {
     const [mobileMenuOpen, setMobileOpen] = useState(false)
     const pathname = usePathname()
-    
-    //Agegar un console log para mostrar la 
-    // ruta que en la que se esta
-    console.log("Ruta actual: ", pathname)
 
     const [showStatusBar, setShowStatusBar] = React.useState<Checked>(true)
     const [showActivityBar, setShowActivityBar] = React.useState<Checked>(false)
@@ -54,7 +50,7 @@ export function Navbar() {
     
     return(
         <nav className=" shadow-sm sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
-            <div className=" mx-auto max-w-7x1 px-4 sm:px-6 lg:px-8">
+            <div className=" mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
                 <div className="flex h-16 justify-between">
                     {/*Logo del sitio */}
                     <div className="flex items-center">
@@ -72,7 +68,7 @@ export function Navbar() {
                     item.name.toLowerCase() === "investigación" ? (
                         <DropdownMenu key={item.name}>
                             <DropdownMenuTrigger asChild>
-                                <Button variant="ghost" className=" hover:bg-gray-100 hover:text-gray-700">
+                                <Button variant="ghost" className="transition-colors hover:bg-accent hover:text-accent-foreground">
                                 {item.name}
                                 </Button>
                             </DropdownMenuTrigger>
@@ -93,11 +89,12 @@ export function Navbar() {
                         <Link
                         key={item.name}
                         href={item.path}
+                        aria-current={pathname === item.path ? "page" : undefined}
                         className={cn(
                             "rounded-md px-3 py-2 text-sm font-medium transition-colors",
                             pathname === item.path
                             ? "bg-primary/10 text-gray-700 bg-gray-100"
-                            : " hover:bg-gray-100 hover:text-gray-700",
+                            : " hover:bg-accent hover:text-accent-foreground",
                         )}
                         >
                         {item.name}
@@ -134,46 +131,39 @@ export function Navbar() {
                         item.name.toLowerCase() === "investigación" ? (
                             <Accordion type="single" collapsible className="w-full" key={`accordion-${item.name}`}>
                                 <AccordionItem value={item.name} key={`accordion-item-${item.name}`}>
-                                    <AccordionTrigger>
-                                        <Link
-                                            key={`link-${item.name}`}
-                                            href={item.path}
-                                            className={cn(
-                                                "block rounded-md px-3 py-2 text-base font-medium",
+                                    <AccordionTrigger className={cn(
+                                                "rounded-md px-3 py-2 text-base font-medium transition-colors",
                                                 pathname === item.path
                                                 ? "bg-primary/10 text-gray-700 bg-gray-100"
-                                                : "text-gray-700 hover:bg-gray-100 hover:text-gray-70",
-                                            )}
-                                            onClick={() => setMobileOpen(false)}
-                                        >
-                                            {item.name}
-                                        </Link>
+                                                : "text-gray-700 hover:bg-accent hover:text-accent-foreground",
+                                            )}>
+                                        <span aria-current={pathname === item.path ? "page" : undefined}>{item.name}</span>
                                     </AccordionTrigger>
                                     <AccordionContent>
-                                        <div key="proyectos" className={cn(
-                                            "block rounded-md px-3 py-2 text-base font-medium",
+                                        <Link key="proyectos" href={`${item.path}/proyectos`} aria-current={pathname === `${item.path}/proyectos` ? "page" : undefined} className={cn(
+                                            "block rounded-md px-3 py-2 text-base font-medium transition-colors",
                                             pathname === `${item.path}/proyectos`
                                             ? "bg-primary/10 text-gray-700 bg-gray-100"
-                                            : "text-gray-700 hover:bg-gray-100 hover:text-gray-70",
-                                        )}>
-                                            <Link href={`${item.path}/proyectos`}>Proyectos</Link>
-                                        </div>
-                                        <div key="metodologias" className={cn(
-                                            "block rounded-md px-3 py-2 text-base font-medium",
+                                            : "text-gray-700 hover:bg-accent hover:text-accent-foreground",
+                                        )} onClick={() => setMobileOpen(false)}>
+                                            Proyectos
+                                        </Link>
+                                        <Link key="metodologias" href={`${item.path}/metodologias`} aria-current={pathname === `${item.path}/metodologias` ? "page" : undefined} className={cn(
+                                            "block rounded-md px-3 py-2 text-base font-medium transition-colors",
                                             pathname === `${item.path}/metodologias`
                                             ? "bg-primary/10 text-gray-700 bg-gray-100"
-                                            : "text-gray-700 hover:bg-gray-100 hover:text-gray-70",
-                                        )}>
-                                            <Link href={`${item.path}/metodologias`}>Metodologías</Link>
-                                        </div>
-                                        <div key="glosario" className={cn(
-                                            "block rounded-md px-3 py-2 text-base font-medium",
+                                            : "text-gray-700 hover:bg-accent hover:text-accent-foreground",
+                                        )} onClick={() => setMobileOpen(false)}>
+                                            Metodologías
+                                        </Link>
+                                        <Link key="glosario" href={`${item.path}/glosario`} aria-current={pathname === `${item.path}/glosario` ? "page" : undefined} className={cn(
+                                            "block rounded-md px-3 py-2 text-base font-medium transition-colors",
                                             pathname === `${item.path}/glosario`
                                             ? "bg-primary/10 text-gray-700 bg-gray-100"
-                                            : "text-gray-700 hover:bg-gray-100 hover:text-gray-70",
-                                        )}>
-                                            <Link href={`${item.path}/glosario`}>Glosario</Link>
-                                        </div>
+                                            : "text-gray-700 hover:bg-accent hover:text-accent-foreground",
+                                        )} onClick={() => setMobileOpen(false)}>
+                                            Glosario
+                                        </Link>
                                     </AccordionContent>
                                 </AccordionItem>
                             </Accordion>
@@ -181,11 +171,12 @@ export function Navbar() {
                             <Link
                             key={item.name}
                             href={item.path}
+                            aria-current={pathname === item.path ? "page" : undefined}
                             className={cn(
-                                "block rounded-md px-3 py-2 text-base font-medium",
+                                "block rounded-md px-3 py-2 text-base font-medium transition-colors",
                                 pathname === item.path
                                 ? "bg-primary/10 text-gray-700 bg-gray-100"
-                                : "text-gray-700 hover:bg-gray-100 hover:text-gray-70",
+                                : "text-gray-700 hover:bg-accent hover:text-accent-foreground",
                             )}
                             onClick={() => setMobileOpen(false)}
                             >
@@ -195,7 +186,7 @@ export function Navbar() {
                         ))}
                         <div className="pt-2">
                             <Button asChild className="w-full justify-center bg-black text-white hover:bg-gray-800">
-                                <Link href="public/login" onClick={() => setMobileOpen(false)}>
+                                <Link href="/public/login" onClick={() => setMobileOpen(false)}>
                                 Iniciar Sesión
                                 </Link>
                             </Button>

@@ -58,17 +58,17 @@ export function Footer() {
             <h3 className="text-sm font-semibold mb-4">Legal</h3>
             <ul className="space-y-2">
               <li>
-                <Link href="/" className="text-sm  hover:text-primary">
+                <Link href="/public/support" className="text-sm  hover:text-primary">
                   Política de privacidad
                 </Link>
               </li>
               <li>
-                <Link href="/" className="text-sm  hover:text-primary">
+                <Link href="/public/support" className="text-sm  hover:text-primary">
                   Términos y condiciones
                 </Link>
               </li>
               <li>
-                <Link href="/" className="text-sm  hover:text-primary">
+                <Link href="/public/support" className="text-sm  hover:text-primary">
                   Política de cookies
                 </Link>
               </li>
@@ -78,20 +78,22 @@ export function Footer() {
           {/* Contacto */}
           <div>
             <h3 className="text-sm font-semibold mb-4">Contacto</h3>
-            <ul className="space-y-2">
-              <li className="flex items-start">
-                <MapPin className="h-5 w-5  mr-2 shrink-0" />
-                <span className="text-sm ">Calle Principal 123, Ciudad, País</span>
-              </li>
-              <li className="flex items-center">
-                <Phone className="h-5 w-5  mr-2 shrink-0" />
-                <span className="text-sm ">+1 234 567 890</span>
-              </li>
-              <li className="flex items-center">
-                <Mail className="h-5 w-5  mr-2 shrink-0" />
-                <span className="text-sm ">info@miempresa.com</span>
-              </li>
-            </ul>
+            <address className="not-italic">
+              <ul className="space-y-2">
+                <li className="flex items-start">
+                  <MapPin className="h-5 w-5  mr-2 shrink-0" aria-hidden="true" />
+                  <span className="text-sm ">Calle Principal 123, Ciudad, País</span>
+                </li>
+                <li className="flex items-center">
+                  <Phone className="h-5 w-5  mr-2 shrink-0" aria-hidden="true" />
+                  <a href="tel:+1234567890" className="text-sm hover:text-primary">+1 234 567 890</a>
+                </li>
+                <li className="flex items-center">
+                  <Mail className="h-5 w-5  mr-2 shrink-0" aria-hidden="true" />
+                  <a href="mailto:info@miempresa.com" className="text-sm hover:text-primary">info@miempresa.com</a>
+                </li>
+              </ul>
+            </address>
           </div>
         </div>
 
