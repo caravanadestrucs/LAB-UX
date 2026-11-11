@@ -9,8 +9,8 @@ import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { Checkbox } from "@/components/ui/checkbox"
-import { LoginUsuarioRequest, ResetUsuarioRequest } from "@/types"
-import { login, PasswordReset } from "@/services/usuarioService";
+import { ResetUsuarioRequest } from "@/types"
+import { PasswordReset } from "@/services/usuarioService"
 
 
 export default function LoginPage() {
@@ -27,16 +27,20 @@ export default function LoginPage() {
     setIsSubmitting(true)
     setErrorMessage("")
 
-    const loginData: LoginUsuarioRequest = { email, password }
-
     try {
-      const result = await login(loginData)
-      if (result.success && result.usuario) {
-        // Guarda el usuario en localStorage para que LayoutSwitcher lo detecte
-        localStorage.setItem("usuario", JSON.stringify(result.usuario))
-        window.location.href = '/admin/inicio'
+      // Nuevo flujo httpOnly: setea cookie via Route Handler, luego backend valida
+      const res = await fetch("/api/auth/login", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ email, password }),
+      })
+      const result = await res.json()
+      if (res.ok && result.success) {
+        // Mantiene compat localStorage hasta eliminar fallback (middleware ya es guard real)
+        if (result.usuario) localStorage.setItem("usuario", JSON.stringify(result.usuario))
+        window.location.href = "/admin/inicio"
       } else {
-        setErrorMessage(result.error || "Correo o contraseña incorrectos.")
+        setErrorMessage(result.error || result.message || "Correo o contraseña incorrectos.")
       }
     } catch (error) {
       console.error("Error en login:", error)
