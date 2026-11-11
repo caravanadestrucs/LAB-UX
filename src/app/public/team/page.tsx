@@ -1,5 +1,6 @@
 "use client"
 import Image from "next/image"
+import Link from "next/link"
 import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
@@ -9,6 +10,95 @@ import { MapPin, Users, GraduationCap, BookOpen } from "lucide-react"
 import { ModalCv } from "./components/modalcv"
 import { User, RoleUser } from "@/types/index";
 import { fetchUsers } from "@/services/index";
+
+function roleLabel(tipo: RoleUser): string {
+  return tipo === "profesor"
+    ? "Profesor"
+    : tipo === "admin"
+      ? "Miembro del equipo"
+      : "Alumno";
+}
+
+function areaPrincipal(person: User): string {
+  const areas = person.areas_investigacion;
+  if (Array.isArray(areas) && areas.length > 0) {
+    return areas[0].area_nombre || areas[0].nombre || "Área sin definir";
+  }
+  if (typeof areas === "string") return areas;
+  const formacion = person.formacion_academica;
+  if (Array.isArray(formacion) && formacion.length > 0) {
+    const first = formacion[0] as unknown;
+    if (typeof first === "string") return first;
+    if (first && typeof first === "object" && "titulo" in first) {
+      return String((first as { titulo: unknown }).titulo);
+    }
+  }
+  if (typeof formacion === "string") return formacion;
+  return "Perfil en construcción";
+}
+
+function TeamCard({ person }: { person: User }) {
+  const areasCount = Array.isArray(person.areas_investigacion) ? person.areas_investigacion.length : 0;
+  const estudiosCount = Array.isArray(person.formacion_academica) ? person.formacion_academica.length : 0;
+  return (
+    <Card variant="lab" className="overflow-hidden transition-shadow motion-safe:transition-all hover:shadow-lg">
+      <div className="relative aspect-[4/5]">
+        <Image
+          src={person.avatar || "/placeholder.svg"}
+          alt={`${person.nombre} ${person.apellido ?? ""}`.trim()}
+          fill
+          sizes="33vw"
+          className="object-cover"
+        />
+      </div>
+      <CardHeader className="p-4">
+        <CardTitle>{person.nombre} {person.apellido}</CardTitle>
+        <div className="flex flex-wrap items-center gap-2">
+          <Badge variant="lab">{roleLabel(person.tipo_usuario)}</Badge>
+          <span className="text-xs text-muted-foreground">
+            {areasCount} {areasCount === 1 ? "área" : "áreas"} · {estudiosCount} {estudiosCount === 1 ? "estudio" : "estudios"}
+          </span>
+        </div>
+        <CardDescription className="font-medium text-[#0E7490]">
+          {areaPrincipal(person)}
+        </CardDescription>
+      </CardHeader>
+      <CardFooter className="p-4 flex justify-between items-center border-t">
+        <div className="flex items-center text-sm text-muted-foreground">
+          <MapPin className="mr-1 h-4 w-4" />
+          Campus Principal
+        </div>
+        <Button variant="ghost" size="sm" className="text-[#0E7490]">
+          <ModalCv perfil={person} />
+        </Button>
+      </CardFooter>
+    </Card>
+  );
+}
+
+function TeamEmpty({ label }: { label: string }) {
+  return (
+    <div className="flex flex-col items-center justify-center gap-3 py-12 text-center">
+      <p className="text-muted-foreground">
+        Todavía no hay {label} publicados. El laboratorio sigue creciendo y hay lugar para vos.
+      </p>
+      <Button asChild variant="outline">
+        <Link href="/public/support">Escríbenos y te presentamos al equipo</Link>
+      </Button>
+    </div>
+  );
+}
+
+function TeamGrid({ users, emptyLabel }: { users: User[]; emptyLabel: string }) {
+  if (users.length === 0) return <TeamEmpty label={emptyLabel} />;
+  return (
+    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      {users.map((person) => (
+        <TeamCard key={person.ID ?? `${person.nombre}-${person.apellido}`} person={person} />
+      ))}
+    </div>
+  );
+}
 
 export default function Team() {
   // Estado para el loading
@@ -90,126 +180,15 @@ export default function Team() {
               ) : (
                 <>
                   <TabsContent value="profesores">
-                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                      {filteredUsers.map((person, index) => (
-                        <Card key={index} className="overflow-hidden transition-all hover:shadow-lg">
-                          <div className="aspect-square relative">
-                            <Image 
-                              src={person.avatar || "/placeholder.svg"} 
-                              alt={person.nombre} 
-                              fill 
-                              className="object-cover hover:scale-105 transition-transform" 
-                            />
-                          </div>
-                          <CardHeader className="p-4">
-                            <CardTitle>{person.nombre} {person.apellido}</CardTitle>
-                            <CardDescription className="text-primary font-medium">
-                              {person.tipo_usuario === "profesor" ? "Profesor" : 
-                               person.tipo_usuario === "admin" ? "Miembro del equipo" : "Alumno"}
-                            </CardDescription>
-                          </CardHeader>
-                          <CardContent className="p-4 pt-0">
-                            <p className="text-sm text-muted-foreground">
-                              {person.formacion_academica && 
-                                (Array.isArray(person.formacion_academica)
-                                  ? person.formacion_academica.join(", ")
-                                  : person.formacion_academica)}
-                            </p>
-                          </CardContent>
-                          <CardFooter className="p-4 flex justify-between items-center border-t">
-                            <div className="flex items-center text-sm text-muted-foreground">
-                              <MapPin className="mr-1 h-4 w-4" />
-                              Campus Principal
-                            </div>
-                            <Button variant="ghost" size="sm" className="text-primary">
-                              <ModalCv perfil={person} />
-                            </Button>
-                          </CardFooter>
-                        </Card>
-                      ))}
-                    </div>
+                    <TeamGrid users={filteredUsers} emptyLabel="profesores" />
                   </TabsContent>
 
                   <TabsContent value="equipo">
-                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                      {filteredUsers.map((person, index) => (
-                        <Card key={index} className="overflow-hidden transition-all hover:shadow-lg">
-                          <div className="aspect-square relative">
-                            <Image 
-                              src={person.avatar || "/placeholder.svg"} 
-                              alt={person.nombre} 
-                              fill 
-                              className="object-cover" 
-                            />
-                          </div>
-                          <CardHeader className="p-4">
-                            <CardTitle>{person.nombre} {person.apellido}</CardTitle>
-                            <CardDescription className="text-primary font-medium">
-                              {person.tipo_usuario === "profesor" ? "Profesor" : 
-                               person.tipo_usuario === "admin" ? "Miembro del equipo" : "Alumno"}
-                            </CardDescription>
-                          </CardHeader>
-                          <CardContent className="p-4 pt-0">
-                            <p className="text-sm text-muted-foreground">
-                              {person.areas_investigacion && 
-                                (Array.isArray(person.areas_investigacion)
-                                  ? person.areas_investigacion.map(a => a.nombre).join(", ")
-                                  : person.areas_investigacion)}
-                            </p>
-                          </CardContent>
-                          <CardFooter className="p-4 flex justify-between items-center border-t">
-                            <div className="flex items-center text-sm text-muted-foreground">
-                              <MapPin className="mr-1 h-4 w-4" />
-                              Campus Principal
-                            </div>
-                            <Button variant="ghost" size="sm" className="text-primary">
-                              <ModalCv perfil={person} />
-                            </Button>
-                          </CardFooter>
-                        </Card>
-                      ))}
-                    </div>
+                    <TeamGrid users={filteredUsers} emptyLabel="miembros del equipo" />
                   </TabsContent>
 
                   <TabsContent value="alumnos">
-                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                      {filteredUsers.map((person, index) => (
-                        <Card key={index} className="overflow-hidden transition-all hover:shadow-lg">
-                          <div className="aspect-square relative">
-                            <Image 
-                              src={person.avatar || "/placeholder.svg"} 
-                              alt={person.nombre} 
-                              fill 
-                              className="object-cover" 
-                            />
-                          </div>
-                          <CardHeader className="p-4">
-                            <CardTitle>{person.nombre} {person.apellido}</CardTitle>
-                            <CardDescription className="text-primary font-medium">
-                              {person.tipo_usuario === "profesor" ? "Profesor" : 
-                               person.tipo_usuario === "admin" ? "Miembro del equipo" : "Alumno"}
-                            </CardDescription>
-                          </CardHeader>
-                          <CardContent className="p-4 pt-0">
-                            <p className="text-sm text-muted-foreground">
-                              {person.areas_investigacion && 
-                                (Array.isArray(person.areas_investigacion)
-                                  ? person.areas_investigacion.map(a => a.nombre).join(", ")
-                                  : person.areas_investigacion)}
-                            </p>
-                          </CardContent>
-                          <CardFooter className="p-4 flex justify-between items-center border-t">
-                            <div className="flex items-center text-sm text-muted-foreground">
-                              <MapPin className="mr-1 h-4 w-4" />
-                              Campus Principal
-                            </div>
-                            <Button variant="ghost" size="sm" className="text-primary">
-                              <ModalCv perfil={person} />
-                            </Button>
-                          </CardFooter>
-                        </Card>
-                      ))}
-                    </div>
+                    <TeamGrid users={filteredUsers} emptyLabel="alumnos" />
                   </TabsContent>
                 </>
               )}
