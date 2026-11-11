@@ -3,8 +3,13 @@
 import { Glosario } from "../types";
 import { API_URL } from "../constants/Api";
 
-export const fetchTerminos = async (queryString: string = '') => {
-  const response = await fetch(`${API_URL}/glosario${queryString}`);
+export const fetchTerminos = async (
+  queryString: string = '',
+  options?: { signal?: AbortSignal },
+) => {
+  const response = await fetch(`${API_URL}/glosario${queryString}`, {
+    signal: options?.signal,
+  });
   const data = await response.json();
 
   if (Array.isArray(data)) {
