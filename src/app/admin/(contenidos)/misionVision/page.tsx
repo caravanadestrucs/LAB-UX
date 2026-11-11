@@ -12,7 +12,7 @@ import { ContenidoSitio, Valor } from "@/types/contenidoSitio"
 import { fetchContenidos, addContenido, updateContenido, deleteContenido } from "@/services/contenido"
 import { useToast } from "@/components/hooks/use-toast"
 import { Toaster } from "@/components/ui/toaster"
-import { API_URL } from "@/constans/Api"  
+import { API_URL } from "@/constants/Api"  
 
 function getMySQLDateTimeString(date: Date) {
   return date.toISOString().slice(0, 19).replace('T', ' ');

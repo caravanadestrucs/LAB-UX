@@ -22,7 +22,7 @@ import { Book, Edit, ExternalLink, FileText, ImagePlus, Plus, Search, Trash2, Up
 import { Toaster } from "@/components/ui/toaster"
 import { createGuia, fetchGuias, deleteGuia, updateGuia } from "@/services/guias"
 import { useToast } from "@/components/hooks/use-toast"
-import { API_URL } from "@/constans/Api"
+import { API_URL } from "@/constants/Api"
 
 type GuiaCategory = "participantes" | "metodologia" | "diseno" | "accesibilidad" | "general";
 type GuiaType = "pdf" | "video" | "web";

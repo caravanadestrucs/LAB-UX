@@ -3,7 +3,7 @@
 import Image from "next/image"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
-import { proyectos,  } from "@/constans/data"
+import { proyectos,  } from "@/constants/data"
 import { useProjects } from "@/hooks/useProjects"
 import { ModalProyecto } from "./components/modalProyecto"
 

@@ -1,5 +1,5 @@
 import { PreguntaFrecuente } from "@/types/preguntaFrecuente"
-import { API_URL } from "../constans/Api";
+import { API_URL } from "../constants/Api";
 
 export async function fetchPreguntasFrecuentes(): Promise<PreguntaFrecuente[]> {
   const res = await fetch(`${API_URL}/preguntasfrecuentes`)

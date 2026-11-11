@@ -12,7 +12,7 @@ import { ContenidoSitio } from "@/types/contenidoSitio"
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogFooter } from "@/components/ui/dialog"
 import { fetchContenidos, addContenido, updateContenido, deleteContenido } from "@/services/contenido"
 import { useToast } from "@/components/hooks/use-toast"
-import { API_URL } from "@/constans/Api"
+import { API_URL } from "@/constants/Api"
 import { Toaster } from "@/components/ui/toaster"
 
 function getMySQLDateTimeString(date: Date) {

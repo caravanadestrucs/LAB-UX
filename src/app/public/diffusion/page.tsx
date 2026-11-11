@@ -10,7 +10,7 @@ import { NoticiaDialog } from "./components/dialogNoticia";
 import { EventoDialog } from "./components/dialogEvento";
 import { ProximoEventoDialog } from "./components/dialogProximoEvento";
 import { EventoNoticia } from "@/types";
-import { proximosEventos, noticias, eventos } from "@/constans/data";
+import { proximosEventos, noticias, eventos } from "@/constants/data";
 
 export default function DifusionPage() {
   const [selectedNoticia, setSelectedNoticia] = useState<EventoNoticia | null>(null);

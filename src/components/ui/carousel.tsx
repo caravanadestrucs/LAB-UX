@@ -6,7 +6,7 @@ import { cn } from "@/lib/utils"
 import { Button } from "@/components/ui/button"
 import { fetchContenidos } from "@/services/contenido"
 import { ContenidoSitio } from "@/types/contenidoSitio"
-import { API_URL } from "@/constans/Api"
+import { API_URL } from "@/constants/Api"
 
 export function Carousel() {
   const [slides, setSlides] = useState<ContenidoSitio[]>([])

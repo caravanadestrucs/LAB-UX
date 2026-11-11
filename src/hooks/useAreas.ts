@@ -9,11 +9,7 @@ export const useAreas  = () => {
     const loadAreas = useCallback(async () => {
         setLoading(true);
         try {
-            const response = await fetchAreasInvestigacion(); 
-            if (!response.ok) {
-                throw new Error('Failed to fetch areas');
-            }
-            const data = await response.json();
+            const data = await fetchAreasInvestigacion();
             setAreas(data);
         } catch (error) {
             console.error('Error loading areas:', error);

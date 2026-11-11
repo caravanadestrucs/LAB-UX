@@ -1,7 +1,7 @@
 // services/eventoNoticiaService.ts
 "use client";
 import { Evento, EventoAsistente, EventoAreaInvestigacion, TipoEventoNoticia } from "../types";
-import { API_URL } from "../constans/Api";
+import { API_URL } from "../constants/Api";
 
 export const fetchEventosNoticias = async (
   search: string,

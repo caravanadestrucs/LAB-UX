@@ -1,7 +1,7 @@
 "use client"
 import Image from "next/image"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
-import { metodologias, tiposPruebas } from "@/constans/data"
+import { metodologias, tiposPruebas } from "@/constants/data"
 
 export default function MetodologiasPage() {
   return (

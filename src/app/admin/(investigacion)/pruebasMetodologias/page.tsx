@@ -33,7 +33,7 @@ import {
   checkBackendConnection
 } from "@/services";
 import { useToast } from "@/components/hooks/use-toast";
-import { API_URL } from "@/constans/Api";
+import { API_URL } from "@/constants/Api";
 
 export default function PruebasMetodologiaPage() {
   const { toast } = useToast();

@@ -1,6 +1,6 @@
 "use client"
 import { Proyecto, EstadoProyecto, ProyectoAreaInvestigacion, ProyectoColaborador } from "@/types/proyecto";
-import { API_URL } from "@/constans/Api";
+import { API_URL } from "@/constants/Api";
 
 // Configuración común para fetch
 const fetchConfig = {

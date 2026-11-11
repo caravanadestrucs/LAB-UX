@@ -3,8 +3,8 @@
 
 import Link from "next/link"
 import { Facebook, Instagram, Mail, MapPin, Phone, Twitter } from "lucide-react"
-import { navbarItems, siteName } from "@/constans/navbar"
-import { SiteName } from "@/constans/navbar"
+import { navbarItems, siteName } from "@/constants/navbar"
+import { SiteName } from "@/constants/navbar"
 
 export function Footer() {
   const currentYear = new Date().getFullYear()

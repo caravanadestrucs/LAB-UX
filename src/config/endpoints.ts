@@ -1,4 +1,4 @@
-import { API_URL } from "@/constans/Api";
+import { API_URL } from "@/constants/Api";
 
 export const ENDPOINTS = {
     USUARIOS : {

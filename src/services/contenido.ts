@@ -1,5 +1,5 @@
 import { ContenidoSitio } from "@/types/contenidoSitio";
-import { API_URL } from "../constans/Api";
+import { API_URL } from "../constants/Api";
 
 // Obtener todos los contenidos con filtros dinámicos (tipo, búsqueda, estado, etc.)
 export const fetchContenidos = async (params?: Record<string, string | number | undefined>): Promise<ContenidoSitio[]> => {

@@ -1,7 +1,7 @@
 // services/metodologiaPruebaService.ts
 "use client";
 import { MetodologiaPrueba, MetodologiaCaracteristica, TipoMetodologiaPrueba } from "@/types";
-import { API_URL } from "../constans/Api";
+import { API_URL } from "../constants/Api";
 
 export const fetchMetodologiasPruebas = async (
   search: string = '',

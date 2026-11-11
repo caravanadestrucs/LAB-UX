@@ -1,7 +1,7 @@
 // services/glosarioService.ts
 "use client";
 import { Glosario } from "../types";
-import { API_URL } from "../constans/Api";
+import { API_URL } from "../constants/Api";
 
 export const fetchTerminos = async (queryString: string = '') => {
   const response = await fetch(`${API_URL}/glosario${queryString}`);

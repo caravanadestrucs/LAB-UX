@@ -1,7 +1,7 @@
 import { Carousel } from "@/components/ui/carousel"
 import Image from "next/image"
 
-import { Mision,Vision, Valores } from "@/constans/data"
+import { Mision,Vision, Valores } from "@/constants/data"
 
 
 export default function Home() {

@@ -6,7 +6,7 @@ import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Edit, Trash2 } from "lucide-react";
 import { formatDate } from "@/lib/formatDate";
-import { API_URL } from "@/constans/Api";
+import { API_URL } from "@/constants/Api";
 
 interface ProjectCardProps {
   projects: Proyecto[];

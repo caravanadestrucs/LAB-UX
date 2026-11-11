@@ -23,7 +23,7 @@ import {
     AccordionTrigger,
   } from "@/components/ui/accordion"
 
-import { navbarItems, siteName } from "@/constans/navbar"
+import { navbarItems, siteName } from "@/constants/navbar"
 
 //navbar items
 import { getUsuarioActual} from "@/hooks/islogin"; // o desde donde lo tengas

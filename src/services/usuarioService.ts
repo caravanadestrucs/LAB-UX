@@ -1,7 +1,7 @@
 "use client";
 import { User } from "../types/index";
 import { ENDPOINTS } from "../config/endpoints";
-import { API_URL } from "../constans/Api";
+import { API_URL } from "../constants/Api";
 
 export const fetchUsers = async (search: string, filterRol: string, filterEstado: string) => {
   const url = ENDPOINTS.USUARIOS.SEARCH({

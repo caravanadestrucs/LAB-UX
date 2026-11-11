@@ -1,4 +1,4 @@
-import { API_URL } from "../constans/Api";
+import { API_URL } from "../constants/Api";
 import { AreaInvestigacion } from "../types"; // Ajusta el import según tu estructura
 
 // Obtener todas las áreas de investigación

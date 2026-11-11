@@ -8,7 +8,7 @@ import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
 import { Button } from "@/components/ui/button"
 import { BookOpen, Mail, HelpCircle, FileText, Users } from "lucide-react"
-import {preguntasFrecuentes, guides, contacto} from "@/constans/data"
+import {preguntasFrecuentes, guides, contacto} from "@/constants/data"
 import {
   Dialog,
   DialogContent,

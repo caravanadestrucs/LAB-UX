@@ -1,5 +1,5 @@
 import { GuiaTutorial, GuiaRecurso, GuiaAreaInvestigacion } from "@/types";
-import { API_URL } from "../constans/Api";
+import { API_URL } from "../constants/Api";
 
 
 // --- GUÍAS ---

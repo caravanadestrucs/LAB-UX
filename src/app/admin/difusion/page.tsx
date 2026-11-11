@@ -44,7 +44,7 @@ import {
 } from "@/services/eventoNoticia";
 import { fetchAreasInvestigacion } from "@/services/areainvestigacion";
 import { useToast } from "@/components/hooks/use-toast";
-import { API_URL } from "@/constans/Api";
+import { API_URL } from "@/constants/Api";
 
 const EVENT_TYPES: { value: TipoEventoNoticia; label: string; badge: string }[] = [
   { value: "evento", label: "Evento", badge: "bg-blue-500" },

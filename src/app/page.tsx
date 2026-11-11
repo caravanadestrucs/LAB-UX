@@ -5,7 +5,7 @@ import { Carousel } from "@/components/ui/carousel"
 import Image from "next/image"
 import * as LucideIcons from "lucide-react"
 import { fetchContenidos } from "@/services/contenido"
-import { API_URL } from "@/constans/Api"
+import { API_URL } from "@/constants/Api"
 
 export default function Home() {
   const [mision, setMision] = useState<any>(null)
