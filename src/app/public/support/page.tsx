@@ -1,16 +1,22 @@
 
 "use client"
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion"
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
 import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
 import { Button } from "@/components/ui/button"
+import { Badge } from "@/components/ui/badge"
 import { BookOpen, Mail, HelpCircle, FileText, Users } from "lucide-react"
-import {preguntasFrecuentes, guides, contacto} from "@/constants/data"
+import { contacto } from "@/constants/data"
 import { ENDPOINTS } from "@/config/endpoints"
+import { API_URL } from "@/constants/Api"
 import { useToast } from "@/hooks/use-toast"
+import { fetchPreguntasFrecuentes } from "@/services/preguntafrecuente"
+import { fetchGuias } from "@/services/guias"
+import type { PreguntaFrecuente } from "@/types/preguntaFrecuente"
+import type { GuiaTutorial, GuiaRecurso } from "@/types/guiaTutorial"
 import {
   Dialog,
   DialogContent,
@@ -21,14 +27,69 @@ import {
   DialogClose,
 } from "@/components/ui/dialog"
 
+function resolveRecursoUrl(recurso: GuiaRecurso): string {
+  const raw = recurso.recurso_url || recurso.recurso
+  if (!raw) return ""
+  if (raw.startsWith("http") || raw.startsWith("/") || raw.startsWith("blob:") || raw.startsWith("data:")) {
+    return raw
+  }
+  return `${API_URL}/uploads/guias/${raw}`
+}
+
+function findPdfRecurso(guia: GuiaTutorial): GuiaRecurso | undefined {
+  if (!guia.recursos || guia.recursos.length === 0) return undefined
+  return guia.recursos.find((r) => r.tipo === "pdf") ?? guia.recursos[0]
+}
+
 export default function Support() {
     const [nombre, setNombre] = useState('');
     const [correo, setCorreo] = useState('');
     const [asunto, setAsunto] = useState('');
     const [mensaje, setMensaje] = useState('');
     const [respuesta, setRespuesta] = useState<string | null>(null);
-    const [openGuide, setOpenGuide] = useState<string | null>(null)
+    const [openGuide, setOpenGuide] = useState<number | null>(null)
+    const [faqs, setFaqs] = useState<PreguntaFrecuente[]>([])
+    const [faqsLoading, setFaqsLoading] = useState(true)
+    const [faqsError, setFaqsError] = useState<string | null>(null)
+    const [guias, setGuias] = useState<GuiaTutorial[]>([])
+    const [guiasLoading, setGuiasLoading] = useState(true)
+    const [guiasError, setGuiasError] = useState<string | null>(null)
     const { toast } = useToast()
+
+    const loadFaqs = async () => {
+      setFaqsLoading(true)
+      setFaqsError(null)
+      try {
+        const data = await fetchPreguntasFrecuentes()
+        setFaqs(Array.isArray(data) ? data : [])
+      } catch (err) {
+        setFaqsError(err instanceof Error ? err.message : "No se pudieron cargar las preguntas frecuentes")
+      } finally {
+        setFaqsLoading(false)
+      }
+    }
+
+    const loadGuias = async () => {
+      setGuiasLoading(true)
+      setGuiasError(null)
+      try {
+        const data = await fetchGuias()
+        setGuias(Array.isArray(data) ? data : [])
+      } catch (err) {
+        setGuiasError(err instanceof Error ? err.message : "No se pudieron cargar las guías")
+      } finally {
+        setGuiasLoading(false)
+      }
+    }
+
+    useEffect(() => {
+      loadFaqs()
+      loadGuias()
+    }, [])
+
+    const selectedGuia = guias.find((guia) => guia.ID === openGuide) ?? null
+    const selectedPdf = selectedGuia ? findPdfRecurso(selectedGuia) : undefined
+    const selectedPdfUrl = selectedPdf ? resolveRecursoUrl(selectedPdf) : ""
   
     const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
       e.preventDefault();
@@ -100,14 +161,35 @@ export default function Support() {
           </TabsTrigger>
         </TabsList>
         <TabsContent value="faq" className="space-y-4">
-          <Accordion type="single" collapsible className="w-full">
-            {preguntasFrecuentes.map((pregunta, index) => (
-            <AccordionItem key={index} value={`item-${index}`}>
-              <AccordionTrigger>{pregunta.pregunta}</AccordionTrigger>
-              <AccordionContent>{pregunta.respuesta}</AccordionContent>
-            </AccordionItem>
-            ))}
-          </Accordion>
+          <div aria-live="polite" aria-atomic="true" className="sr-only">
+            {faqsLoading ? "Cargando preguntas frecuentes..." : `${faqs.length} pregunta${faqs.length !== 1 ? "s" : ""} encontrada${faqs.length !== 1 ? "s" : ""}`}
+          </div>
+          {faqsError && (
+            <div className="bg-destructive/15 p-4 rounded-md border border-destructive">
+              <p className="text-destructive">{faqsError}</p>
+              <Button variant="outline" size="sm" className="mt-2" onClick={loadFaqs}>
+                Reintentar
+              </Button>
+            </div>
+          )}
+          {faqsLoading ? (
+            <div className="space-y-3 animate-pulse" aria-hidden="true">
+              {Array.from({ length: 4 }).map((_, i) => (
+                <div key={i} className="h-12 rounded-md bg-muted" />
+              ))}
+            </div>
+          ) : faqs.length === 0 && !faqsError ? (
+            <p className="text-muted-foreground text-center py-8">No hay preguntas frecuentes disponibles.</p>
+          ) : (
+            <Accordion type="single" collapsible className="w-full">
+              {faqs.map((pregunta) => (
+                <AccordionItem key={pregunta.ID} value={`item-${pregunta.ID}`}>
+                  <AccordionTrigger>{pregunta.pregunta}</AccordionTrigger>
+                  <AccordionContent>{pregunta.respuesta}</AccordionContent>
+                </AccordionItem>
+              ))}
+            </Accordion>
+          )}
         </TabsContent>
         <TabsContent value="contacto">
           <Card>
@@ -232,60 +314,120 @@ export default function Support() {
           </div>
         </TabsContent>
         <TabsContent value="guias" className="space-y-6">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {guides.map((guide) => (
-              <Card key={guide.id} className="flex flex-col h-full">
-                <CardHeader>
-                  <CardTitle>{guide.title}</CardTitle>
-                  <CardDescription>{guide.description}</CardDescription>
-                </CardHeader>
-                <CardContent className="flex-grow">
-                  <p className="text-sm text-muted-foreground">{guide.summary}</p>
-                </CardContent>
-                <CardFooter>
-                  <Button variant="outline" className="w-full" onClick={() => setOpenGuide(guide.id)}>
-                    Ver guía
-                  </Button>
-                </CardFooter>
-              </Card>
-            ))}
+          <div aria-live="polite" aria-atomic="true" className="sr-only">
+            {guiasLoading ? "Cargando guías..." : `${guias.length} guía${guias.length !== 1 ? "s" : ""} encontrada${guias.length !== 1 ? "s" : ""}`}
           </div>
-          {guides.map((guide) => (
-            <Dialog key={guide.id} open={openGuide === guide.id} onOpenChange={(open) => !open && setOpenGuide(null)}>
+          {guiasError && (
+            <div className="bg-destructive/15 p-4 rounded-md border border-destructive">
+              <p className="text-destructive">{guiasError}</p>
+              <Button variant="outline" size="sm" className="mt-2" onClick={loadGuias}>
+                Reintentar
+              </Button>
+            </div>
+          )}
+          {guiasLoading ? (
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 animate-pulse" aria-hidden="true">
+              {Array.from({ length: 3 }).map((_, i) => (
+                <Card key={i} className="flex flex-col h-full">
+                  <CardHeader>
+                    <div className="h-5 w-3/4 rounded bg-muted" />
+                    <div className="h-4 w-full rounded bg-muted mt-2" />
+                  </CardHeader>
+                  <CardContent className="flex-grow">
+                    <div className="h-4 w-full rounded bg-muted" />
+                  </CardContent>
+                  <CardFooter>
+                    <div className="h-9 w-full rounded bg-muted" />
+                  </CardFooter>
+                </Card>
+              ))}
+            </div>
+          ) : guias.length === 0 && !guiasError ? (
+            <p className="text-muted-foreground text-center py-8">No hay guías disponibles.</p>
+          ) : (
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+              {guias.map((guia) => (
+                <Card key={guia.ID} className="flex flex-col h-full">
+                  <CardHeader>
+                    <CardTitle>{guia.titulo}</CardTitle>
+                    <CardDescription className="line-clamp-2">{guia.descripcion}</CardDescription>
+                  </CardHeader>
+                  <CardContent className="flex-grow space-y-2">
+                    {guia.categoria && <Badge variant="outline">{guia.categoria}</Badge>}
+                    {guia.fecha_publicacion && (
+                      <p className="text-xs text-muted-foreground">
+                        Publicado el {new Date(guia.fecha_publicacion).toLocaleDateString()}
+                      </p>
+                    )}
+                  </CardContent>
+                  <CardFooter>
+                    <Button variant="outline" className="w-full" onClick={() => setOpenGuide(guia.ID)}>
+                      Ver guía
+                    </Button>
+                  </CardFooter>
+                </Card>
+              ))}
+            </div>
+          )}
+          {selectedGuia && (
+            <Dialog open={openGuide !== null} onOpenChange={(open) => !open && setOpenGuide(null)}>
               <DialogContent className="max-w-3xl max-h-[80vh] overflow-y-auto">
                 <DialogHeader>
-                  <DialogTitle>{guide.title}</DialogTitle>
-                  <DialogDescription>{guide.description}</DialogDescription>
+                  <DialogTitle>{selectedGuia.titulo}</DialogTitle>
+                  <DialogDescription>{selectedGuia.descripcion}</DialogDescription>
                 </DialogHeader>
                 <div className="py-4">
                   <div className="space-y-4">
-                    <h3 className="text-lg font-medium">{guide.titleTwo}</h3>
-                    <p>{guide.descriptionTwo}</p>
-                    <h3 className="text-lg font-medium">{guide.titleThree}</h3>
-                    <p>{guide.descriptionThree}</p>
-                    <h3 className="text-lg font-medium">{guide.titleFour}</h3>
-                    <ul className="list-disc pl-5 space-y-2">
-                    {Object.values(guide.steps).map((step, index) => (
-                      <li key={index}>{step}</li>
-                    ))}
-                    </ul>
-                    <h3 className="text-lg font-medium">{guide.titleFive}</h3>
-                    <p>{guide.descriptionFive}</p>
+                    {selectedGuia.categoria && (
+                      <p className="text-sm text-muted-foreground">Categoría: {selectedGuia.categoria}</p>
+                    )}
+                    {selectedGuia.areas_investigacion && selectedGuia.areas_investigacion.length > 0 && (
+                      <div className="flex flex-wrap gap-2">
+                        {selectedGuia.areas_investigacion.map((area) => (
+                          <Badge key={area.ID_area} variant="outline">
+                            {area.area_nombre || `Área ${area.ID_area}`}
+                          </Badge>
+                        ))}
+                      </div>
+                    )}
+                    {selectedGuia.recursos && selectedGuia.recursos.length > 0 ? (
+                      <ul className="list-disc pl-5 space-y-2">
+                        {selectedGuia.recursos.map((recurso) => (
+                          <li key={recurso.ID} className="text-sm">
+                            <a
+                              href={resolveRecursoUrl(recurso)}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className="hover:underline"
+                            >
+                              [{recurso.tipo}] {recurso.descripcion || recurso.recurso}
+                            </a>
+                          </li>
+                        ))}
+                      </ul>
+                    ) : (
+                      <p className="text-sm text-muted-foreground">Esta guía aún no tiene recursos para descargar.</p>
+                    )}
                   </div>
                 </div>
                 <DialogFooter>
                   <DialogClose asChild>
                     <Button variant="outline">Cerrar</Button>
                   </DialogClose>
-                  <Button>Descargar PDF</Button>
+                  {selectedPdfUrl ? (
+                    <a href={selectedPdfUrl} download target="_blank" rel="noopener noreferrer">
+                      <Button>Descargar PDF</Button>
+                    </a>
+                  ) : (
+                    <Button disabled title="Sin archivo disponible">Descargar PDF</Button>
+                  )}
                 </DialogFooter>
               </DialogContent>
             </Dialog>
-          ))}
+          )}
         </TabsContent>
   
       </Tabs>
     </div>
   )
 }
-
