@@ -30,19 +30,40 @@ export const getMetodologiaPruebaById = async (id: number) => {
   return await res.json();
 };
 
-export const addMetodologiaPrueba = async (metodologiaData: Omit<MetodologiaPrueba, 'ID' | 'fecha_creacion' | 'caracteristicas'>) => {
+// Construye FormData multipart (sin Content-Type manual: el navegador fija el
+// boundary). Archivos (File/Blob) se adjuntan directo; arreglos/objetos como
+// JSON; escalares como string. Nunca base64 en JSON.
+const appendToFormData = (formData: FormData, data: Record<string, unknown>) => {
+  Object.entries(data).forEach(([key, value]) => {
+    if (value === undefined || value === null) return;
+    if (value instanceof File || value instanceof Blob) {
+      formData.append(key, value);
+    } else if (typeof value === "object") {
+      formData.append(key, JSON.stringify(value));
+    } else {
+      formData.append(key, String(value));
+    }
+  });
+};
+
+export const addMetodologiaPrueba = async (
+  metodologiaData: Omit<MetodologiaPrueba, 'ID' | 'fecha_creacion' | 'caracteristicas'>,
+  imagenFile?: File
+) => {
   try {
+    const formData = new FormData();
+    appendToFormData(formData, metodologiaData as Record<string, unknown>);
+    formData.append("fecha_creacion", new Date().toISOString());
+    if (imagenFile) {
+      formData.delete("imagen");
+      formData.append("imagen", imagenFile);
+    }
     const res = await fetch(`${API_URL}/public/research/metodologias`, {
       method: "POST",
-      headers: { 
-        "Content-Type": "application/json",
+      headers: {
         "Authorization": `Bearer ${localStorage.getItem('authToken')}`
       },
-      body: JSON.stringify({
-        ...metodologiaData,
-        fecha_creacion: new Date().toISOString(),
-        caracteristicas: [] // Inicializa sin características
-      }),
+      body: formData,
     });
 
     if (!res.ok) {
@@ -57,14 +78,23 @@ export const addMetodologiaPrueba = async (metodologiaData: Omit<MetodologiaPrue
   }
 };
 
-export const updateMetodologiaPrueba = async (id: number, metodologiaData: Partial<MetodologiaPrueba>) => {
+export const updateMetodologiaPrueba = async (
+  id: number,
+  metodologiaData: Partial<MetodologiaPrueba>,
+  imagenFile?: File
+) => {
+  const formData = new FormData();
+  appendToFormData(formData, metodologiaData as Record<string, unknown>);
+  if (imagenFile) {
+    formData.delete("imagen");
+    formData.append("imagen", imagenFile);
+  }
   const res = await fetch(`${API_URL}/public/research/metodologias/${id}`, {
     method: "PUT",
-    headers: { 
-      "Content-Type": "application/json",
+    headers: {
       "Authorization": `Bearer ${localStorage.getItem('authToken')}`
     },
-    body: JSON.stringify(metodologiaData),
+    body: formData,
   });
   
   if (!res.ok) {

@@ -35,6 +35,8 @@ import {
 import { useToast } from "@/components/hooks/use-toast";
 import { API_URL } from "@/constants/Api";
 
+const MAX_IMAGEN_BYTES = 5 * 1024 * 1024; // 5MB
+
 export default function PruebasMetodologiaPage() {
   const { toast } = useToast();
   //eliminar rsto cuando el crud este listo
@@ -50,6 +52,44 @@ export default function PruebasMetodologiaPage() {
   const [deleteDialogOpen, setDeleteDialogOpen] = useState(false);
   const [metodologiaPruebaToDelete, setmetodologiaPruebaToDelete] = useState<number | null>(null);
   const [tempCaracteristicas, setTempCaracteristicas] = useState<string[]>([]);
+  const [imagenFile, setImagenFile] = useState<File | null>(null);
+  const [previewUrl, setPreviewUrl] = useState<string | null>(null);
+
+  const clearImagenSelection = () => {
+    setPreviewUrl((prev) => {
+      if (prev) URL.revokeObjectURL(prev);
+      return null;
+    });
+    setImagenFile(null);
+  };
+
+  const handleImagenChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const file = e.target.files?.[0];
+    if (!file) return;
+    if (!file.type.startsWith("image/")) {
+      toast({
+        title: "Archivo inválido",
+        description: "La imagen debe ser un archivo de imagen (PNG, JPG, WEBP…).",
+        variant: "destructive",
+      });
+      e.target.value = "";
+      return;
+    }
+    if (file.size > MAX_IMAGEN_BYTES) {
+      toast({
+        title: "Archivo muy pesado",
+        description: "La imagen no debe superar los 5MB.",
+        variant: "destructive",
+      });
+      e.target.value = "";
+      return;
+    }
+    setPreviewUrl((prev) => {
+      if (prev) URL.revokeObjectURL(prev);
+      return URL.createObjectURL(file);
+    });
+    setImagenFile(file);
+  };
 
 
   // Cargar metodologías/pruebas
@@ -92,15 +132,29 @@ export default function PruebasMetodologiaPage() {
     }
   }, [currentItem]);
 
-  const handleSave = async (formData: Omit<MetodologiaPrueba, 'ID' | 'fecha_creacion' | 'caracteristicas'>) => {
+  const handleSave = async (item: MetodologiaPrueba) => {
+    const payload = {
+      nombre: item.nombre?.trim() ?? "",
+      descripcion: item.descripcion ?? "",
+      tipo: item.tipo ?? "metodologia",
+    };
+    if (!payload.nombre) {
+      toast({
+        title: "Campo requerido",
+        description: "El nombre es obligatorio.",
+        variant: "destructive",
+      });
+      return;
+    }
     try {
-      if (currentItem) {
-        await updateMetodologiaPrueba(currentItem.ID, formData);
+      if (currentItem?.ID) {
+        await updateMetodologiaPrueba(currentItem.ID, payload, imagenFile ?? undefined);
         toast({ title: "Metodología/Prueba actualizada correctamente" });
       } else {
-        await addMetodologiaPrueba(formData);
+        await addMetodologiaPrueba(payload, imagenFile ?? undefined);
         toast({ title: "Metodología/Prueba creada correctamente" });
       }
+      clearImagenSelection();
       setIsDialogOpen(false);
       setCurrentItem(null);
       // Recargar datos
@@ -240,6 +294,7 @@ useEffect(() => {
         <h2 className="text-3xl font-bold tracking-tight">Metodologías y Pruebas de Investigación</h2>
         <div className="flex items-center space-x-2">
           <Button onClick={() => {
+            clearImagenSelection();
             setCurrentItem(null);
             setIsDialogOpen(true);
           }}>
@@ -306,6 +361,7 @@ useEffect(() => {
                   variant="outline"
                   size="sm"
                   onClick={() => {
+                    clearImagenSelection();
                     setCurrentItem(item);
                     setTempCaracteristicas([]);
                     setIsDialogOpen(true);
@@ -329,7 +385,10 @@ useEffect(() => {
       </div>
 
       {/* Diálogo para editar/crear */}
-      <Dialog open={isDialogOpen} onOpenChange={setIsDialogOpen}>
+      <Dialog open={isDialogOpen} onOpenChange={(open) => {
+        if (!open) clearImagenSelection();
+        setIsDialogOpen(open);
+      }}>
         <DialogContent className="sm:max-w-[700px] max-h-[90vh] overflow-y-auto">
           <DialogHeader>
             <DialogTitle>
@@ -389,22 +448,16 @@ useEffect(() => {
                 id="imagen"
                 type="file"
                 accept="image/*"
-                onChange={(e) => {
-                  if (e.target.files?.[0]) {
-                    setCurrentItem({
-                      ...(currentItem || {} as MetodologiaPrueba),
-                      imagen: e.target.files[0].name // Esto debería manejarse con FormData en el submit
-                    });
-                  }
-                }}
+                onChange={handleImagenChange}
               />
-              {currentItem?.imagen && (
+              {(previewUrl || currentItem?.imagen) && (
                 <img
-                  src={`${API_URL}/uploads/${currentItem.imagen}`}
+                  src={previewUrl ?? `${API_URL}/uploads/${currentItem?.imagen}`}
                   alt="Preview"
                   className="h-40 object-contain rounded border"
                 />
               )}
+              <p className="text-xs text-muted-foreground">PNG, JPG o WEBP hasta 5MB.</p>
             </div>
 
             {/* Características (solo para edición) */}

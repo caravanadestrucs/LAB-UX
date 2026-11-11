@@ -27,6 +27,8 @@ import { API_URL } from "@/constants/Api"
 type GuiaCategory = "participantes" | "metodologia" | "diseno" | "accesibilidad" | "general";
 type GuiaType = "pdf" | "video" | "web";
 
+const MAX_GUIA_FILE_BYTES = 5 * 1024 * 1024; // 5MB
+
 interface GuiaForm {
   titulo: string;
   descripcion: string;
@@ -68,16 +70,41 @@ export default function GuiasPage() {
 
   useEffect(() => { loadGuides(); }, []);
 
-  // Manejo de archivos: guarda el File, no el nombre
+  // Manejo de archivos: guarda el File, no el nombre.
+  // Recurso: solo PDF o video (PDF, MP4, WEBM), hasta 5MB.
   const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    if (e.target.files && e.target.files[0]) {
-      setForm(f => ({ ...f, recurso: e.target.files![0] }));
+    const file = e.target.files?.[0];
+    if (!file) return;
+    const esPdf = file.type === "application/pdf" || /\.pdf$/i.test(file.name);
+    const esVideo = file.type.startsWith("video/") || /\.(mp4|webm)$/i.test(file.name);
+    if (!esPdf && !esVideo) {
+      toast({ title: "Archivo inválido", description: "El recurso debe ser PDF o video (PDF, MP4, WEBM).", variant: "destructive" });
+      e.target.value = "";
+      return;
     }
+    if (file.size > MAX_GUIA_FILE_BYTES) {
+      toast({ title: "Archivo muy pesado", description: "El recurso no debe superar los 5MB.", variant: "destructive" });
+      e.target.value = "";
+      return;
+    }
+    setForm(f => ({ ...f, recurso: file }));
   };
+  // Imagen de portada: solo imágenes, hasta 5MB.
   const handleImageChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    if (e.target.files && e.target.files[0]) {
-      setForm(f => ({ ...f, imagen: e.target.files![0] }));
+    const file = e.target.files?.[0];
+    if (!file) return;
+    const esImagen = file.type.startsWith("image/") || /\.(png|jpe?g|gif|webp|svg)$/i.test(file.name);
+    if (!esImagen) {
+      toast({ title: "Archivo inválido", description: "La portada debe ser una imagen (PNG, JPG, WEBP…).", variant: "destructive" });
+      e.target.value = "";
+      return;
     }
+    if (file.size > MAX_GUIA_FILE_BYTES) {
+      toast({ title: "Archivo muy pesado", description: "La imagen no debe superar los 5MB.", variant: "destructive" });
+      e.target.value = "";
+      return;
+    }
+    setForm(f => ({ ...f, imagen: file }));
   };
 
   // Validación simple

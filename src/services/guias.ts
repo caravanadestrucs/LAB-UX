@@ -50,11 +50,27 @@ export const fetchRecursosGuia = async (id: number) => {
   return await res.json() as GuiaRecurso[];
 };
 
-export const addRecursoToGuia = async (id: number, recurso: Partial<GuiaRecurso>) => {
+export const addRecursoToGuia = async (
+  id: number,
+  recurso: Partial<GuiaRecurso>,
+  archivo?: File
+) => {
+  const formData = new FormData();
+  Object.entries(recurso as Record<string, unknown>).forEach(([key, value]) => {
+    if (value === undefined || value === null) return;
+    if (value instanceof File || value instanceof Blob) {
+      formData.append(key, value);
+    } else {
+      formData.append(key, String(value));
+    }
+  });
+  if (archivo) {
+    formData.delete("recurso");
+    formData.append("recurso", archivo);
+  }
   const res = await fetch(`${API_URL}/guias/${id}/recursos`, {
     method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify(recurso),
+    body: formData,
   });
   if (!res.ok) throw new Error("Error al agregar el recurso");
   return await res.json();
