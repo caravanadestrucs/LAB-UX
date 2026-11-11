@@ -1,0 +1,2430 @@
+{
+  "base": "http://localhost:3100",
+  "date": "2026-11-11T23:46:03.345Z",
+  "results": [
+    {
+      "route": "home",
+      "url": "/",
+      "width": 375,
+      "shot": "shots/home-375.png",
+      "status": 500,
+      "title": "",
+      "ok": true,
+      "err": "",
+      "loadMs": 3880,
+      "console": [
+        {
+          "type": "error",
+          "text": "Failed to load resource: the server responded with a status of 500 (Internal Server Error)"
+        },
+        {
+          "type": "info",
+          "text": "%cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold"
+        },
+        {
+          "type": "pageerror",
+          "text": "ModuleBuildError: Module build failed (from ./node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js):\nError: Cannot apply unknown utility class: border-border"
+        },
+        {
+          "type": "log",
+          "text": "[HMR] connected"
+        },
+        {
+          "type": "error",
+          "text": "./src/styles/globals.css.webpack[javascript/auto]!=!./node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[13].oneOf[10].use[2]!./node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[13].oneOf[10].use[3]!./src/styles/globals.css"
+        },
+        {
+          "type": "error",
+          "text": "./src/styles/globals.css\nError: Cannot apply unknown utility class: border-border\n-- inner error --\nError: Cannot apply unknown utility class: border-border\nGenerated code for C:\\Users\\Dario\\Videos\\LAB-Ux\\node_modules\\next\\dist\\build\\webpack\\loaders\\css-loader\\src\\index.js??ruleSet[1].rules[13].oneO"
+        },
+        {
+          "type": "warning",
+          "text": "Deprecated API for given entry type."
+        }
+      ],
+      "badResponses": [
+        {
+          "status": 500,
+          "url": "http://localhost:3100/"
+        }
+      ],
+      "eval": {
+        "navMs": 1329,
+        "lcpMs": null,
+        "cls": null,
+        "overflowX": 0,
+        "scrollW": 375,
+        "clientW": 375,
+        "imgsTotal": 0,
+        "missingAlt": 0,
+        "hasMain": false,
+        "hasNav": false,
+        "hasFooter": false,
+        "ariaLive": true,
+        "focusable": 0,
+        "bodyText": "",
+        "links": []
+      },
+      "axe": {
+        "ran": true,
+        "violations": [
+          {
+            "id": "document-title",
+            "impact": "serious",
+            "nodes": 1,
+            "help": "Documents must have <title> element to aid in navigation"
+          },
+          {
+            "id": "html-has-lang",
+            "impact": "serious",
+            "nodes": 1,
+            "help": "<html> element must have a lang attribute"
+          },
+          {
+            "id": "landmark-one-main",
+            "impact": "moderate",
+            "nodes": 1,
+            "help": "Document should have one main landmark"
+          },
+          {
+            "id": "page-has-heading-one",
+            "impact": "moderate",
+            "nodes": 1,
+            "help": "Page should contain a level-one heading"
+          },
+          {
+            "id": "region",
+            "impact": "moderate",
+            "nodes": 2,
+            "help": "All page content should be contained by landmarks"
+          },
+          {
+            "id": "scrollable-region-focusable",
+            "impact": "serious",
+            "nodes": 1,
+            "help": "Scrollable region must have keyboard access"
+          }
+        ]
+      }
+    },
+    {
+      "route": "home",
+      "url": "/",
+      "width": 768,
+      "shot": "shots/home-768.png",
+      "status": 500,
+      "title": "",
+      "ok": true,
+      "err": "",
+      "loadMs": 3810,
+      "console": [
+        {
+          "type": "error",
+          "text": "Failed to load resource: the server responded with a status of 500 (Internal Server Error)"
+        },
+        {
+          "type": "info",
+          "text": "%cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold"
+        },
+        {
+          "type": "pageerror",
+          "text": "ModuleBuildError: Module build failed (from ./node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js):\nError: Cannot apply unknown utility class: border-border"
+        },
+        {
+          "type": "log",
+          "text": "[HMR] connected"
+        },
+        {
+          "type": "error",
+          "text": "./src/styles/globals.css.webpack[javascript/auto]!=!./node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[13].oneOf[10].use[2]!./node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[13].oneOf[10].use[3]!./src/styles/globals.css"
+        },
+        {
+          "type": "error",
+          "text": "./src/styles/globals.css\nError: Cannot apply unknown utility class: border-border\n-- inner error --\nError: Cannot apply unknown utility class: border-border\nGenerated code for C:\\Users\\Dario\\Videos\\LAB-Ux\\node_modules\\next\\dist\\build\\webpack\\loaders\\css-loader\\src\\index.js??ruleSet[1].rules[13].oneO"
+        },
+        {
+          "type": "warning",
+          "text": "Deprecated API for given entry type."
+        }
+      ],
+      "badResponses": [
+        {
+          "status": 500,
+          "url": "http://localhost:3100/"
+        }
+      ],
+      "eval": {
+        "navMs": 1276,
+        "lcpMs": null,
+        "cls": null,
+        "overflowX": 0,
+        "scrollW": 768,
+        "clientW": 768,
+        "imgsTotal": 0,
+        "missingAlt": 0,
+        "hasMain": false,
+        "hasNav": false,
+        "hasFooter": false,
+        "ariaLive": true,
+        "focusable": 0,
+        "bodyText": "",
+        "links": []
+      },
+      "axe": {
+        "ran": true,
+        "violations": [
+          {
+            "id": "document-title",
+            "impact": "serious",
+            "nodes": 1,
+            "help": "Documents must have <title> element to aid in navigation"
+          },
+          {
+            "id": "html-has-lang",
+            "impact": "serious",
+            "nodes": 1,
+            "help": "<html> element must have a lang attribute"
+          },
+          {
+            "id": "landmark-one-main",
+            "impact": "moderate",
+            "nodes": 1,
+            "help": "Document should have one main landmark"
+          },
+          {
+            "id": "page-has-heading-one",
+            "impact": "moderate",
+            "nodes": 1,
+            "help": "Page should contain a level-one heading"
+          },
+          {
+            "id": "region",
+            "impact": "moderate",
+            "nodes": 2,
+            "help": "All page content should be contained by landmarks"
+          }
+        ]
+      }
+    },
+    {
+      "route": "home",
+      "url": "/",
+      "width": 1440,
+      "shot": "shots/home-1440.png",
+      "status": 500,
+      "title": "",
+      "ok": true,
+      "err": "",
+      "loadMs": 3423,
+      "console": [
+        {
+          "type": "error",
+          "text": "Failed to load resource: the server responded with a status of 500 (Internal Server Error)"
+        },
+        {
+          "type": "info",
+          "text": "%cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold"
+        },
+        {
+          "type": "pageerror",
+          "text": "ModuleBuildError: Module build failed (from ./node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js):\nError: Cannot apply unknown utility class: border-border"
+        },
+        {
+          "type": "log",
+          "text": "[HMR] connected"
+        },
+        {
+          "type": "error",
+          "text": "./src/styles/globals.css.webpack[javascript/auto]!=!./node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[13].oneOf[10].use[2]!./node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[13].oneOf[10].use[3]!./src/styles/globals.css"
+        },
+        {
+          "type": "error",
+          "text": "./src/styles/globals.css\nError: Cannot apply unknown utility class: border-border\n-- inner error --\nError: Cannot apply unknown utility class: border-border\nGenerated code for C:\\Users\\Dario\\Videos\\LAB-Ux\\node_modules\\next\\dist\\build\\webpack\\loaders\\css-loader\\src\\index.js??ruleSet[1].rules[13].oneO"
+        },
+        {
+          "type": "warning",
+          "text": "Deprecated API for given entry type."
+        }
+      ],
+      "badResponses": [
+        {
+          "status": 500,
+          "url": "http://localhost:3100/"
+        }
+      ],
+      "eval": {
+        "navMs": 887,
+        "lcpMs": null,
+        "cls": null,
+        "overflowX": 0,
+        "scrollW": 1440,
+        "clientW": 1440,
+        "imgsTotal": 0,
+        "missingAlt": 0,
+        "hasMain": false,
+        "hasNav": false,
+        "hasFooter": false,
+        "ariaLive": true,
+        "focusable": 0,
+        "bodyText": "",
+        "links": []
+      },
+      "axe": {
+        "ran": true,
+        "violations": [
+          {
+            "id": "document-title",
+            "impact": "serious",
+            "nodes": 1,
+            "help": "Documents must have <title> element to aid in navigation"
+          },
+          {
+            "id": "html-has-lang",
+            "impact": "serious",
+            "nodes": 1,
+            "help": "<html> element must have a lang attribute"
+          },
+          {
+            "id": "landmark-one-main",
+            "impact": "moderate",
+            "nodes": 1,
+            "help": "Document should have one main landmark"
+          },
+          {
+            "id": "page-has-heading-one",
+            "impact": "moderate",
+            "nodes": 1,
+            "help": "Page should contain a level-one heading"
+          },
+          {
+            "id": "region",
+            "impact": "moderate",
+            "nodes": 2,
+            "help": "All page content should be contained by landmarks"
+          }
+        ]
+      }
+    },
+    {
+      "route": "team",
+      "url": "/public/team",
+      "width": 375,
+      "shot": "shots/team-375.png",
+      "status": 500,
+      "title": "",
+      "ok": true,
+      "err": "",
+      "loadMs": 6426,
+      "console": [
+        {
+          "type": "error",
+          "text": "Failed to load resource: the server responded with a status of 500 (Internal Server Error)"
+        },
+        {
+          "type": "info",
+          "text": "%cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold"
+        },
+        {
+          "type": "pageerror",
+          "text": "ModuleBuildError: Module build failed (from ./node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js):\nError: Cannot apply unknown utility class: border-border"
+        },
+        {
+          "type": "log",
+          "text": "[HMR] connected"
+        },
+        {
+          "type": "error",
+          "text": "./src/styles/globals.css.webpack[javascript/auto]!=!./node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[13].oneOf[10].use[2]!./node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[13].oneOf[10].use[3]!./src/styles/globals.css"
+        },
+        {
+          "type": "error",
+          "text": "./src/styles/globals.css\nError: Cannot apply unknown utility class: border-border\n-- inner error --\nError: Cannot apply unknown utility class: border-border\nGenerated code for C:\\Users\\Dario\\Videos\\LAB-Ux\\node_modules\\next\\dist\\build\\webpack\\loaders\\css-loader\\src\\index.js??ruleSet[1].rules[13].oneO"
+        },
+        {
+          "type": "warning",
+          "text": "Deprecated API for given entry type."
+        }
+      ],
+      "badResponses": [
+        {
+          "status": 500,
+          "url": "http://localhost:3100/public/team"
+        }
+      ],
+      "eval": {
+        "navMs": 3901,
+        "lcpMs": null,
+        "cls": null,
+        "overflowX": 0,
+        "scrollW": 375,
+        "clientW": 375,
+        "imgsTotal": 0,
+        "missingAlt": 0,
+        "hasMain": false,
+        "hasNav": false,
+        "hasFooter": false,
+        "ariaLive": true,
+        "focusable": 0,
+        "bodyText": "",
+        "links": []
+      },
+      "axe": {
+        "ran": true,
+        "violations": [
+          {
+            "id": "document-title",
+            "impact": "serious",
+            "nodes": 1,
+            "help": "Documents must have <title> element to aid in navigation"
+          },
+          {
+            "id": "html-has-lang",
+            "impact": "serious",
+            "nodes": 1,
+            "help": "<html> element must have a lang attribute"
+          },
+          {
+            "id": "landmark-one-main",
+            "impact": "moderate",
+            "nodes": 1,
+            "help": "Document should have one main landmark"
+          },
+          {
+            "id": "page-has-heading-one",
+            "impact": "moderate",
+            "nodes": 1,
+            "help": "Page should contain a level-one heading"
+          },
+          {
+            "id": "region",
+            "impact": "moderate",
+            "nodes": 2,
+            "help": "All page content should be contained by landmarks"
+          },
+          {
+            "id": "scrollable-region-focusable",
+            "impact": "serious",
+            "nodes": 1,
+            "help": "Scrollable region must have keyboard access"
+          }
+        ]
+      }
+    },
+    {
+      "route": "team",
+      "url": "/public/team",
+      "width": 768,
+      "shot": "shots/team-768.png",
+      "status": 500,
+      "title": "",
+      "ok": true,
+      "err": "",
+      "loadMs": 3357,
+      "console": [
+        {
+          "type": "error",
+          "text": "Failed to load resource: the server responded with a status of 500 (Internal Server Error)"
+        },
+        {
+          "type": "info",
+          "text": "%cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold"
+        },
+        {
+          "type": "pageerror",
+          "text": "ModuleBuildError: Module build failed (from ./node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js):\nError: Cannot apply unknown utility class: border-border"
+        },
+        {
+          "type": "log",
+          "text": "[HMR] connected"
+        },
+        {
+          "type": "error",
+          "text": "./src/styles/globals.css.webpack[javascript/auto]!=!./node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[13].oneOf[10].use[2]!./node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[13].oneOf[10].use[3]!./src/styles/globals.css"
+        },
+        {
+          "type": "error",
+          "text": "./src/styles/globals.css\nError: Cannot apply unknown utility class: border-border\n-- inner error --\nError: Cannot apply unknown utility class: border-border\nGenerated code for C:\\Users\\Dario\\Videos\\LAB-Ux\\node_modules\\next\\dist\\build\\webpack\\loaders\\css-loader\\src\\index.js??ruleSet[1].rules[13].oneO"
+        },
+        {
+          "type": "warning",
+          "text": "Deprecated API for given entry type."
+        }
+      ],
+      "badResponses": [
+        {
+          "status": 500,
+          "url": "http://localhost:3100/public/team"
+        }
+      ],
+      "eval": {
+        "navMs": 836,
+        "lcpMs": null,
+        "cls": null,
+        "overflowX": 0,
+        "scrollW": 768,
+        "clientW": 768,
+        "imgsTotal": 0,
+        "missingAlt": 0,
+        "hasMain": false,
+        "hasNav": false,
+        "hasFooter": false,
+        "ariaLive": true,
+        "focusable": 0,
+        "bodyText": "",
+        "links": []
+      },
+      "axe": {
+        "ran": true,
+        "violations": [
+          {
+            "id": "document-title",
+            "impact": "serious",
+            "nodes": 1,
+            "help": "Documents must have <title> element to aid in navigation"
+          },
+          {
+            "id": "html-has-lang",
+            "impact": "serious",
+            "nodes": 1,
+            "help": "<html> element must have a lang attribute"
+          },
+          {
+            "id": "landmark-one-main",
+            "impact": "moderate",
+            "nodes": 1,
+            "help": "Document should have one main landmark"
+          },
+          {
+            "id": "page-has-heading-one",
+            "impact": "moderate",
+            "nodes": 1,
+            "help": "Page should contain a level-one heading"
+          },
+          {
+            "id": "region",
+            "impact": "moderate",
+            "nodes": 2,
+            "help": "All page content should be contained by landmarks"
+          }
+        ]
+      }
+    },
+    {
+      "route": "team",
+      "url": "/public/team",
+      "width": 1440,
+      "shot": "shots/team-1440.png",
+      "status": 500,
+      "title": "",
+      "ok": true,
+      "err": "",
+      "loadMs": 3282,
+      "console": [
+        {
+          "type": "error",
+          "text": "Failed to load resource: the server responded with a status of 500 (Internal Server Error)"
+        },
+        {
+          "type": "info",
+          "text": "%cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold"
+        },
+        {
+          "type": "pageerror",
+          "text": "ModuleBuildError: Module build failed (from ./node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js):\nError: Cannot apply unknown utility class: border-border"
+        },
+        {
+          "type": "log",
+          "text": "[HMR] connected"
+        },
+        {
+          "type": "error",
+          "text": "./src/styles/globals.css.webpack[javascript/auto]!=!./node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[13].oneOf[10].use[2]!./node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[13].oneOf[10].use[3]!./src/styles/globals.css"
+        },
+        {
+          "type": "error",
+          "text": "./src/styles/globals.css\nError: Cannot apply unknown utility class: border-border\n-- inner error --\nError: Cannot apply unknown utility class: border-border\nGenerated code for C:\\Users\\Dario\\Videos\\LAB-Ux\\node_modules\\next\\dist\\build\\webpack\\loaders\\css-loader\\src\\index.js??ruleSet[1].rules[13].oneO"
+        },
+        {
+          "type": "warning",
+          "text": "Deprecated API for given entry type."
+        }
+      ],
+      "badResponses": [
+        {
+          "status": 500,
+          "url": "http://localhost:3100/public/team"
+        }
+      ],
+      "eval": {
+        "navMs": 755,
+        "lcpMs": null,
+        "cls": null,
+        "overflowX": 0,
+        "scrollW": 1440,
+        "clientW": 1440,
+        "imgsTotal": 0,
+        "missingAlt": 0,
+        "hasMain": false,
+        "hasNav": false,
+        "hasFooter": false,
+        "ariaLive": true,
+        "focusable": 0,
+        "bodyText": "",
+        "links": []
+      },
+      "axe": {
+        "ran": true,
+        "violations": [
+          {
+            "id": "document-title",
+            "impact": "serious",
+            "nodes": 1,
+            "help": "Documents must have <title> element to aid in navigation"
+          },
+          {
+            "id": "html-has-lang",
+            "impact": "serious",
+            "nodes": 1,
+            "help": "<html> element must have a lang attribute"
+          },
+          {
+            "id": "landmark-one-main",
+            "impact": "moderate",
+            "nodes": 1,
+            "help": "Document should have one main landmark"
+          },
+          {
+            "id": "page-has-heading-one",
+            "impact": "moderate",
+            "nodes": 1,
+            "help": "Page should contain a level-one heading"
+          },
+          {
+            "id": "region",
+            "impact": "moderate",
+            "nodes": 2,
+            "help": "All page content should be contained by landmarks"
+          }
+        ]
+      }
+    },
+    {
+      "route": "proyectos",
+      "url": "/public/research/proyectos",
+      "width": 375,
+      "shot": "shots/proyectos-375.png",
+      "status": 500,
+      "title": "",
+      "ok": true,
+      "err": "",
+      "loadMs": 5726,
+      "console": [
+        {
+          "type": "error",
+          "text": "Failed to load resource: the server responded with a status of 500 (Internal Server Error)"
+        },
+        {
+          "type": "info",
+          "text": "%cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold"
+        },
+        {
+          "type": "pageerror",
+          "text": "ModuleBuildError: Module build failed (from ./node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js):\nError: Cannot apply unknown utility class: border-border"
+        },
+        {
+          "type": "log",
+          "text": "[HMR] connected"
+        },
+        {
+          "type": "error",
+          "text": "./src/styles/globals.css.webpack[javascript/auto]!=!./node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[13].oneOf[10].use[2]!./node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[13].oneOf[10].use[3]!./src/styles/globals.css"
+        },
+        {
+          "type": "error",
+          "text": "./src/styles/globals.css\nError: Cannot apply unknown utility class: border-border\n-- inner error --\nError: Cannot apply unknown utility class: border-border\nGenerated code for C:\\Users\\Dario\\Videos\\LAB-Ux\\node_modules\\next\\dist\\build\\webpack\\loaders\\css-loader\\src\\index.js??ruleSet[1].rules[13].oneO"
+        },
+        {
+          "type": "warning",
+          "text": "Deprecated API for given entry type."
+        }
+      ],
+      "badResponses": [
+        {
+          "status": 500,
+          "url": "http://localhost:3100/public/research/proyectos"
+        }
+      ],
+      "eval": {
+        "navMs": 3185,
+        "lcpMs": null,
+        "cls": null,
+        "overflowX": 0,
+        "scrollW": 375,
+        "clientW": 375,
+        "imgsTotal": 0,
+        "missingAlt": 0,
+        "hasMain": false,
+        "hasNav": false,
+        "hasFooter": false,
+        "ariaLive": true,
+        "focusable": 0,
+        "bodyText": "",
+        "links": []
+      },
+      "axe": {
+        "ran": true,
+        "violations": [
+          {
+            "id": "document-title",
+            "impact": "serious",
+            "nodes": 1,
+            "help": "Documents must have <title> element to aid in navigation"
+          },
+          {
+            "id": "html-has-lang",
+            "impact": "serious",
+            "nodes": 1,
+            "help": "<html> element must have a lang attribute"
+          },
+          {
+            "id": "landmark-one-main",
+            "impact": "moderate",
+            "nodes": 1,
+            "help": "Document should have one main landmark"
+          },
+          {
+            "id": "page-has-heading-one",
+            "impact": "moderate",
+            "nodes": 1,
+            "help": "Page should contain a level-one heading"
+          },
+          {
+            "id": "region",
+            "impact": "moderate",
+            "nodes": 2,
+            "help": "All page content should be contained by landmarks"
+          },
+          {
+            "id": "scrollable-region-focusable",
+            "impact": "serious",
+            "nodes": 1,
+            "help": "Scrollable region must have keyboard access"
+          }
+        ]
+      }
+    },
+    {
+      "route": "proyectos",
+      "url": "/public/research/proyectos",
+      "width": 768,
+      "shot": "shots/proyectos-768.png",
+      "status": 500,
+      "title": "",
+      "ok": true,
+      "err": "",
+      "loadMs": 3342,
+      "console": [
+        {
+          "type": "error",
+          "text": "Failed to load resource: the server responded with a status of 500 (Internal Server Error)"
+        },
+        {
+          "type": "info",
+          "text": "%cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold"
+        },
+        {
+          "type": "pageerror",
+          "text": "ModuleBuildError: Module build failed (from ./node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js):\nError: Cannot apply unknown utility class: border-border"
+        },
+        {
+          "type": "log",
+          "text": "[HMR] connected"
+        },
+        {
+          "type": "error",
+          "text": "./src/styles/globals.css.webpack[javascript/auto]!=!./node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[13].oneOf[10].use[2]!./node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[13].oneOf[10].use[3]!./src/styles/globals.css"
+        },
+        {
+          "type": "error",
+          "text": "./src/styles/globals.css\nError: Cannot apply unknown utility class: border-border\n-- inner error --\nError: Cannot apply unknown utility class: border-border\nGenerated code for C:\\Users\\Dario\\Videos\\LAB-Ux\\node_modules\\next\\dist\\build\\webpack\\loaders\\css-loader\\src\\index.js??ruleSet[1].rules[13].oneO"
+        },
+        {
+          "type": "warning",
+          "text": "Deprecated API for given entry type."
+        }
+      ],
+      "badResponses": [
+        {
+          "status": 500,
+          "url": "http://localhost:3100/public/research/proyectos"
+        }
+      ],
+      "eval": {
+        "navMs": 811,
+        "lcpMs": null,
+        "cls": null,
+        "overflowX": 0,
+        "scrollW": 768,
+        "clientW": 768,
+        "imgsTotal": 0,
+        "missingAlt": 0,
+        "hasMain": false,
+        "hasNav": false,
+        "hasFooter": false,
+        "ariaLive": true,
+        "focusable": 0,
+        "bodyText": "",
+        "links": []
+      },
+      "axe": {
+        "ran": true,
+        "violations": [
+          {
+            "id": "document-title",
+            "impact": "serious",
+            "nodes": 1,
+            "help": "Documents must have <title> element to aid in navigation"
+          },
+          {
+            "id": "html-has-lang",
+            "impact": "serious",
+            "nodes": 1,
+            "help": "<html> element must have a lang attribute"
+          },
+          {
+            "id": "landmark-one-main",
+            "impact": "moderate",
+            "nodes": 1,
+            "help": "Document should have one main landmark"
+          },
+          {
+            "id": "page-has-heading-one",
+            "impact": "moderate",
+            "nodes": 1,
+            "help": "Page should contain a level-one heading"
+          },
+          {
+            "id": "region",
+            "impact": "moderate",
+            "nodes": 2,
+            "help": "All page content should be contained by landmarks"
+          }
+        ]
+      }
+    },
+    {
+      "route": "proyectos",
+      "url": "/public/research/proyectos",
+      "width": 1440,
+      "shot": "shots/proyectos-1440.png",
+      "status": 500,
+      "title": "",
+      "ok": true,
+      "err": "",
+      "loadMs": 3737,
+      "console": [
+        {
+          "type": "error",
+          "text": "Failed to load resource: the server responded with a status of 500 (Internal Server Error)"
+        },
+        {
+          "type": "info",
+          "text": "%cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold"
+        },
+        {
+          "type": "pageerror",
+          "text": "ModuleBuildError: Module build failed (from ./node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js):\nError: Cannot apply unknown utility class: border-border"
+        },
+        {
+          "type": "log",
+          "text": "[HMR] connected"
+        },
+        {
+          "type": "error",
+          "text": "./src/styles/globals.css.webpack[javascript/auto]!=!./node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[13].oneOf[10].use[2]!./node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[13].oneOf[10].use[3]!./src/styles/globals.css"
+        },
+        {
+          "type": "error",
+          "text": "./src/styles/globals.css\nError: Cannot apply unknown utility class: border-border\n-- inner error --\nError: Cannot apply unknown utility class: border-border\nGenerated code for C:\\Users\\Dario\\Videos\\LAB-Ux\\node_modules\\next\\dist\\build\\webpack\\loaders\\css-loader\\src\\index.js??ruleSet[1].rules[13].oneO"
+        },
+        {
+          "type": "warning",
+          "text": "Deprecated API for given entry type."
+        }
+      ],
+      "badResponses": [
+        {
+          "status": 500,
+          "url": "http://localhost:3100/public/research/proyectos"
+        }
+      ],
+      "eval": {
+        "navMs": 1209,
+        "lcpMs": null,
+        "cls": null,
+        "overflowX": 0,
+        "scrollW": 1440,
+        "clientW": 1440,
+        "imgsTotal": 0,
+        "missingAlt": 0,
+        "hasMain": false,
+        "hasNav": false,
+        "hasFooter": false,
+        "ariaLive": true,
+        "focusable": 0,
+        "bodyText": "",
+        "links": []
+      },
+      "axe": {
+        "ran": true,
+        "violations": [
+          {
+            "id": "document-title",
+            "impact": "serious",
+            "nodes": 1,
+            "help": "Documents must have <title> element to aid in navigation"
+          },
+          {
+            "id": "html-has-lang",
+            "impact": "serious",
+            "nodes": 1,
+            "help": "<html> element must have a lang attribute"
+          },
+          {
+            "id": "landmark-one-main",
+            "impact": "moderate",
+            "nodes": 1,
+            "help": "Document should have one main landmark"
+          },
+          {
+            "id": "page-has-heading-one",
+            "impact": "moderate",
+            "nodes": 1,
+            "help": "Page should contain a level-one heading"
+          },
+          {
+            "id": "region",
+            "impact": "moderate",
+            "nodes": 2,
+            "help": "All page content should be contained by landmarks"
+          }
+        ]
+      }
+    },
+    {
+      "route": "glosario",
+      "url": "/public/research/glosario",
+      "width": 375,
+      "shot": "shots/glosario-375.png",
+      "status": 500,
+      "title": "",
+      "ok": true,
+      "err": "",
+      "loadMs": 5201,
+      "console": [
+        {
+          "type": "error",
+          "text": "Failed to load resource: the server responded with a status of 500 (Internal Server Error)"
+        },
+        {
+          "type": "info",
+          "text": "%cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold"
+        },
+        {
+          "type": "pageerror",
+          "text": "ModuleBuildError: Module build failed (from ./node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js):\nError: Cannot apply unknown utility class: border-border"
+        },
+        {
+          "type": "log",
+          "text": "[HMR] connected"
+        },
+        {
+          "type": "error",
+          "text": "./src/styles/globals.css.webpack[javascript/auto]!=!./node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[13].oneOf[10].use[2]!./node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[13].oneOf[10].use[3]!./src/styles/globals.css"
+        },
+        {
+          "type": "error",
+          "text": "./src/styles/globals.css\nError: Cannot apply unknown utility class: border-border\n-- inner error --\nError: Cannot apply unknown utility class: border-border\nGenerated code for C:\\Users\\Dario\\Videos\\LAB-Ux\\node_modules\\next\\dist\\build\\webpack\\loaders\\css-loader\\src\\index.js??ruleSet[1].rules[13].oneO"
+        },
+        {
+          "type": "warning",
+          "text": "Deprecated API for given entry type."
+        }
+      ],
+      "badResponses": [
+        {
+          "status": 500,
+          "url": "http://localhost:3100/public/research/glosario"
+        }
+      ],
+      "eval": {
+        "navMs": 2658,
+        "lcpMs": null,
+        "cls": null,
+        "overflowX": 0,
+        "scrollW": 375,
+        "clientW": 375,
+        "imgsTotal": 0,
+        "missingAlt": 0,
+        "hasMain": false,
+        "hasNav": false,
+        "hasFooter": false,
+        "ariaLive": true,
+        "focusable": 0,
+        "bodyText": "",
+        "links": []
+      },
+      "axe": {
+        "ran": true,
+        "violations": [
+          {
+            "id": "document-title",
+            "impact": "serious",
+            "nodes": 1,
+            "help": "Documents must have <title> element to aid in navigation"
+          },
+          {
+            "id": "html-has-lang",
+            "impact": "serious",
+            "nodes": 1,
+            "help": "<html> element must have a lang attribute"
+          },
+          {
+            "id": "landmark-one-main",
+            "impact": "moderate",
+            "nodes": 1,
+            "help": "Document should have one main landmark"
+          },
+          {
+            "id": "page-has-heading-one",
+            "impact": "moderate",
+            "nodes": 1,
+            "help": "Page should contain a level-one heading"
+          },
+          {
+            "id": "region",
+            "impact": "moderate",
+            "nodes": 2,
+            "help": "All page content should be contained by landmarks"
+          },
+          {
+            "id": "scrollable-region-focusable",
+            "impact": "serious",
+            "nodes": 1,
+            "help": "Scrollable region must have keyboard access"
+          }
+        ]
+      }
+    },
+    {
+      "route": "glosario",
+      "url": "/public/research/glosario",
+      "width": 768,
+      "shot": "shots/glosario-768.png",
+      "status": 500,
+      "title": "",
+      "ok": true,
+      "err": "",
+      "loadMs": 3419,
+      "console": [
+        {
+          "type": "error",
+          "text": "Failed to load resource: the server responded with a status of 500 (Internal Server Error)"
+        },
+        {
+          "type": "info",
+          "text": "%cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold"
+        },
+        {
+          "type": "pageerror",
+          "text": "ModuleBuildError: Module build failed (from ./node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js):\nError: Cannot apply unknown utility class: border-border"
+        },
+        {
+          "type": "log",
+          "text": "[HMR] connected"
+        },
+        {
+          "type": "error",
+          "text": "./src/styles/globals.css.webpack[javascript/auto]!=!./node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[13].oneOf[10].use[2]!./node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[13].oneOf[10].use[3]!./src/styles/globals.css"
+        },
+        {
+          "type": "error",
+          "text": "./src/styles/globals.css\nError: Cannot apply unknown utility class: border-border\n-- inner error --\nError: Cannot apply unknown utility class: border-border\nGenerated code for C:\\Users\\Dario\\Videos\\LAB-Ux\\node_modules\\next\\dist\\build\\webpack\\loaders\\css-loader\\src\\index.js??ruleSet[1].rules[13].oneO"
+        },
+        {
+          "type": "warning",
+          "text": "Deprecated API for given entry type."
+        }
+      ],
+      "badResponses": [
+        {
+          "status": 500,
+          "url": "http://localhost:3100/public/research/glosario"
+        }
+      ],
+      "eval": {
+        "navMs": 880,
+        "lcpMs": null,
+        "cls": null,
+        "overflowX": 0,
+        "scrollW": 768,
+        "clientW": 768,
+        "imgsTotal": 0,
+        "missingAlt": 0,
+        "hasMain": false,
+        "hasNav": false,
+        "hasFooter": false,
+        "ariaLive": true,
+        "focusable": 0,
+        "bodyText": "",
+        "links": []
+      },
+      "axe": {
+        "ran": true,
+        "violations": [
+          {
+            "id": "document-title",
+            "impact": "serious",
+            "nodes": 1,
+            "help": "Documents must have <title> element to aid in navigation"
+          },
+          {
+            "id": "html-has-lang",
+            "impact": "serious",
+            "nodes": 1,
+            "help": "<html> element must have a lang attribute"
+          },
+          {
+            "id": "landmark-one-main",
+            "impact": "moderate",
+            "nodes": 1,
+            "help": "Document should have one main landmark"
+          },
+          {
+            "id": "page-has-heading-one",
+            "impact": "moderate",
+            "nodes": 1,
+            "help": "Page should contain a level-one heading"
+          },
+          {
+            "id": "region",
+            "impact": "moderate",
+            "nodes": 2,
+            "help": "All page content should be contained by landmarks"
+          }
+        ]
+      }
+    },
+    {
+      "route": "glosario",
+      "url": "/public/research/glosario",
+      "width": 1440,
+      "shot": "shots/glosario-1440.png",
+      "status": 500,
+      "title": "",
+      "ok": true,
+      "err": "",
+      "loadMs": 3380,
+      "console": [
+        {
+          "type": "error",
+          "text": "Failed to load resource: the server responded with a status of 500 (Internal Server Error)"
+        },
+        {
+          "type": "info",
+          "text": "%cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold"
+        },
+        {
+          "type": "pageerror",
+          "text": "ModuleBuildError: Module build failed (from ./node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js):\nError: Cannot apply unknown utility class: border-border"
+        },
+        {
+          "type": "log",
+          "text": "[HMR] connected"
+        },
+        {
+          "type": "error",
+          "text": "./src/styles/globals.css.webpack[javascript/auto]!=!./node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[13].oneOf[10].use[2]!./node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[13].oneOf[10].use[3]!./src/styles/globals.css"
+        },
+        {
+          "type": "error",
+          "text": "./src/styles/globals.css\nError: Cannot apply unknown utility class: border-border\n-- inner error --\nError: Cannot apply unknown utility class: border-border\nGenerated code for C:\\Users\\Dario\\Videos\\LAB-Ux\\node_modules\\next\\dist\\build\\webpack\\loaders\\css-loader\\src\\index.js??ruleSet[1].rules[13].oneO"
+        },
+        {
+          "type": "warning",
+          "text": "Deprecated API for given entry type."
+        }
+      ],
+      "badResponses": [
+        {
+          "status": 500,
+          "url": "http://localhost:3100/public/research/glosario"
+        }
+      ],
+      "eval": {
+        "navMs": 858,
+        "lcpMs": null,
+        "cls": null,
+        "overflowX": 0,
+        "scrollW": 1440,
+        "clientW": 1440,
+        "imgsTotal": 0,
+        "missingAlt": 0,
+        "hasMain": false,
+        "hasNav": false,
+        "hasFooter": false,
+        "ariaLive": true,
+        "focusable": 0,
+        "bodyText": "",
+        "links": []
+      },
+      "axe": {
+        "ran": true,
+        "violations": [
+          {
+            "id": "document-title",
+            "impact": "serious",
+            "nodes": 1,
+            "help": "Documents must have <title> element to aid in navigation"
+          },
+          {
+            "id": "html-has-lang",
+            "impact": "serious",
+            "nodes": 1,
+            "help": "<html> element must have a lang attribute"
+          },
+          {
+            "id": "landmark-one-main",
+            "impact": "moderate",
+            "nodes": 1,
+            "help": "Document should have one main landmark"
+          },
+          {
+            "id": "page-has-heading-one",
+            "impact": "moderate",
+            "nodes": 1,
+            "help": "Page should contain a level-one heading"
+          },
+          {
+            "id": "region",
+            "impact": "moderate",
+            "nodes": 2,
+            "help": "All page content should be contained by landmarks"
+          }
+        ]
+      }
+    },
+    {
+      "route": "metodologias",
+      "url": "/public/research/metodologias",
+      "width": 375,
+      "shot": "shots/metodologias-375.png",
+      "status": 500,
+      "title": "",
+      "ok": true,
+      "err": "",
+      "loadMs": 4929,
+      "console": [
+        {
+          "type": "error",
+          "text": "Failed to load resource: the server responded with a status of 500 (Internal Server Error)"
+        },
+        {
+          "type": "info",
+          "text": "%cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold"
+        },
+        {
+          "type": "pageerror",
+          "text": "ModuleBuildError: Module build failed (from ./node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js):\nError: Cannot apply unknown utility class: border-border"
+        },
+        {
+          "type": "log",
+          "text": "[HMR] connected"
+        },
+        {
+          "type": "error",
+          "text": "./src/styles/globals.css.webpack[javascript/auto]!=!./node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[13].oneOf[10].use[2]!./node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[13].oneOf[10].use[3]!./src/styles/globals.css"
+        },
+        {
+          "type": "error",
+          "text": "./src/styles/globals.css\nError: Cannot apply unknown utility class: border-border\n-- inner error --\nError: Cannot apply unknown utility class: border-border\nGenerated code for C:\\Users\\Dario\\Videos\\LAB-Ux\\node_modules\\next\\dist\\build\\webpack\\loaders\\css-loader\\src\\index.js??ruleSet[1].rules[13].oneO"
+        },
+        {
+          "type": "warning",
+          "text": "Deprecated API for given entry type."
+        }
+      ],
+      "badResponses": [
+        {
+          "status": 500,
+          "url": "http://localhost:3100/public/research/metodologias"
+        }
+      ],
+      "eval": {
+        "navMs": 2398,
+        "lcpMs": null,
+        "cls": null,
+        "overflowX": 0,
+        "scrollW": 375,
+        "clientW": 375,
+        "imgsTotal": 0,
+        "missingAlt": 0,
+        "hasMain": false,
+        "hasNav": false,
+        "hasFooter": false,
+        "ariaLive": true,
+        "focusable": 0,
+        "bodyText": "",
+        "links": []
+      },
+      "axe": {
+        "ran": true,
+        "violations": [
+          {
+            "id": "document-title",
+            "impact": "serious",
+            "nodes": 1,
+            "help": "Documents must have <title> element to aid in navigation"
+          },
+          {
+            "id": "html-has-lang",
+            "impact": "serious",
+            "nodes": 1,
+            "help": "<html> element must have a lang attribute"
+          },
+          {
+            "id": "landmark-one-main",
+            "impact": "moderate",
+            "nodes": 1,
+            "help": "Document should have one main landmark"
+          },
+          {
+            "id": "page-has-heading-one",
+            "impact": "moderate",
+            "nodes": 1,
+            "help": "Page should contain a level-one heading"
+          },
+          {
+            "id": "region",
+            "impact": "moderate",
+            "nodes": 2,
+            "help": "All page content should be contained by landmarks"
+          },
+          {
+            "id": "scrollable-region-focusable",
+            "impact": "serious",
+            "nodes": 1,
+            "help": "Scrollable region must have keyboard access"
+          }
+        ]
+      }
+    },
+    {
+      "route": "metodologias",
+      "url": "/public/research/metodologias",
+      "width": 768,
+      "shot": "shots/metodologias-768.png",
+      "status": 500,
+      "title": "",
+      "ok": true,
+      "err": "",
+      "loadMs": 3324,
+      "console": [
+        {
+          "type": "error",
+          "text": "Failed to load resource: the server responded with a status of 500 (Internal Server Error)"
+        },
+        {
+          "type": "info",
+          "text": "%cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold"
+        },
+        {
+          "type": "pageerror",
+          "text": "ModuleBuildError: Module build failed (from ./node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js):\nError: Cannot apply unknown utility class: border-border"
+        },
+        {
+          "type": "log",
+          "text": "[HMR] connected"
+        },
+        {
+          "type": "error",
+          "text": "./src/styles/globals.css.webpack[javascript/auto]!=!./node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[13].oneOf[10].use[2]!./node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[13].oneOf[10].use[3]!./src/styles/globals.css"
+        },
+        {
+          "type": "error",
+          "text": "./src/styles/globals.css\nError: Cannot apply unknown utility class: border-border\n-- inner error --\nError: Cannot apply unknown utility class: border-border\nGenerated code for C:\\Users\\Dario\\Videos\\LAB-Ux\\node_modules\\next\\dist\\build\\webpack\\loaders\\css-loader\\src\\index.js??ruleSet[1].rules[13].oneO"
+        },
+        {
+          "type": "warning",
+          "text": "Deprecated API for given entry type."
+        }
+      ],
+      "badResponses": [
+        {
+          "status": 500,
+          "url": "http://localhost:3100/public/research/metodologias"
+        }
+      ],
+      "eval": {
+        "navMs": 802,
+        "lcpMs": null,
+        "cls": null,
+        "overflowX": 0,
+        "scrollW": 768,
+        "clientW": 768,
+        "imgsTotal": 0,
+        "missingAlt": 0,
+        "hasMain": false,
+        "hasNav": false,
+        "hasFooter": false,
+        "ariaLive": true,
+        "focusable": 0,
+        "bodyText": "",
+        "links": []
+      },
+      "axe": {
+        "ran": true,
+        "violations": [
+          {
+            "id": "document-title",
+            "impact": "serious",
+            "nodes": 1,
+            "help": "Documents must have <title> element to aid in navigation"
+          },
+          {
+            "id": "html-has-lang",
+            "impact": "serious",
+            "nodes": 1,
+            "help": "<html> element must have a lang attribute"
+          },
+          {
+            "id": "landmark-one-main",
+            "impact": "moderate",
+            "nodes": 1,
+            "help": "Document should have one main landmark"
+          },
+          {
+            "id": "page-has-heading-one",
+            "impact": "moderate",
+            "nodes": 1,
+            "help": "Page should contain a level-one heading"
+          },
+          {
+            "id": "region",
+            "impact": "moderate",
+            "nodes": 2,
+            "help": "All page content should be contained by landmarks"
+          }
+        ]
+      }
+    },
+    {
+      "route": "metodologias",
+      "url": "/public/research/metodologias",
+      "width": 1440,
+      "shot": "shots/metodologias-1440.png",
+      "status": 500,
+      "title": "",
+      "ok": true,
+      "err": "",
+      "loadMs": 3270,
+      "console": [
+        {
+          "type": "error",
+          "text": "Failed to load resource: the server responded with a status of 500 (Internal Server Error)"
+        },
+        {
+          "type": "info",
+          "text": "%cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold"
+        },
+        {
+          "type": "pageerror",
+          "text": "ModuleBuildError: Module build failed (from ./node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js):\nError: Cannot apply unknown utility class: border-border"
+        },
+        {
+          "type": "log",
+          "text": "[HMR] connected"
+        },
+        {
+          "type": "error",
+          "text": "./src/styles/globals.css.webpack[javascript/auto]!=!./node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[13].oneOf[10].use[2]!./node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[13].oneOf[10].use[3]!./src/styles/globals.css"
+        },
+        {
+          "type": "error",
+          "text": "./src/styles/globals.css\nError: Cannot apply unknown utility class: border-border\n-- inner error --\nError: Cannot apply unknown utility class: border-border\nGenerated code for C:\\Users\\Dario\\Videos\\LAB-Ux\\node_modules\\next\\dist\\build\\webpack\\loaders\\css-loader\\src\\index.js??ruleSet[1].rules[13].oneO"
+        },
+        {
+          "type": "warning",
+          "text": "Deprecated API for given entry type."
+        }
+      ],
+      "badResponses": [
+        {
+          "status": 500,
+          "url": "http://localhost:3100/public/research/metodologias"
+        }
+      ],
+      "eval": {
+        "navMs": 746,
+        "lcpMs": null,
+        "cls": null,
+        "overflowX": 0,
+        "scrollW": 1440,
+        "clientW": 1440,
+        "imgsTotal": 0,
+        "missingAlt": 0,
+        "hasMain": false,
+        "hasNav": false,
+        "hasFooter": false,
+        "ariaLive": true,
+        "focusable": 0,
+        "bodyText": "",
+        "links": []
+      },
+      "axe": {
+        "ran": true,
+        "violations": [
+          {
+            "id": "document-title",
+            "impact": "serious",
+            "nodes": 1,
+            "help": "Documents must have <title> element to aid in navigation"
+          },
+          {
+            "id": "html-has-lang",
+            "impact": "serious",
+            "nodes": 1,
+            "help": "<html> element must have a lang attribute"
+          },
+          {
+            "id": "landmark-one-main",
+            "impact": "moderate",
+            "nodes": 1,
+            "help": "Document should have one main landmark"
+          },
+          {
+            "id": "page-has-heading-one",
+            "impact": "moderate",
+            "nodes": 1,
+            "help": "Page should contain a level-one heading"
+          },
+          {
+            "id": "region",
+            "impact": "moderate",
+            "nodes": 2,
+            "help": "All page content should be contained by landmarks"
+          }
+        ]
+      }
+    },
+    {
+      "route": "diffusion",
+      "url": "/public/diffusion",
+      "width": 375,
+      "shot": "shots/diffusion-375.png",
+      "status": 500,
+      "title": "",
+      "ok": true,
+      "err": "",
+      "loadMs": 6226,
+      "console": [
+        {
+          "type": "error",
+          "text": "Failed to load resource: the server responded with a status of 500 (Internal Server Error)"
+        },
+        {
+          "type": "info",
+          "text": "%cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold"
+        },
+        {
+          "type": "pageerror",
+          "text": "ModuleBuildError: Module build failed (from ./node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js):\nError: Cannot apply unknown utility class: border-border"
+        },
+        {
+          "type": "log",
+          "text": "[HMR] connected"
+        },
+        {
+          "type": "error",
+          "text": "./src/styles/globals.css.webpack[javascript/auto]!=!./node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[13].oneOf[10].use[2]!./node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[13].oneOf[10].use[3]!./src/styles/globals.css"
+        },
+        {
+          "type": "error",
+          "text": "./src/styles/globals.css\nError: Cannot apply unknown utility class: border-border\n-- inner error --\nError: Cannot apply unknown utility class: border-border\nGenerated code for C:\\Users\\Dario\\Videos\\LAB-Ux\\node_modules\\next\\dist\\build\\webpack\\loaders\\css-loader\\src\\index.js??ruleSet[1].rules[13].oneO"
+        },
+        {
+          "type": "warning",
+          "text": "Deprecated API for given entry type."
+        }
+      ],
+      "badResponses": [
+        {
+          "status": 500,
+          "url": "http://localhost:3100/public/diffusion"
+        }
+      ],
+      "eval": {
+        "navMs": 3700,
+        "lcpMs": null,
+        "cls": null,
+        "overflowX": 0,
+        "scrollW": 375,
+        "clientW": 375,
+        "imgsTotal": 0,
+        "missingAlt": 0,
+        "hasMain": false,
+        "hasNav": false,
+        "hasFooter": false,
+        "ariaLive": true,
+        "focusable": 0,
+        "bodyText": "",
+        "links": []
+      },
+      "axe": {
+        "ran": true,
+        "violations": [
+          {
+            "id": "document-title",
+            "impact": "serious",
+            "nodes": 1,
+            "help": "Documents must have <title> element to aid in navigation"
+          },
+          {
+            "id": "html-has-lang",
+            "impact": "serious",
+            "nodes": 1,
+            "help": "<html> element must have a lang attribute"
+          },
+          {
+            "id": "landmark-one-main",
+            "impact": "moderate",
+            "nodes": 1,
+            "help": "Document should have one main landmark"
+          },
+          {
+            "id": "page-has-heading-one",
+            "impact": "moderate",
+            "nodes": 1,
+            "help": "Page should contain a level-one heading"
+          },
+          {
+            "id": "region",
+            "impact": "moderate",
+            "nodes": 2,
+            "help": "All page content should be contained by landmarks"
+          },
+          {
+            "id": "scrollable-region-focusable",
+            "impact": "serious",
+            "nodes": 1,
+            "help": "Scrollable region must have keyboard access"
+          }
+        ]
+      }
+    },
+    {
+      "route": "diffusion",
+      "url": "/public/diffusion",
+      "width": 768,
+      "shot": "shots/diffusion-768.png",
+      "status": 500,
+      "title": "",
+      "ok": true,
+      "err": "",
+      "loadMs": 3451,
+      "console": [
+        {
+          "type": "error",
+          "text": "Failed to load resource: the server responded with a status of 500 (Internal Server Error)"
+        },
+        {
+          "type": "info",
+          "text": "%cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold"
+        },
+        {
+          "type": "pageerror",
+          "text": "ModuleBuildError: Module build failed (from ./node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js):\nError: Cannot apply unknown utility class: border-border"
+        },
+        {
+          "type": "log",
+          "text": "[HMR] connected"
+        },
+        {
+          "type": "error",
+          "text": "./src/styles/globals.css.webpack[javascript/auto]!=!./node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[13].oneOf[10].use[2]!./node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[13].oneOf[10].use[3]!./src/styles/globals.css"
+        },
+        {
+          "type": "error",
+          "text": "./src/styles/globals.css\nError: Cannot apply unknown utility class: border-border\n-- inner error --\nError: Cannot apply unknown utility class: border-border\nGenerated code for C:\\Users\\Dario\\Videos\\LAB-Ux\\node_modules\\next\\dist\\build\\webpack\\loaders\\css-loader\\src\\index.js??ruleSet[1].rules[13].oneO"
+        },
+        {
+          "type": "warning",
+          "text": "Deprecated API for given entry type."
+        }
+      ],
+      "badResponses": [
+        {
+          "status": 500,
+          "url": "http://localhost:3100/public/diffusion"
+        }
+      ],
+      "eval": {
+        "navMs": 922,
+        "lcpMs": null,
+        "cls": null,
+        "overflowX": 0,
+        "scrollW": 768,
+        "clientW": 768,
+        "imgsTotal": 0,
+        "missingAlt": 0,
+        "hasMain": false,
+        "hasNav": false,
+        "hasFooter": false,
+        "ariaLive": true,
+        "focusable": 0,
+        "bodyText": "",
+        "links": []
+      },
+      "axe": {
+        "ran": true,
+        "violations": [
+          {
+            "id": "document-title",
+            "impact": "serious",
+            "nodes": 1,
+            "help": "Documents must have <title> element to aid in navigation"
+          },
+          {
+            "id": "html-has-lang",
+            "impact": "serious",
+            "nodes": 1,
+            "help": "<html> element must have a lang attribute"
+          },
+          {
+            "id": "landmark-one-main",
+            "impact": "moderate",
+            "nodes": 1,
+            "help": "Document should have one main landmark"
+          },
+          {
+            "id": "page-has-heading-one",
+            "impact": "moderate",
+            "nodes": 1,
+            "help": "Page should contain a level-one heading"
+          },
+          {
+            "id": "region",
+            "impact": "moderate",
+            "nodes": 2,
+            "help": "All page content should be contained by landmarks"
+          }
+        ]
+      }
+    },
+    {
+      "route": "diffusion",
+      "url": "/public/diffusion",
+      "width": 1440,
+      "shot": "shots/diffusion-1440.png",
+      "status": 500,
+      "title": "",
+      "ok": true,
+      "err": "",
+      "loadMs": 3558,
+      "console": [
+        {
+          "type": "error",
+          "text": "Failed to load resource: the server responded with a status of 500 (Internal Server Error)"
+        },
+        {
+          "type": "info",
+          "text": "%cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold"
+        },
+        {
+          "type": "pageerror",
+          "text": "ModuleBuildError: Module build failed (from ./node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js):\nError: Cannot apply unknown utility class: border-border"
+        },
+        {
+          "type": "log",
+          "text": "[HMR] connected"
+        },
+        {
+          "type": "error",
+          "text": "./src/styles/globals.css.webpack[javascript/auto]!=!./node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[13].oneOf[10].use[2]!./node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[13].oneOf[10].use[3]!./src/styles/globals.css"
+        },
+        {
+          "type": "error",
+          "text": "./src/styles/globals.css\nError: Cannot apply unknown utility class: border-border\n-- inner error --\nError: Cannot apply unknown utility class: border-border\nGenerated code for C:\\Users\\Dario\\Videos\\LAB-Ux\\node_modules\\next\\dist\\build\\webpack\\loaders\\css-loader\\src\\index.js??ruleSet[1].rules[13].oneO"
+        },
+        {
+          "type": "warning",
+          "text": "Deprecated API for given entry type."
+        }
+      ],
+      "badResponses": [
+        {
+          "status": 500,
+          "url": "http://localhost:3100/public/diffusion"
+        }
+      ],
+      "eval": {
+        "navMs": 1031,
+        "lcpMs": null,
+        "cls": null,
+        "overflowX": 0,
+        "scrollW": 1440,
+        "clientW": 1440,
+        "imgsTotal": 0,
+        "missingAlt": 0,
+        "hasMain": false,
+        "hasNav": false,
+        "hasFooter": false,
+        "ariaLive": true,
+        "focusable": 0,
+        "bodyText": "",
+        "links": []
+      },
+      "axe": {
+        "ran": true,
+        "violations": [
+          {
+            "id": "document-title",
+            "impact": "serious",
+            "nodes": 1,
+            "help": "Documents must have <title> element to aid in navigation"
+          },
+          {
+            "id": "html-has-lang",
+            "impact": "serious",
+            "nodes": 1,
+            "help": "<html> element must have a lang attribute"
+          },
+          {
+            "id": "landmark-one-main",
+            "impact": "moderate",
+            "nodes": 1,
+            "help": "Document should have one main landmark"
+          },
+          {
+            "id": "page-has-heading-one",
+            "impact": "moderate",
+            "nodes": 1,
+            "help": "Page should contain a level-one heading"
+          },
+          {
+            "id": "region",
+            "impact": "moderate",
+            "nodes": 2,
+            "help": "All page content should be contained by landmarks"
+          }
+        ]
+      }
+    },
+    {
+      "route": "support",
+      "url": "/public/support",
+      "width": 375,
+      "shot": "shots/support-375.png",
+      "status": 500,
+      "title": "",
+      "ok": true,
+      "err": "",
+      "loadMs": 5345,
+      "console": [
+        {
+          "type": "error",
+          "text": "Failed to load resource: the server responded with a status of 500 (Internal Server Error)"
+        },
+        {
+          "type": "info",
+          "text": "%cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold"
+        },
+        {
+          "type": "pageerror",
+          "text": "ModuleBuildError: Module build failed (from ./node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js):\nError: Cannot apply unknown utility class: border-border"
+        },
+        {
+          "type": "log",
+          "text": "[HMR] connected"
+        },
+        {
+          "type": "error",
+          "text": "./src/styles/globals.css.webpack[javascript/auto]!=!./node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[13].oneOf[10].use[2]!./node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[13].oneOf[10].use[3]!./src/styles/globals.css"
+        },
+        {
+          "type": "error",
+          "text": "./src/styles/globals.css\nError: Cannot apply unknown utility class: border-border\n-- inner error --\nError: Cannot apply unknown utility class: border-border\nGenerated code for C:\\Users\\Dario\\Videos\\LAB-Ux\\node_modules\\next\\dist\\build\\webpack\\loaders\\css-loader\\src\\index.js??ruleSet[1].rules[13].oneO"
+        },
+        {
+          "type": "warning",
+          "text": "Deprecated API for given entry type."
+        }
+      ],
+      "badResponses": [
+        {
+          "status": 500,
+          "url": "http://localhost:3100/public/support"
+        }
+      ],
+      "eval": {
+        "navMs": 2811,
+        "lcpMs": null,
+        "cls": null,
+        "overflowX": 0,
+        "scrollW": 375,
+        "clientW": 375,
+        "imgsTotal": 0,
+        "missingAlt": 0,
+        "hasMain": false,
+        "hasNav": false,
+        "hasFooter": false,
+        "ariaLive": true,
+        "focusable": 0,
+        "bodyText": "",
+        "links": []
+      },
+      "axe": {
+        "ran": true,
+        "violations": [
+          {
+            "id": "document-title",
+            "impact": "serious",
+            "nodes": 1,
+            "help": "Documents must have <title> element to aid in navigation"
+          },
+          {
+            "id": "html-has-lang",
+            "impact": "serious",
+            "nodes": 1,
+            "help": "<html> element must have a lang attribute"
+          },
+          {
+            "id": "landmark-one-main",
+            "impact": "moderate",
+            "nodes": 1,
+            "help": "Document should have one main landmark"
+          },
+          {
+            "id": "page-has-heading-one",
+            "impact": "moderate",
+            "nodes": 1,
+            "help": "Page should contain a level-one heading"
+          },
+          {
+            "id": "region",
+            "impact": "moderate",
+            "nodes": 2,
+            "help": "All page content should be contained by landmarks"
+          },
+          {
+            "id": "scrollable-region-focusable",
+            "impact": "serious",
+            "nodes": 1,
+            "help": "Scrollable region must have keyboard access"
+          }
+        ]
+      }
+    },
+    {
+      "route": "support",
+      "url": "/public/support",
+      "width": 768,
+      "shot": "shots/support-768.png",
+      "status": 500,
+      "title": "",
+      "ok": true,
+      "err": "",
+      "loadMs": 3280,
+      "console": [
+        {
+          "type": "error",
+          "text": "Failed to load resource: the server responded with a status of 500 (Internal Server Error)"
+        },
+        {
+          "type": "info",
+          "text": "%cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold"
+        },
+        {
+          "type": "pageerror",
+          "text": "ModuleBuildError: Module build failed (from ./node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js):\nError: Cannot apply unknown utility class: border-border"
+        },
+        {
+          "type": "log",
+          "text": "[HMR] connected"
+        },
+        {
+          "type": "error",
+          "text": "./src/styles/globals.css.webpack[javascript/auto]!=!./node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[13].oneOf[10].use[2]!./node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[13].oneOf[10].use[3]!./src/styles/globals.css"
+        },
+        {
+          "type": "error",
+          "text": "./src/styles/globals.css\nError: Cannot apply unknown utility class: border-border\n-- inner error --\nError: Cannot apply unknown utility class: border-border\nGenerated code for C:\\Users\\Dario\\Videos\\LAB-Ux\\node_modules\\next\\dist\\build\\webpack\\loaders\\css-loader\\src\\index.js??ruleSet[1].rules[13].oneO"
+        },
+        {
+          "type": "warning",
+          "text": "Deprecated API for given entry type."
+        }
+      ],
+      "badResponses": [
+        {
+          "status": 500,
+          "url": "http://localhost:3100/public/support"
+        }
+      ],
+      "eval": {
+        "navMs": 759,
+        "lcpMs": null,
+        "cls": null,
+        "overflowX": 0,
+        "scrollW": 768,
+        "clientW": 768,
+        "imgsTotal": 0,
+        "missingAlt": 0,
+        "hasMain": false,
+        "hasNav": false,
+        "hasFooter": false,
+        "ariaLive": true,
+        "focusable": 0,
+        "bodyText": "",
+        "links": []
+      },
+      "axe": {
+        "ran": true,
+        "violations": [
+          {
+            "id": "document-title",
+            "impact": "serious",
+            "nodes": 1,
+            "help": "Documents must have <title> element to aid in navigation"
+          },
+          {
+            "id": "html-has-lang",
+            "impact": "serious",
+            "nodes": 1,
+            "help": "<html> element must have a lang attribute"
+          },
+          {
+            "id": "landmark-one-main",
+            "impact": "moderate",
+            "nodes": 1,
+            "help": "Document should have one main landmark"
+          },
+          {
+            "id": "page-has-heading-one",
+            "impact": "moderate",
+            "nodes": 1,
+            "help": "Page should contain a level-one heading"
+          },
+          {
+            "id": "region",
+            "impact": "moderate",
+            "nodes": 2,
+            "help": "All page content should be contained by landmarks"
+          }
+        ]
+      }
+    },
+    {
+      "route": "support",
+      "url": "/public/support",
+      "width": 1440,
+      "shot": "shots/support-1440.png",
+      "status": 500,
+      "title": "",
+      "ok": true,
+      "err": "",
+      "loadMs": 3329,
+      "console": [
+        {
+          "type": "error",
+          "text": "Failed to load resource: the server responded with a status of 500 (Internal Server Error)"
+        },
+        {
+          "type": "info",
+          "text": "%cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold"
+        },
+        {
+          "type": "pageerror",
+          "text": "ModuleBuildError: Module build failed (from ./node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js):\nError: Cannot apply unknown utility class: border-border"
+        },
+        {
+          "type": "log",
+          "text": "[HMR] connected"
+        },
+        {
+          "type": "error",
+          "text": "./src/styles/globals.css.webpack[javascript/auto]!=!./node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[13].oneOf[10].use[2]!./node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[13].oneOf[10].use[3]!./src/styles/globals.css"
+        },
+        {
+          "type": "error",
+          "text": "./src/styles/globals.css\nError: Cannot apply unknown utility class: border-border\n-- inner error --\nError: Cannot apply unknown utility class: border-border\nGenerated code for C:\\Users\\Dario\\Videos\\LAB-Ux\\node_modules\\next\\dist\\build\\webpack\\loaders\\css-loader\\src\\index.js??ruleSet[1].rules[13].oneO"
+        },
+        {
+          "type": "warning",
+          "text": "Deprecated API for given entry type."
+        }
+      ],
+      "badResponses": [
+        {
+          "status": 500,
+          "url": "http://localhost:3100/public/support"
+        }
+      ],
+      "eval": {
+        "navMs": 801,
+        "lcpMs": null,
+        "cls": null,
+        "overflowX": 0,
+        "scrollW": 1440,
+        "clientW": 1440,
+        "imgsTotal": 0,
+        "missingAlt": 0,
+        "hasMain": false,
+        "hasNav": false,
+        "hasFooter": false,
+        "ariaLive": true,
+        "focusable": 0,
+        "bodyText": "",
+        "links": []
+      },
+      "axe": {
+        "ran": true,
+        "violations": [
+          {
+            "id": "document-title",
+            "impact": "serious",
+            "nodes": 1,
+            "help": "Documents must have <title> element to aid in navigation"
+          },
+          {
+            "id": "html-has-lang",
+            "impact": "serious",
+            "nodes": 1,
+            "help": "<html> element must have a lang attribute"
+          },
+          {
+            "id": "landmark-one-main",
+            "impact": "moderate",
+            "nodes": 1,
+            "help": "Document should have one main landmark"
+          },
+          {
+            "id": "page-has-heading-one",
+            "impact": "moderate",
+            "nodes": 1,
+            "help": "Page should contain a level-one heading"
+          },
+          {
+            "id": "region",
+            "impact": "moderate",
+            "nodes": 2,
+            "help": "All page content should be contained by landmarks"
+          }
+        ]
+      }
+    },
+    {
+      "route": "login",
+      "url": "/public/login",
+      "width": 375,
+      "shot": "shots/login-375.png",
+      "status": 500,
+      "title": "",
+      "ok": true,
+      "err": "",
+      "loadMs": 8103,
+      "console": [
+        {
+          "type": "error",
+          "text": "Failed to load resource: the server responded with a status of 500 (Internal Server Error)"
+        },
+        {
+          "type": "info",
+          "text": "%cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold"
+        },
+        {
+          "type": "pageerror",
+          "text": "ModuleBuildError: Module build failed (from ./node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js):\nError: Cannot apply unknown utility class: border-border"
+        },
+        {
+          "type": "log",
+          "text": "[HMR] connected"
+        },
+        {
+          "type": "error",
+          "text": "./src/styles/globals.css.webpack[javascript/auto]!=!./node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[13].oneOf[10].use[2]!./node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[13].oneOf[10].use[3]!./src/styles/globals.css"
+        },
+        {
+          "type": "error",
+          "text": "./src/styles/globals.css\nError: Cannot apply unknown utility class: border-border\n-- inner error --\nError: Cannot apply unknown utility class: border-border\nGenerated code for C:\\Users\\Dario\\Videos\\LAB-Ux\\node_modules\\next\\dist\\build\\webpack\\loaders\\css-loader\\src\\index.js??ruleSet[1].rules[13].oneO"
+        },
+        {
+          "type": "warning",
+          "text": "Deprecated API for given entry type."
+        }
+      ],
+      "badResponses": [
+        {
+          "status": 500,
+          "url": "http://localhost:3100/public/login"
+        }
+      ],
+      "eval": {
+        "navMs": 5577,
+        "lcpMs": null,
+        "cls": null,
+        "overflowX": 0,
+        "scrollW": 375,
+        "clientW": 375,
+        "imgsTotal": 0,
+        "missingAlt": 0,
+        "hasMain": false,
+        "hasNav": false,
+        "hasFooter": false,
+        "ariaLive": true,
+        "focusable": 0,
+        "bodyText": "",
+        "links": []
+      },
+      "axe": {
+        "ran": true,
+        "violations": [
+          {
+            "id": "document-title",
+            "impact": "serious",
+            "nodes": 1,
+            "help": "Documents must have <title> element to aid in navigation"
+          },
+          {
+            "id": "html-has-lang",
+            "impact": "serious",
+            "nodes": 1,
+            "help": "<html> element must have a lang attribute"
+          },
+          {
+            "id": "landmark-one-main",
+            "impact": "moderate",
+            "nodes": 1,
+            "help": "Document should have one main landmark"
+          },
+          {
+            "id": "page-has-heading-one",
+            "impact": "moderate",
+            "nodes": 1,
+            "help": "Page should contain a level-one heading"
+          },
+          {
+            "id": "region",
+            "impact": "moderate",
+            "nodes": 2,
+            "help": "All page content should be contained by landmarks"
+          },
+          {
+            "id": "scrollable-region-focusable",
+            "impact": "serious",
+            "nodes": 1,
+            "help": "Scrollable region must have keyboard access"
+          }
+        ]
+      }
+    },
+    {
+      "route": "login",
+      "url": "/public/login",
+      "width": 768,
+      "shot": "shots/login-768.png",
+      "status": 500,
+      "title": "",
+      "ok": true,
+      "err": "",
+      "loadMs": 3279,
+      "console": [
+        {
+          "type": "error",
+          "text": "Failed to load resource: the server responded with a status of 500 (Internal Server Error)"
+        },
+        {
+          "type": "info",
+          "text": "%cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold"
+        },
+        {
+          "type": "pageerror",
+          "text": "ModuleBuildError: Module build failed (from ./node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js):\nError: Cannot apply unknown utility class: border-border"
+        },
+        {
+          "type": "log",
+          "text": "[HMR] connected"
+        },
+        {
+          "type": "error",
+          "text": "./src/styles/globals.css.webpack[javascript/auto]!=!./node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[13].oneOf[10].use[2]!./node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[13].oneOf[10].use[3]!./src/styles/globals.css"
+        },
+        {
+          "type": "error",
+          "text": "./src/styles/globals.css\nError: Cannot apply unknown utility class: border-border\n-- inner error --\nError: Cannot apply unknown utility class: border-border\nGenerated code for C:\\Users\\Dario\\Videos\\LAB-Ux\\node_modules\\next\\dist\\build\\webpack\\loaders\\css-loader\\src\\index.js??ruleSet[1].rules[13].oneO"
+        },
+        {
+          "type": "warning",
+          "text": "Deprecated API for given entry type."
+        }
+      ],
+      "badResponses": [
+        {
+          "status": 500,
+          "url": "http://localhost:3100/public/login"
+        }
+      ],
+      "eval": {
+        "navMs": 744,
+        "lcpMs": null,
+        "cls": null,
+        "overflowX": 0,
+        "scrollW": 768,
+        "clientW": 768,
+        "imgsTotal": 0,
+        "missingAlt": 0,
+        "hasMain": false,
+        "hasNav": false,
+        "hasFooter": false,
+        "ariaLive": true,
+        "focusable": 0,
+        "bodyText": "",
+        "links": []
+      },
+      "axe": {
+        "ran": true,
+        "violations": [
+          {
+            "id": "document-title",
+            "impact": "serious",
+            "nodes": 1,
+            "help": "Documents must have <title> element to aid in navigation"
+          },
+          {
+            "id": "html-has-lang",
+            "impact": "serious",
+            "nodes": 1,
+            "help": "<html> element must have a lang attribute"
+          },
+          {
+            "id": "landmark-one-main",
+            "impact": "moderate",
+            "nodes": 1,
+            "help": "Document should have one main landmark"
+          },
+          {
+            "id": "page-has-heading-one",
+            "impact": "moderate",
+            "nodes": 1,
+            "help": "Page should contain a level-one heading"
+          },
+          {
+            "id": "region",
+            "impact": "moderate",
+            "nodes": 2,
+            "help": "All page content should be contained by landmarks"
+          }
+        ]
+      }
+    },
+    {
+      "route": "login",
+      "url": "/public/login",
+      "width": 1440,
+      "shot": "shots/login-1440.png",
+      "status": 500,
+      "title": "",
+      "ok": true,
+      "err": "",
+      "loadMs": 3296,
+      "console": [
+        {
+          "type": "error",
+          "text": "Failed to load resource: the server responded with a status of 500 (Internal Server Error)"
+        },
+        {
+          "type": "info",
+          "text": "%cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold"
+        },
+        {
+          "type": "pageerror",
+          "text": "ModuleBuildError: Module build failed (from ./node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js):\nError: Cannot apply unknown utility class: border-border"
+        },
+        {
+          "type": "log",
+          "text": "[HMR] connected"
+        },
+        {
+          "type": "error",
+          "text": "./src/styles/globals.css.webpack[javascript/auto]!=!./node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[13].oneOf[10].use[2]!./node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[13].oneOf[10].use[3]!./src/styles/globals.css"
+        },
+        {
+          "type": "error",
+          "text": "./src/styles/globals.css\nError: Cannot apply unknown utility class: border-border\n-- inner error --\nError: Cannot apply unknown utility class: border-border\nGenerated code for C:\\Users\\Dario\\Videos\\LAB-Ux\\node_modules\\next\\dist\\build\\webpack\\loaders\\css-loader\\src\\index.js??ruleSet[1].rules[13].oneO"
+        },
+        {
+          "type": "warning",
+          "text": "Deprecated API for given entry type."
+        }
+      ],
+      "badResponses": [
+        {
+          "status": 500,
+          "url": "http://localhost:3100/public/login"
+        }
+      ],
+      "eval": {
+        "navMs": 775,
+        "lcpMs": null,
+        "cls": null,
+        "overflowX": 0,
+        "scrollW": 1440,
+        "clientW": 1440,
+        "imgsTotal": 0,
+        "missingAlt": 0,
+        "hasMain": false,
+        "hasNav": false,
+        "hasFooter": false,
+        "ariaLive": true,
+        "focusable": 0,
+        "bodyText": "",
+        "links": []
+      },
+      "axe": {
+        "ran": true,
+        "violations": [
+          {
+            "id": "document-title",
+            "impact": "serious",
+            "nodes": 1,
+            "help": "Documents must have <title> element to aid in navigation"
+          },
+          {
+            "id": "html-has-lang",
+            "impact": "serious",
+            "nodes": 1,
+            "help": "<html> element must have a lang attribute"
+          },
+          {
+            "id": "landmark-one-main",
+            "impact": "moderate",
+            "nodes": 1,
+            "help": "Document should have one main landmark"
+          },
+          {
+            "id": "page-has-heading-one",
+            "impact": "moderate",
+            "nodes": 1,
+            "help": "Page should contain a level-one heading"
+          },
+          {
+            "id": "region",
+            "impact": "moderate",
+            "nodes": 2,
+            "help": "All page content should be contained by landmarks"
+          }
+        ]
+      }
+    }
+  ]
+}
