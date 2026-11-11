@@ -10,7 +10,9 @@ import { Label } from "@/components/ui/label"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { Checkbox } from "@/components/ui/checkbox"
 import { ResetUsuarioRequest } from "@/types"
-import { PasswordReset } from "@/services/usuarioService"
+import { addUser, PasswordReset } from "@/services/usuarioService"
+import { useToast } from "@/hooks/use-toast"
+import { Toaster } from "@/components/ui/toaster"
 
 
 export default function LoginPage() {
@@ -21,6 +23,12 @@ export default function LoginPage() {
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [errorMessage, setErrorMessage] = useState("")
   const [successMessage, setSuccessMessage] = useState("")
+  const [firstName, setFirstName] = useState("")
+  const [lastName, setLastName] = useState("")
+  const [registerEmail, setRegisterEmail] = useState("")
+  const [registerPassword, setRegisterPassword] = useState("")
+  const [confirmPassword, setConfirmPassword] = useState("")
+  const { toast } = useToast()
 
   const handleLogin = async (e: React.FormEvent) => {
     e.preventDefault()
@@ -57,15 +65,19 @@ export default function LoginPage() {
     setSuccessMessage("")
     const loginData: ResetUsuarioRequest = { email: resetEmail}
     try {
-      const result = await PasswordReset(loginData) // Asegúrate de que `resetPassword` exista en el servicio
+      // TODO(auth): verificar que el backend implemente POST /usuarios/reset_password
+      // (ENDPOINTS.USUARIOS.RESET_PASSWORD). Si aún no existe, este catch muestra
+      // un mensaje accionable en vez de romper el flujo.
+      const result = await PasswordReset(loginData)
       if (result.success) {
         setSuccessMessage("Te hemos enviado un correo con instrucciones para restablecer tu contraseña.")
+        toast({ title: "Correo enviado", description: "Revisá tu bandeja para restablecer tu contraseña." })
       } else {
         setErrorMessage(result.error || "No se pudo enviar el correo de recuperación.")
       }
     } catch (error) {
-      console.error("Error en addUser:", error);
-      throw error;
+      console.error("Error en PasswordReset:", error);
+      setErrorMessage("No pudimos procesar tu solicitud. Verificá tu conexión e intentá de nuevo.")
     } finally {
       setIsSubmitting(false)
     }
@@ -74,14 +86,39 @@ export default function LoginPage() {
   const handleRegister = async (e: React.FormEvent) => {
     e.preventDefault()
     setIsSubmitting(true)
-    // Lógica real de registro aquí
-    setTimeout(() => {
+    setErrorMessage("")
+    setSuccessMessage("")
+    try {
+      if (registerPassword !== confirmPassword) {
+        setErrorMessage("Las contraseñas no coinciden.")
+        return
+      }
+      // Registro real contra POST /usuarios. Rol mínimo ("alumno") por defecto;
+      // un admin puede elevarlo luego desde /admin/usuarios.
+      const formData = new FormData()
+      formData.append("nombre", firstName.trim())
+      formData.append("apellido", lastName.trim())
+      formData.append("correo", registerEmail.trim())
+      formData.append("password", registerPassword)
+      formData.append("tipo_usuario", "alumno")
+      const result = await addUser(formData)
+      if (result && (result.success !== false)) {
+        setSuccessMessage("Cuenta creada. Ya podés iniciar sesión.")
+        toast({ title: "Registro exitoso", description: "Ya podés iniciar sesión con tu cuenta." })
+      } else {
+        setErrorMessage(result?.error || result?.message || "No se pudo crear la cuenta.")
+      }
+    } catch (error) {
+      console.error("Error en handleRegister:", error);
+      setErrorMessage("No pudimos crear tu cuenta. Verificá los datos e intentá de nuevo.")
+    } finally {
       setIsSubmitting(false)
-    }, 1500)
+    }
   }
 
   return (
     <div className="container mx-auto flex min-h-[calc(100vh-8rem)] items-center justify-center py-8">
+      <Toaster />
       <div className="w-full max-w-md">
         <Link href="/" className="mb-6 flex items-center text-sm text-muted-foreground hover:text-primary">
           <ArrowLeft className="mr-2 h-4 w-4" />
@@ -161,24 +198,24 @@ export default function LoginPage() {
                   <div className="grid grid-cols-2 gap-4">
                     <div className="space-y-2">
                       <Label htmlFor="firstName">Nombre</Label>
-                      <Input id="firstName" placeholder="Juan" required disabled={isSubmitting} />
+                      <Input id="firstName" placeholder="Juan" required disabled={isSubmitting} value={firstName} onChange={(e) => setFirstName(e.target.value)} />
                     </div>
                     <div className="space-y-2">
                       <Label htmlFor="lastName">Apellido</Label>
-                      <Input id="lastName" placeholder="Pérez" required disabled={isSubmitting} />
+                      <Input id="lastName" placeholder="Pérez" required disabled={isSubmitting} value={lastName} onChange={(e) => setLastName(e.target.value)} />
                     </div>
                   </div>
                   <div className="space-y-2">
                     <Label htmlFor="registerEmail">Correo electrónico</Label>
-                    <Input id="registerEmail" type="email" required disabled={isSubmitting} />
+                    <Input id="registerEmail" type="email" required disabled={isSubmitting} value={registerEmail} onChange={(e) => setRegisterEmail(e.target.value)} />
                   </div>
                   <div className="space-y-2">
                     <Label htmlFor="registerPassword">Contraseña</Label>
-                    <Input id="registerPassword" type="password" required disabled={isSubmitting} />
+                    <Input id="registerPassword" type="password" required disabled={isSubmitting} value={registerPassword} onChange={(e) => setRegisterPassword(e.target.value)} />
                   </div>
                   <div className="space-y-2">
                     <Label htmlFor="confirmPassword">Confirmar contraseña</Label>
-                    <Input id="confirmPassword" type="password" required disabled={isSubmitting} />
+                    <Input id="confirmPassword" type="password" required disabled={isSubmitting} value={confirmPassword} onChange={(e) => setConfirmPassword(e.target.value)} />
                   </div>
                   <div className="flex items-center space-x-2">
                     <Checkbox id="terms" required />
@@ -190,7 +227,17 @@ export default function LoginPage() {
                     </Label>
                   </div>
                 </CardContent>
-                <CardFooter>
+                <CardFooter className="flex flex-col space-y-4">
+                  {errorMessage && (
+                    <div className="bg-red-100 border border-red-400 text-red-700 px-4 py-2 rounded" role="alert">
+                      {errorMessage}
+                    </div>
+                  )}
+                  {successMessage && (
+                    <div className="bg-green-100 border border-green-400 text-green-700 px-4 py-2 rounded" role="alert">
+                      {successMessage}
+                    </div>
+                  )}
                   <Button type="submit" className="w-full" disabled={isSubmitting}>
                     {isSubmitting ? "Registrando..." : "Registrarse"}
                   </Button>
