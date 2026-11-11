@@ -4,6 +4,8 @@ import { usePathname, useRouter } from "next/navigation";
 import LayoutNormal from "./layoutNormal";
 import LayoutAdmin from "./layoutAdmin";
 import { getUsuarioActual, cerrarSesion } from "../hooks/islogin";
+// Guard server-side real: src/middleware.ts (verifica cookie httpOnly `authToken`).
+// Este check client-side queda solo como fallback para UX (ej. ocultar flash).
 
 interface LayoutProps {
   children: React.ReactNode;
