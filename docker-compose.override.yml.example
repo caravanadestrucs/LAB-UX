@@ -1,0 +1,17 @@
+# docker-compose.override.yml — copiar a docker-compose.override.yml para desarrollo
+# Este archivo NO se commitea (agregar a .gitignore si lo usás).
+# Provee hot-reload montando el código local en el container.
+services:
+  app:
+    build:
+      target: deps
+    command: npm run dev
+    environment:
+      NODE_ENV: development
+      NEXT_PUBLIC_API_URL: http://localhost:3000/api
+    volumes:
+      - .:/app
+      - /app/node_modules
+      - /app/.next
+    ports:
+      - "3000:3000"
