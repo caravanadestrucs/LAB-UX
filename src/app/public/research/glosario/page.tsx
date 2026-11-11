@@ -7,46 +7,62 @@ import { Button } from "@/components/ui/button"
 import { Search } from "lucide-react"
 import { fetchTerminos } from "@/services/glosario"
 import { useToast } from "@/components/hooks/use-toast"
+import { useDebouncedValue } from "@/hooks/useDebouncedValue"
 
 export default function GlosarioPage() {
   const { toast } = useToast()
   const [terminos, setTerminos] = useState<{ termino: string; descripcion: string }[]>([])
   const [loading, setLoading] = useState(false)
   const [filter, setFilter] = useState("")
+  const debouncedFilter = useDebouncedValue(filter, 300)
   const [selectedLetter, setSelectedLetter] = useState("")
 
   const alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".split("")
 
-  // Loader combinado para letra y búsqueda
-  const loadTermsFiltered = async (letter = selectedLetter, search = filter) => {
-    setLoading(true)
-    setTerminos([])
-    try {
-      let query = []
-      if (letter) query.push(`letra=${encodeURIComponent(letter.toLowerCase())}`)
-      if (search) query.push(`q=${encodeURIComponent(search)}`)
-      const queryString = query.length ? `?${query.join("&")}` : ""
-      const data = await fetchTerminos(queryString)
-      setTerminos(data)
-    } catch (error: any) {
-      toast({
-        title: "Error",
-        description: error?.message || error?.error || "No se pudo cargar el glosario",
-        variant: "destructive",
-      })
-    } finally {
-      setLoading(false)
-    }
-  }
-
   useEffect(() => {
-    loadTermsFiltered()
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [selectedLetter, filter])
+    const controller = new AbortController()
 
-  const handleSearch = async () => {
-    await loadTermsFiltered()
-  }
+    const loadTermsFiltered = async () => {
+      setLoading(true)
+      try {
+        const query: string[] = []
+        if (selectedLetter) query.push(`letra=${encodeURIComponent(selectedLetter.toLowerCase())}`)
+        if (debouncedFilter) query.push(`q=${encodeURIComponent(debouncedFilter)}`)
+        const queryString = query.length ? `?${query.join("&")}` : ""
+        const data = await fetchTerminos(queryString, { signal: controller.signal })
+        if (!controller.signal.aborted) {
+          setTerminos(data)
+        }
+      } catch (error: unknown) {
+        if (error instanceof DOMException && error.name === "AbortError") return
+        // fetch abort via AbortSignal may throw DOMException, also check generic AbortError
+        if (typeof error === "object" && error !== null && "name" in error && (error as { name: string }).name === "AbortError") {
+          return
+        }
+        const msg =
+          error instanceof Error
+            ? error.message
+            : typeof error === "object" && error !== null && "message" in error
+              ? String((error as { message: unknown }).message)
+              : typeof error === "object" && error !== null && "error" in error
+                ? String((error as { error: unknown }).error)
+                : "No se pudo cargar el glosario"
+        toast({
+          title: "Error",
+          description: msg,
+          variant: "destructive",
+        })
+      } finally {
+        if (!controller.signal.aborted) {
+          setLoading(false)
+        }
+      }
+    }
+
+    loadTermsFiltered()
+
+    return () => controller.abort()
+  }, [selectedLetter, debouncedFilter, toast])
 
   // Agrupar términos por letra inicial
   const groupedTerms = terminos.reduce<Record<string, typeof terminos>>((acc, term) => {
@@ -66,29 +82,36 @@ export default function GlosarioPage() {
           </p>
         </div>
 
-        <div className="flex items-center space-x-2">
+        <form
+          role="search"
+          aria-label="Buscar en glosario"
+          className="flex items-center space-x-2"
+          onSubmit={(e) => e.preventDefault()}
+        >
           <div className="relative flex-1 max-w-sm">
-            <Search className="absolute left-2.5 top-2.5 h-4 w-4 text-muted-foreground" />
+            <Search className="absolute left-2.5 top-2.5 h-4 w-4 text-muted-foreground" aria-hidden="true" />
             <Input
               type="search"
               placeholder="Buscar términos..."
               className="pl-8"
               value={filter}
               onChange={(e) => setFilter(e.target.value)}
-              onKeyDown={(e) => e.key === "Enter" && handleSearch()}
+              aria-label="Buscar términos"
             />
           </div>
-          <Button onClick={handleSearch}>
-            <Search className="h-4 w-4 mr-2" />
+          <Button type="submit" aria-label="Buscar">
+            <Search className="h-4 w-4 mr-2" aria-hidden="true" />
             Buscar
           </Button>
-        </div>
+        </form>
 
-        <div className="flex flex-wrap gap-1">
+        <div className="flex flex-wrap gap-1" role="group" aria-label="Filtrar por letra">
           <Button
             variant={selectedLetter === "" ? "default" : "outline"}
             size="sm"
             onClick={() => setSelectedLetter("")}
+            aria-pressed={selectedLetter === ""}
+            aria-label="Mostrar todos los términos"
           >
             Todos
           </Button>
@@ -99,10 +122,17 @@ export default function GlosarioPage() {
               size="sm"
               onClick={() => setSelectedLetter(letter)}
               disabled={loading}
+              aria-pressed={selectedLetter === letter}
+              aria-label={`Filtrar por letra ${letter}`}
             >
               {letter}
             </Button>
           ))}
+        </div>
+
+        {/* aria-live region for screen readers */}
+        <div aria-live="polite" aria-atomic="true" className="sr-only">
+          {loading ? "Cargando términos..." : `${terminos.length} término${terminos.length !== 1 ? "s" : ""} encontrado${terminos.length !== 1 ? "s" : ""}`}
         </div>
 
         <Card>
@@ -150,4 +180,3 @@ export default function GlosarioPage() {
     </div>
   )
 }
-
