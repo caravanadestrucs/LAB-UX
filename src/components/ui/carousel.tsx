@@ -1,5 +1,11 @@
 "use client"
 
+// NOTE(bundle): embla-carousel-react está en dependencies pero este Carousel es
+// implementación custom sin embla (verificado 0 imports de embla en src).
+// TODO(bundle): evaluar remover embla-carousel-react si no se planea usar,
+// o migrar este componente a embla con dynamic(() => import) para code-split.
+// Por ahora se conserva por compatibilidad — no duplica Radix como antd.
+
 import { useState, useEffect, useCallback } from "react"
 import { ChevronLeft, ChevronRight } from "lucide-react"
 import { cn } from "@/lib/utils"

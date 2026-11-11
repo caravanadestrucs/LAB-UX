@@ -201,7 +201,9 @@ Pasos de migración real (cuando haya dump Mongo):
 - [ ] Instalar `mysql2`: `npm install mysql2` (y opcional `bcryptjs` si el hash de password se hace en Next).
 - [ ] Implementar API Routes bajo `src/app/api/**/route.ts` que usen `src/lib/db.ts` (reemplazan `https://backend.lab-ux.site` cuando se quiera backend local).
 - [ ] Migrar `jsonwebtoken` + `localStorage` a `httpOnly` cookies + `middleware.ts` (P0 del tech debt).
-- [ ] Eliminar `src/lib/mongodb.ts` y `mongodb` de `package.json` cuando la migración esté completa y sin lecturas legacy.
+- [x] Eliminar `mongodb` de FE `package.json` — hecho en `chore/bundle-cleanup` (PR-10). `src/lib/mongodb.ts` queda como stub deprecated sin dep.
+  > Nota: `jsonwebtoken` y `mongodb` se removieron del **FE** (`C:\Users\Dario\Videos\LAB-Ux\package.json`). El backend (`https://backend.lab-ux.site`) mantiene su propio `package.json` con esas deps si aún las necesita. No reinstalar en FE.
+- [ ] Eliminar `src/lib/mongodb.ts` (stub) cuando no queden lecturas legacy y `MONGODB_URI` ya no se defina.
 - [ ] Eliminar `MONGODB_URI` de `.env*` y de `docker-compose.yml` (env).
 
 ### c) Uploads
