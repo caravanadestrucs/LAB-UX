@@ -148,7 +148,8 @@ describe("write paths use FormData, never JSON/base64 (HU15)", () => {
 // HU15: migrate these to FormData + VARCHAR path like the rest.
 // ---------------------------------------------------------------------------
 describe("known JSON-instead-of-FormData gaps (HU15)", () => {
-  it.fails(
+  // PR12 migrado a FormData — ahora debe pasar.
+  it(
     "addMetodologiaPrueba sends FormData (today: JSON with bare filename)",
     async () => {
       await addMetodologiaPrueba({ nombre: "Test UX" } as never);
@@ -157,7 +158,8 @@ describe("known JSON-instead-of-FormData gaps (HU15)", () => {
     },
   );
 
-  it.fails(
+  // PR12 migrado a FormData — ahora debe pasar.
+  it(
     "updateMetodologiaPrueba sends FormData (today: JSON with bare filename)",
     async () => {
       await updateMetodologiaPrueba(1, { nombre: "Test UX" } as never);
@@ -166,7 +168,8 @@ describe("known JSON-instead-of-FormData gaps (HU15)", () => {
     },
   );
 
-  it.fails(
+  // PR12 migrado a FormData — ahora debe pasar.
+  it(
     "addRecursoToGuia sends FormData for file resources (today: JSON)",
     async () => {
       await addRecursoToGuia(1, { recurso: "manual.pdf" } as never);
