@@ -1,6 +1,7 @@
 "use client"
 
 import { useEffect, useState } from "react"
+import Image from "next/image"
 import { Carousel } from "@/components/ui/carousel"
 import { Skeleton } from "@/components/ui/skeleton"
 import { fetchContenidos } from "@/services/contenido"
@@ -10,13 +11,13 @@ import type { ContenidoSitio } from "@/types/contenidoSitio"
 function SkeletonHome() {
   return (
     <main aria-busy="true" aria-label="Cargando contenido" className="min-h-screen">
-      {/* Banner skeleton 16/9 + altura fija para evitar CLS — coincide con Carousel h-[400px] */}
-      <div className="relative h-[400px] w-full overflow-hidden bg-muted">
-        <Skeleton className="absolute inset-0 h-full w-full rounded-none aspect-[16/9]" />
+      {/* Banner skeleton — altura sincronizada con hero lab (560/600) para evitar CLS */}
+      <div className="relative min-h-[560px] w-full overflow-hidden bg-muted md:min-h-[600px]">
+        <Skeleton className="absolute inset-0 h-full w-full rounded-none" />
       </div>
 
       {/* Mision skeleton */}
-      <section className="py-16">
+      <section className="bg-white py-16 md:py-24">
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
             <div className="order-2 md:order-1 space-y-4">
@@ -34,7 +35,7 @@ function SkeletonHome() {
       </section>
 
       {/* Vision skeleton */}
-      <section className="py-16">
+      <section className="bg-[#F1F5F9] py-16 md:py-24">
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
             <div>
@@ -52,7 +53,7 @@ function SkeletonHome() {
       </section>
 
       {/* Valores skeleton grid 3 cols */}
-      <section className="py-16">
+      <section className="bg-white py-16 md:py-24">
         <div className="container mx-auto px-4">
           <div className="text-center mb-12 space-y-4 flex flex-col items-center">
             <Skeleton className="h-8 w-56" />
@@ -104,30 +105,33 @@ export default function Home() {
 
   return (
     <main className="min-h-screen">
-      {/* Banner Carrusel — altura fija h-[400px] reservada evita CLS */}
+      {/* Hero lab observacional */}
       <Carousel />
 
       {/* Sección de Misión */}
       {mision && (
-        <section className="py-16">
+        <section id="mision" aria-labelledby="mision-titulo" className="bg-white py-16 md:py-24">
           <div className="container mx-auto px-4">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
               {/* Texto de la Misión */}
               <div className="order-2 md:order-1">
-                <h2 className="text-3xl font-bold mb-2">{mision.titulo}</h2>
+                <h2 id="mision-titulo" className="mb-2 font-display text-4xl font-bold tracking-tight">
+                  {mision.titulo}
+                </h2>
                 <div className="w-20 h-1 bg-primary mb-6" aria-hidden="true"></div>
-                <p className="text-lg font-thin">{mision.texto}</p>
+                <p className="text-lg font-normal text-slate-700">{mision.texto}</p>
               </div>
               {/* Imagen de la Misión — min-h evita CLS si imagen tarda */}
               <div className="order-1 md:order-2">
-                <div className="relative h-[300px] md:h-[400px] w-full overflow-hidden rounded-lg shadow-lg flex items-center justify-center bg-muted">
+                <div className="relative h-[300px] md:h-[400px] w-full overflow-hidden rounded-lg shadow-lab flex items-center justify-center bg-muted">
                   {mision.imagen && (
-                    <img
+                    <Image
                       src={getMediaUrl("contenido", mision.imagen)}
                       alt={mision.titulo}
-                      className="object-cover w-full h-full"
-                      style={{ maxHeight: 400, borderRadius: "0.5rem" }}
-                      loading="eager"
+                      fill
+                      sizes="(max-width: 768px) 100vw, 50vw"
+                      className="object-cover"
+                      priority
                     />
                   )}
                 </div>
@@ -139,18 +143,19 @@ export default function Home() {
 
       {/* Sección de Visión */}
       {vision && (
-        <section className="py-16">
+        <section aria-labelledby="vision-titulo" className="bg-[#F1F5F9] py-16 md:py-24">
           <div className="container mx-auto px-4">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
               {/* Imagen de la Visión */}
               <div>
-                <div className="relative h-[300px] md:h-[400px] w-full overflow-hidden rounded-lg shadow-lg flex items-center justify-center bg-muted">
+                <div className="relative h-[300px] md:h-[400px] w-full overflow-hidden rounded-lg shadow-lab flex items-center justify-center bg-muted">
                   {vision.imagen && (
-                    <img
+                    <Image
                       src={getMediaUrl("contenido", vision.imagen)}
                       alt={vision.titulo}
-                      className="object-cover w-full h-full"
-                      style={{ maxHeight: 400, borderRadius: "0.5rem" }}
+                      fill
+                      sizes="(max-width: 768px) 100vw, 50vw"
+                      className="object-cover"
                       loading="lazy"
                     />
                   )}
@@ -158,9 +163,11 @@ export default function Home() {
               </div>
               {/* Texto de la Visión */}
               <div>
-                <h2 className="text-3xl font-bold mb-2">{vision.titulo}</h2>
+                <h2 id="vision-titulo" className="mb-2 font-display text-4xl font-bold tracking-tight">
+                  {vision.titulo}
+                </h2>
                 <div className="w-20 h-1 bg-primary mb-6" aria-hidden="true"></div>
-                <p className="text-lg font-thin">{vision.texto}</p>
+                <p className="text-lg font-normal text-slate-700">{vision.texto}</p>
               </div>
             </div>
           </div>
@@ -168,20 +175,31 @@ export default function Home() {
       )}
 
       {/* Sección de Valores */}
-      <section className="py-16">
+      <section aria-labelledby="valores-titulo" className="bg-white py-16 md:py-24">
         <div className="container mx-auto px-4">
           <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold mb-2">Nuestros Valores</h2>
+            <h2 id="valores-titulo" className="mb-2 font-display text-4xl font-bold tracking-tight">
+              Nuestros Valores
+            </h2>
             <div className="w-20 h-1 bg-primary mx-auto mb-8" aria-hidden="true"></div>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto min-h-[200px]">
-            {valores.map((valor) => (
+            {valores.map((valor, i) => (
               <div key={valor.ID} className="p-6 rounded-lg shadow-md text-center">
+                <span
+                  aria-hidden="true"
+                  className="mb-3 block font-display text-sm font-bold tabular-nums tracking-widest text-[#0E7490]"
+                >
+                  {String(i + 1).padStart(2, "0")}
+                </span>
                 <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4 overflow-hidden">
                   {valor.imagen ? (
-                    <img
+                    <Image
                       src={getMediaUrl("contenido", valor.imagen)}
-                      alt={valor.titulo}
+                      alt=""
+                      width={40}
+                      height={40}
+                      sizes="40px"
                       className="h-10 w-10 object-contain mx-auto"
                       loading="lazy"
                     />
@@ -190,7 +208,7 @@ export default function Home() {
                   )}
                 </div>
                 <h3 className="text-xl font-bold mb-2">{valor.titulo}</h3>
-                <p className="font-thin">{valor.texto}</p>
+                <p className="font-normal text-slate-700">{valor.texto}</p>
               </div>
             ))}
           </div>

@@ -7,6 +7,12 @@ module.exports = {
   ],
   theme: {
   	extend: {
+  		fontFamily: {
+  			display: ['var(--font-display)', 'Sora', 'Space Grotesk', 'ui-sans-serif', 'system-ui', 'sans-serif'],
+  		},
+  		boxShadow: {
+  			lab: '0 20px 50px -20px rgba(15, 30, 51, 0.35)',
+  		},
   		borderRadius: {
   			lg: 'var(--radius)',
   			md: 'calc(var(--radius) - 2px)',
