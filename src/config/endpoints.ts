@@ -1,4 +1,5 @@
 import { API_URL } from "@/constants/Api";
+import { getMediaUrl } from "@/lib/media";
 
 export const ENDPOINTS = {
     USUARIOS : {
@@ -6,7 +7,7 @@ export const ENDPOINTS = {
       BY_ID : (id:number) => `${API_URL}/usuarios/${id}`,
       LOGIN: `${API_URL}/usuarios/login`,
       RESET_PASSWORD: `${API_URL}/usuarios/reset_password`,
-      AVATAR: (filename: string) => `${API_URL}/uploads/${filename}`,
+      AVATAR: (filename: string) => getMediaUrl("usuarios", filename),
       SEARCH: (params: {
         search?: string;
         rol?: string;
@@ -18,7 +19,7 @@ export const ENDPOINTS = {
         if (params.estado && params.estado !== "todos-status") urlParams.append("estado", params.estado);
         return `${API_URL}/usuarios?${urlParams.toString()}`;
         },
-      AVATAR2 : (filename: string) => `${API_URL}/uploads/${filename}`,
+      AVATAR2 : (filename: string) => getMediaUrl("usuarios", filename),
     },
     SOPORTE: `${API_URL}/soporte`,
 }

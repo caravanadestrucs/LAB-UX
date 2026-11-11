@@ -22,7 +22,7 @@ import { Book, Edit, ExternalLink, FileText, ImagePlus, Plus, Search, Trash2, Up
 import { Toaster } from "@/components/ui/toaster"
 import { createGuia, fetchGuias, deleteGuia, updateGuia } from "@/services/guias"
 import { useToast } from "@/components/hooks/use-toast"
-import { API_URL } from "@/constants/Api"
+import { getMediaUrl } from "@/lib/media"
 
 type GuiaCategory = "participantes" | "metodologia" | "diseno" | "accesibilidad" | "general";
 type GuiaType = "pdf" | "video" | "web";
@@ -398,9 +398,9 @@ export default function GuiasPage() {
                   <img
                     src={
                       guide.imagen
-                        ? `${API_URL}/uploads/guias/${guide.imagen}`
+                        ? getMediaUrl("guias", guide.imagen)
                         : guide.image
-                        ? `${API_URL}/uploads/guias/${guide.image}`
+                        ? getMediaUrl("guias", guide.image)
                         : "/placeholder.svg"
                     }
                     alt={guide.titulo || guide.title}
@@ -427,7 +427,7 @@ export default function GuiasPage() {
                     <a
                       href={
                         guide.recursos?.[0]?.recurso
-                          ? `${API_URL}/uploads/tutoriales/${guide.recursos?.[0]?.recurso}`
+                          ? getMediaUrl("tutoriales", guide.recursos?.[0]?.recurso)
                           : guide.url || "#"
                       }
                       target="_blank"
@@ -493,7 +493,7 @@ export default function GuiasPage() {
                           <a
                             href={
                               guide.recursos?.[0]?.recurso
-                                ? `${API_URL}/uploads/tutoriales/${guide.recursos?.[0]?.recurso}`
+                                ? getMediaUrl("tutoriales", guide.recursos?.[0]?.recurso)
                                 : guide.url || "#"
                             }
                             target="_blank"

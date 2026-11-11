@@ -1,7 +1,7 @@
 "use client";
 import { User } from "../types/index";
 import { ENDPOINTS } from "../config/endpoints";
-import { API_URL } from "../constants/Api";
+import { getMediaUrl } from "@/lib/media";
 
 export const fetchUsers = async (search: string, filterRol: string, filterEstado: string) => {
   const url = ENDPOINTS.USUARIOS.SEARCH({
@@ -113,7 +113,7 @@ export async function PasswordReset(data: { email: string }) {
 
 export function getUserAvatarUrl(user: User) {
   if (typeof user.foto === "string" ) {
-    return ENDPOINTS.USUARIOS.AVATAR(user.foto);
+    return getMediaUrl("usuarios", user.foto);
   } else if (user.foto instanceof Blob) {
     return URL.createObjectURL(user.foto);
   }
@@ -123,7 +123,7 @@ export const getAvatarUrl = (avatarPath?: string | File): string | undefined => 
   if (!avatarPath) return undefined;
   
   if (typeof avatarPath === 'string') {
-    return ENDPOINTS.USUARIOS.AVATAR2(avatarPath);
+    return getMediaUrl("usuarios", avatarPath);
   }
   return URL.createObjectURL(avatarPath);
 };

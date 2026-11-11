@@ -33,7 +33,7 @@ import {
   checkBackendConnection
 } from "@/services";
 import { useToast } from "@/components/hooks/use-toast";
-import { API_URL } from "@/constants/Api";
+import { getMediaUrl } from "@/lib/media";
 
 const MAX_IMAGEN_BYTES = 5 * 1024 * 1024; // 5MB
 
@@ -349,7 +349,7 @@ useEffect(() => {
               <CardContent>
                 {item.imagen && (
                   <img
-                    src={`${API_URL}/uploads/${item.imagen}`}
+                    src={getMediaUrl("metodologias", item.imagen)}
                     alt={item.nombre}
                     className="w-full h-40 object-cover rounded mb-4"
                   />
@@ -452,7 +452,7 @@ useEffect(() => {
               />
               {(previewUrl || currentItem?.imagen) && (
                 <img
-                  src={previewUrl ?? `${API_URL}/uploads/${currentItem?.imagen}`}
+                  src={previewUrl ?? getMediaUrl("metodologias", currentItem?.imagen)}
                   alt="Preview"
                   className="h-40 object-contain rounded border"
                 />

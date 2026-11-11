@@ -12,8 +12,7 @@ import { ContenidoSitio, Valor } from "@/types/contenidoSitio"
 import { fetchContenidos, addContenido, updateContenido, deleteContenido } from "@/services/contenido"
 import { useToast } from "@/components/hooks/use-toast"
 import { Toaster } from "@/components/ui/toaster"
-import { API_URL } from "@/constants/Api"  
-
+import { getMediaUrl } from "@/lib/media"  
 function getMySQLDateTimeString(date: Date) {
   return date.toISOString().slice(0, 19).replace('T', ' ');
 }
@@ -299,7 +298,7 @@ export default function MisionVisionPage() {
             <Label>Imagen de la Misión (opcional)</Label>
             <div className="flex items-center gap-4">
               <div className="h-32 w-32 rounded-md border flex items-center justify-center bg-muted">
-                {mision?.imagen && <img src={mision.imagen.startsWith("blob:") ? mision.imagen : `${API_URL}/uploads/contenido/${mision.imagen}`} alt="Misión" className="max-h-full max-w-full" />}
+                {mision?.imagen && <img src={getMediaUrl("contenido", mision.imagen)} alt="Misión" className="max-h-full max-w-full" />}
               </div>
               <input
                 type="file"
@@ -353,7 +352,7 @@ export default function MisionVisionPage() {
             <Label>Imagen de la Visión (opcional)</Label>
             <div className="flex items-center gap-4">
               <div className="h-32 w-32 rounded-md border flex items-center justify-center bg-muted">
-                {vision?.imagen && <img src={vision.imagen.startsWith("blob:") ? vision.imagen : `${API_URL}/uploads/contenido/${vision.imagen}`} alt="Visión" className="max-h-full max-w-full" />}
+                {vision?.imagen && <img src={getMediaUrl("contenido", vision.imagen)} alt="Visión" className="max-h-full max-w-full" />}
               </div>
               <input
                 type="file"
@@ -417,7 +416,7 @@ export default function MisionVisionPage() {
                 <div className="space-y-3">
                   <div className="flex items-center gap-3">
                     <div className="w-12 h-12 rounded-md border overflow-hidden flex-shrink-0 bg-muted flex items-center justify-center">
-                      {valor?.imagen && <img src={valor.imagen.startsWith("blob:") ? valor.imagen : `${API_URL}/uploads/contenido/${valor.imagen}`} alt={valor.titulo} className="max-h-full max-w-full" />}
+                      {valor?.imagen && <img src={getMediaUrl("contenido", valor.imagen)} alt={valor.titulo} className="max-h-full max-w-full" />}
                       
                     </div>
                     <div className="flex-1 min-w-0 ">
@@ -494,7 +493,7 @@ export default function MisionVisionPage() {
                     Seleccionar Imagen
                   </Button>
                   {valorEdit.imagen && (
-                    <img src={valorEdit.imagen.startsWith("blob:") ? valorEdit.imagen : `/uploads/valores/${valorEdit.imagen}`} alt="Icono" className="h-12 w-12 rounded-md border" />
+                    <img src={getMediaUrl("contenido", valorEdit.imagen)} alt="Icono" className="h-12 w-12 rounded-md border" />
                   )}
                 </div>
               </div>
@@ -566,7 +565,7 @@ export default function MisionVisionPage() {
                   Seleccionar Imagen
                 </Button>
                 {newValor.imagen && (
-                  <img src={newValor.imagen.startsWith("blob:") ? newValor.imagen : `/uploads/valores/${newValor.imagen}`} alt="Icono" className="h-12 w-12 rounded-md border" />
+                  <img src={getMediaUrl("contenido", newValor.imagen)} alt="Icono" className="h-12 w-12 rounded-md border" />
                 )}
               </div>
             </div>
