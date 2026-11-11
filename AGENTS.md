@@ -151,14 +151,28 @@ gentle-ai codegraph init --cwd .   # re-index si cambia root
 
 ---
 
-## 8. Testing (hoy 0% — a implementar)
+## 8. Testing
 
 ```bash
-npm run test     # Vitest (a crear)
-npm run e2e      # Playwright smoke: login, CRUD usuario, glosario
+npm run test       # Vitest unit suite (__tests__/*.test.ts)
+npm run test:watch # Vitest watch mode
+npm run test:e2e    # Playwright smoke (e2e/*.spec.ts, baseURL :3000)
+npm run test:all    # Unit + E2E
+npx tsc --noEmit   # Typecheck (must pass before PR)
 ```
 
-Sin tests actuales. Prioridad: smoke login + glosario + usuarios.
+- Unit: `__tests__/glosario.service.test.ts` (HU05 query+abort), `useDebouncedValue.test.ts`,
+  `media-attachments.test.ts` (HU15 FormData contract; metodologiaPrueba/addRecursoToGuia
+  marked `it.fails` until migrated), `middleware-auth.test.ts` (HU08 + RBAC gap),
+  `endpoints.test.ts` (no localhost:5000).
+- E2E: glosario (debounce/filter/aria-live/empty), auth-guard (middleware only, no backend),
+  home (skeleton→content, HU01/HU09), contacto (SOPORTE mocked, HU07),
+  admin-proyectos-consistencia (`test.fixme` HU03 mock vs HU12 API).
+- Playwright browsers are NOT installed in-repo (`npx playwright install` on first E2E run).
+- Config: `vitest.config.ts` (alias `@` → `src`, jsdom, setup `vitest.setup.ts`),
+  `playwright.config.ts` (`testDir: e2e`, `reuseExistingServer: true`).
+
+Sin tests antes del 2026-11-11. Prioridad restante: smoke login + CRUD usuario + glosario.
 
 ---
 
