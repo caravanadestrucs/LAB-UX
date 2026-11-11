@@ -9,6 +9,8 @@ import { Textarea } from "@/components/ui/textarea"
 import { Button } from "@/components/ui/button"
 import { BookOpen, Mail, HelpCircle, FileText, Users } from "lucide-react"
 import {preguntasFrecuentes, guides, contacto} from "@/constants/data"
+import { ENDPOINTS } from "@/config/endpoints"
+import { useToast } from "@/hooks/use-toast"
 import {
   Dialog,
   DialogContent,
@@ -26,24 +28,27 @@ export default function Support() {
     const [mensaje, setMensaje] = useState('');
     const [respuesta, setRespuesta] = useState<string | null>(null);
     const [openGuide, setOpenGuide] = useState<string | null>(null)
+    const { toast } = useToast()
   
     const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
       e.preventDefault();
   
       if (!nombre || !correo || !asunto || !mensaje) {
-        setRespuesta('Por favor completa todos los campos obligatorios.');
+        const msg = 'Por favor completa todos los campos obligatorios.';
+        setRespuesta(msg);
+        toast({ title: "Campos requeridos", description: msg, variant: "destructive" });
         return;
       }
   
       try {
         const datos = {
-          nombre: `${nombre}`,
+          nombre,
           email: correo,
           asunto,
           mensaje,
         };
   
-        const response = await fetch('http://localhost:5000/soporte', {
+        const response = await fetch(ENDPOINTS.SOPORTE, {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify(datos),
@@ -52,12 +57,19 @@ export default function Support() {
         const resultado = await response.json();
   
         if (response.ok) {
-          setRespuesta(resultado.mensaje || '¡Tu solicitud fue enviada con éxito! Pronto nos pondremos en contacto contigo.');
+          const msg = resultado.mensaje || '¡Tu solicitud fue enviada con éxito! Pronto nos pondremos en contacto contigo.';
+          setRespuesta(msg);
+          toast({ title: "Solicitud enviada", description: msg });
         } else {
-          setRespuesta(resultado.error || 'Hubo un problema al procesar tu solicitud. Por favor, revisa los datos e inténtalo nuevamente.');
+          const msg = resultado.error || 'Hubo un problema al procesar tu solicitud. Por favor, revisa los datos e inténtalo nuevamente.';
+          setRespuesta(msg);
+          toast({ title: "Error al enviar", description: msg, variant: "destructive" });
         }
         } catch (error) {
-          setRespuesta('Ocurrió un error inesperado al enviar tu solicitud. Verifica tu conexión o intenta más tarde.'+ error);
+          console.error(error);
+          const msg = 'Ocurrió un error inesperado al enviar tu solicitud. Verifica tu conexión o intenta más tarde.';
+          setRespuesta(msg);
+          toast({ title: "Error de conexión", description: msg, variant: "destructive" });
         }
         
     };
@@ -117,6 +129,8 @@ export default function Support() {
                         id={campo.nombre.toLowerCase()}
                         type={campo.tipo}
                         required={campo.requerido}
+                        aria-required={campo.requerido}
+                        aria-invalid={campo.nombre === "Nombre" ? (!nombre && !!respuesta ? true : undefined) : (!correo && !!respuesta ? true : undefined)}
                         placeholder={campo.placeholder}
                         value={campo.nombre === "Nombre" ? nombre : correo}
                         onChange={(e) => campo.nombre === "Nombre" ? setNombre(e.target.value) : setCorreo(e.target.value)}
@@ -133,6 +147,8 @@ export default function Support() {
                       id={campo.nombre.toLowerCase()}
                       type={campo.tipo}
                       required={campo.requerido}
+                      aria-required={campo.requerido}
+                      aria-invalid={!asunto && !!respuesta ? true : undefined}
                       placeholder={campo.placeholder}
                       value={asunto}
                       onChange={(e) => setAsunto(e.target.value)}
@@ -147,6 +163,8 @@ export default function Support() {
                     <Textarea
                       id={campo.nombre.toLowerCase()}
                       required={campo.requerido}
+                      aria-required={campo.requerido}
+                      aria-invalid={!mensaje && !!respuesta ? true : undefined}
                       placeholder={campo.placeholder}
                       value={mensaje}
                       onChange={(e) => setMensaje(e.target.value)}
