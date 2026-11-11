@@ -7,6 +7,8 @@
 // Por ahora se conserva por compatibilidad — no duplica Radix como antd.
 
 import { useState, useEffect, useCallback } from "react"
+import Image from "next/image"
+import Link from "next/link"
 import { ChevronLeft, ChevronRight } from "lucide-react"
 import { cn } from "@/lib/utils"
 import { Button } from "@/components/ui/button"
@@ -37,6 +39,12 @@ function usePrefersReducedMotion(): boolean {
   return prefersReducedMotion
 }
 
+const METRICS = [
+  { value: "12", label: "tests activos" },
+  { value: "SUS 84", label: "promedio" },
+  { value: "96%", label: "WCAG AA" },
+] as const
+
 export function Carousel() {
   const [slides, setSlides] = useState<ContenidoSitio[]>([])
   const [currentIndex, setCurrentIndex] = useState(0)
@@ -50,7 +58,7 @@ export function Carousel() {
         const data = await fetchContenidos({ tipo: "banner", estado: "activo" })
         setSlides(data)
       } catch {
-        // Puedes mostrar un toast de error si lo deseas
+        // silente: el hero muestra identidad lab con fondo tinta
       }
     }
     loadBanners()
@@ -93,85 +101,117 @@ export function Carousel() {
     return () => clearTimeout(timeout)
   }
 
-  if (!slides.length) {
-    return (
-      <div className="flex items-center justify-center h-[400px] w-full">
-        <span className="text-muted-foreground">No hay banners para mostrar.</span>
-      </div>
-    )
-  }
+  const activeSlide = slides[currentIndex]
+  const subCopy =
+    activeSlide?.texto ||
+    "Tests con usuarios reales, análisis de cada duda y decisiones de diseño con evidencia."
 
   return (
     <div
-      className="relative h-[400px] w-full overflow-hidden"
+      className="relative min-h-[560px] w-full overflow-hidden bg-[#0F1E33] md:min-h-[600px]"
       onMouseEnter={handleInteraction}
       onTouchStart={handleInteraction}
       role="region"
       aria-roledescription="carousel"
-      aria-label="Carrusel de banners"
+      aria-label="Presentación del laboratorio"
       aria-live="polite"
       aria-atomic="false"
     >
-      {/* Slides */}
-      <div className="relative h-full w-full">
-        {slides.map((slide, index) => (
-          <div
-            key={slide.ID}
-            className={cn(
-              "absolute inset-0 flex items-center justify-center",
-              prefersReducedMotion ? "transition-none" : "transition-opacity duration-1000",
-              index === currentIndex ? "opacity-100" : "opacity-0 pointer-events-none",
-            )}
-            role="group"
-            aria-roledescription="slide"
-            aria-label={`${index + 1} de ${slides.length}: ${slide.titulo}`}
-            aria-hidden={index !== currentIndex}
-          >
-            {/* Imagen de fondo */}
-            <div className="absolute inset-0 flex items-center justify-center">
+      {/* Fondos rotativos (CMS) */}
+      <div className="absolute inset-0" aria-hidden={slides.length > 0 ? undefined : true}>
+        {slides.length > 0 ? (
+          slides.map((slide, index) => (
+            <div
+              key={slide.ID}
+              className={cn(
+                "absolute inset-0",
+                prefersReducedMotion ? "transition-none" : "transition-opacity duration-1000",
+                index === currentIndex ? "opacity-100" : "opacity-0 pointer-events-none",
+              )}
+              role="group"
+              aria-roledescription="slide"
+              aria-label={`${index + 1} de ${slides.length}: ${slide.titulo}`}
+              aria-hidden={index !== currentIndex}
+            >
               {slide.imagen ? (
-                <img
+                <Image
                   src={getMediaUrl("contenido", slide.imagen)}
-                  alt={slide.titulo || `Banner ${index + 1}`}
-                  className="object-cover w-full h-full"
-                  loading={index === 0 ? "eager" : "lazy"}
-                  fetchPriority={index === 0 ? "high" : "low"}
-                  decoding="async"
+                  alt=""
+                  fill
+                  sizes="100vw"
+                  priority={index === 0}
+                  className="object-cover"
                 />
               ) : (
-                <div className="w-full h-full bg-gray-200 flex items-center justify-center">
-                  <span className="text-gray-400">Sin imagen</span>
-                </div>
+                <div className="h-full w-full bg-[#0F1E33]" />
               )}
-              {/* Overlay contraste para garantizar legibilidad WCAG sobre imagen */}
-              <div
-                className="absolute inset-0 bg-black/40 bg-gradient-to-t from-black/50 via-black/20 to-transparent"
-                aria-hidden="true"
-              />
-              <div
-                className="absolute inset-0 opacity-10 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-white via-transparent to-transparent"
-                aria-hidden="true"
-              />
             </div>
+          ))
+        ) : (
+          <div className="absolute inset-0 bg-[#0F1E33]" aria-hidden="true" />
+        )}
+        {/* Overlay tinta para garantizar legibilidad WCAG sobre imagen */}
+        <div
+          className="absolute inset-0 bg-[#0F1E33]/70 bg-gradient-to-t from-[#0F1E33]/90 via-[#0F1E33]/50 to-[#0F1E33]/30"
+          aria-hidden="true"
+        />
+      </div>
 
-            {/* Content — texto blanco con sombra para contraste AA */}
-            <div className="relative z-10 text-center max-w-3xl px-6">
-              <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 text-white [text-shadow:0_2px_8px_rgba(0,0,0,0.6)]">
-                {slide.titulo}
-              </h2>
-              {slide.texto && (
-                <p className="text-lg sm:text-xl md:text-2xl text-white/95 [text-shadow:0_1px_6px_rgba(0,0,0,0.5)]">
-                  {slide.texto}
-                </p>
-              )}
-              {slide.link_redireccion && (
-                <a href={slide.link_redireccion} target="_blank" rel="noopener noreferrer">
-                  <Button className="mt-6">Saber más</Button>
-                </a>
-              )}
+      {/* Contenido hero */}
+      <div className="relative z-10 mx-auto flex min-h-[560px] w-full max-w-6xl flex-col justify-center px-4 py-14 md:min-h-[600px] md:px-6">
+        <p className="mb-4 inline-flex w-fit items-center gap-2 rounded-full border border-white/20 bg-white/10 px-3 py-1 text-xs font-semibold tracking-widest text-amber-300">
+          Laboratorio de usabilidad — UNCA
+        </p>
+        <h1 className="max-w-2xl font-display text-4xl font-bold leading-[1.05] text-white md:text-6xl">
+          Observamos cómo las personas usan lo que construís
+        </h1>
+        <p className="mt-4 max-w-xl text-lg text-white/85 md:text-xl">{subCopy}</p>
+
+        <div className="mt-8 flex flex-col gap-3 sm:flex-row">
+          <Button asChild size="lg" className="bg-[#0E7490] text-white shadow-lab hover:bg-[#0E7490]/90">
+            <Link href="/public/research/metodologias">Ver un test</Link>
+          </Button>
+          <Button
+            asChild
+            size="lg"
+            variant="outline"
+            className="border-white/40 bg-transparent text-white hover:bg-white/10 hover:text-white"
+          >
+            <Link href="/#mision">Cómo trabajamos</Link>
+          </Button>
+        </div>
+
+        {/* Ticker de métricas */}
+        <dl
+          aria-label="Métricas del laboratorio"
+          className="mt-10 flex w-fit flex-wrap items-center gap-x-8 gap-y-3 rounded-xl border border-white/15 bg-white/5 px-5 py-3 backdrop-blur-sm"
+        >
+          {METRICS.map((m) => (
+            <div key={m.label} className="flex items-baseline gap-2">
+              <dt className="order-2 text-sm text-white/70">{m.label}</dt>
+              <dd className="order-1 font-display text-xl font-bold tabular-nums text-white">{m.value}</dd>
             </div>
-          </div>
-        ))}
+          ))}
+        </dl>
+      </div>
+
+      {/* Anotación de observación + heatmap (decorativa) */}
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute right-6 top-16 z-10 hidden w-52 rotate-2 rounded-lg border border-amber-300/40 bg-[#0F1E33]/85 p-3 shadow-lab backdrop-blur-sm lg:block"
+      >
+        <p className="text-xs font-medium text-amber-200">“dudó 3&nbsp;s en Enviar”</p>
+        <div className="mt-2 flex items-center gap-1.5">
+          <span className="h-2.5 w-2.5 rounded-full bg-[#CA8A04]" />
+          <span className="h-2 w-2 rounded-full bg-[#CA8A04]/70" />
+          <span className="h-2 w-2 rounded-full bg-[#0E7490]" />
+          <span className="h-1.5 w-1.5 rounded-full bg-white/50" />
+          <span className="h-1.5 w-1.5 rounded-full bg-white/30" />
+          <span className="h-1.5 w-1.5 rounded-full bg-white/20" />
+        </div>
+        <div className="mt-2 h-1 overflow-hidden rounded-full bg-white/10">
+          <div className="h-full w-2/3 rounded-full bg-gradient-to-r from-[#0E7490] to-[#CA8A04]" />
+        </div>
       </div>
 
       {/* Navigation arrows */}
@@ -180,7 +220,7 @@ export function Carousel() {
           <Button
             variant="ghost"
             size="icon"
-            className="absolute left-4 top-1/2 -translate-y-1/2 bg-black/20 text-white hover:bg-black/30 hover:text-white z-20"
+            className="absolute left-4 top-1/2 z-20 -translate-y-1/2 bg-black/20 text-white hover:bg-black/30 hover:text-white"
             onClick={() => {
               prevSlide()
               handleInteraction()
@@ -193,7 +233,7 @@ export function Carousel() {
           <Button
             variant="ghost"
             size="icon"
-            className="absolute right-4 top-1/2 -translate-y-1/2 bg-black/20 text-white hover:bg-black/30 hover:text-white z-20"
+            className="absolute right-4 top-1/2 z-20 -translate-y-1/2 bg-black/20 text-white hover:bg-black/30 hover:text-white"
             onClick={() => {
               nextSlide()
               handleInteraction()
@@ -207,16 +247,16 @@ export function Carousel() {
 
       {/* Indicators — contraste corregido: bg-white/60 inactivo, bg-white activo con borde */}
       {slides.length > 1 && (
-        <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex space-x-2 z-20" role="tablist" aria-label="Selector de diapositivas">
+        <div className="absolute bottom-4 left-1/2 z-20 flex -translate-x-1/2 space-x-2" role="tablist" aria-label="Selector de diapositivas">
           {slides.map((_, index) => (
             <button
               key={index}
               role="tab"
               className={cn(
-                "w-3 h-3 rounded-full transition-all border focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-black/40",
+                "h-3 rounded-full border transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-black/40",
                 index === currentIndex
-                  ? "bg-white w-6 border-white shadow"
-                  : "bg-white/60 border-white/40 hover:bg-white/80",
+                  ? "w-6 border-white bg-white shadow"
+                  : "w-3 border-white/40 bg-white/60 hover:bg-white/80",
               )}
               onClick={() => {
                 goToSlide(index)
@@ -232,7 +272,8 @@ export function Carousel() {
 
       {/* Live region oculta para lectores de pantalla */}
       <div className="sr-only" aria-live="polite" aria-atomic="true">
-        Diapositiva {currentIndex + 1} de {slides.length}: {slides[currentIndex]?.titulo}
+        Diapositiva {currentIndex + 1} de {slides.length || 1}
+        {activeSlide?.titulo ? `: ${activeSlide.titulo}` : ""}
       </div>
     </div>
   )
