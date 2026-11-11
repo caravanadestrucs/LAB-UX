@@ -65,6 +65,7 @@ export function EventoDialog({
               src={evento.imagen}
               alt={evento.titulo}
               fill
+              sizes="(max-width: 768px) 100vw, 768px"
               className="object-cover"
             />
           </div>

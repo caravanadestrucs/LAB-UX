@@ -7,6 +7,7 @@ import { Button } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";
 import { Card } from "@/components/ui/card";
 import Image from "next/image";
+import Link from "next/link";
 import { NoticiaDialog } from "./components/dialogNoticia";
 import { EventoDialog } from "./components/dialogEvento";
 import { ProximoEventoDialog } from "./components/dialogProximoEvento";
@@ -122,7 +123,15 @@ export default function DifusionPage() {
             {loading ? (
               <SkeletonCards />
             ) : noticias.length === 0 ? (
-              <p className="text-muted-foreground">No hay noticias disponibles.</p>
+              <div className="space-y-3 py-4">
+                <p className="text-muted-foreground">
+                  Aún no hay noticias publicadas. Volvé la semana próxima o escribinos
+                  para participar como tester.
+                </p>
+                <Button asChild variant="outline">
+                  <Link href="/public/support">Escribinos para participar</Link>
+                </Button>
+              </div>
             ) : (
               <div className="space-y-12">
                 {noticias.map((noticia, index) => (
@@ -136,7 +145,8 @@ export default function DifusionPage() {
                           src={noticia.imagen || "/placeholder.svg"}
                           alt={noticia.titulo}
                           fill
-                          className="object-cover transition-transform group-hover:scale-105"
+                          sizes="(max-width: 768px) 100vw, 50vw"
+                          className="object-cover transition-transform motion-reduce:transition-none group-hover:scale-105"
                         />
                       </div>
                       <div className="flex flex-col">
@@ -184,7 +194,15 @@ export default function DifusionPage() {
                 ))}
               </div>
             ) : eventos.length === 0 ? (
-              <p className="text-muted-foreground">No hay eventos recientes.</p>
+              <div className="space-y-3 py-4">
+                <p className="text-muted-foreground">
+                  Aún no hay eventos recientes. Volvé la semana próxima o escribinos
+                  para participar como tester.
+                </p>
+                <Button asChild variant="outline">
+                  <Link href="/public/support">Escribinos para participar</Link>
+                </Button>
+              </div>
             ) : (
               <div className="grid grid-cols-1 gap-4">
                 {eventos.map((evento) => (
@@ -237,7 +255,15 @@ export default function DifusionPage() {
                 ))}
               </div>
             ) : proximosEventos.length === 0 ? (
-              <p className="text-muted-foreground text-sm">No hay próximos eventos.</p>
+              <div className="space-y-3">
+                <p className="text-muted-foreground text-sm">
+                  Aún no hay sesiones publicadas. Volvé la semana próxima o escribinos
+                  para participar como tester.
+                </p>
+                <Button asChild variant="outline" size="sm">
+                  <Link href="/public/support">Quiero ser tester</Link>
+                </Button>
+              </div>
             ) : (
               <div className="space-y-6">
                 {proximosEventos.map((evento) => (

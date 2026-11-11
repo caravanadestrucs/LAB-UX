@@ -179,7 +179,15 @@ export default function Support() {
               ))}
             </div>
           ) : faqs.length === 0 && !faqsError ? (
-            <p className="text-muted-foreground text-center py-8">No hay preguntas frecuentes disponibles.</p>
+            <div className="text-center py-8 space-y-3">
+              <p className="text-muted-foreground">
+                Aún no hay preguntas publicadas. Dejanos tu duda desde la pestaña Contacto
+                y la respondemos con el equipo del Lab.
+              </p>
+              <Button asChild variant="outline">
+                <a href="mailto:lab-ux@unca.edu.ar">Escribinos a lab-ux@unca.edu.ar</a>
+              </Button>
+            </div>
           ) : (
             <Accordion type="single" collapsible className="w-full">
               {faqs.map((pregunta) => (
@@ -343,7 +351,15 @@ export default function Support() {
               ))}
             </div>
           ) : guias.length === 0 && !guiasError ? (
-            <p className="text-muted-foreground text-center py-8">No hay guías disponibles.</p>
+            <div className="text-center py-8 space-y-3">
+              <p className="text-muted-foreground">
+                Aún no hay guías publicadas. Volvé la semana próxima o escribinos
+                para participar como tester.
+              </p>
+              <Button asChild variant="outline">
+                <a href="mailto:lab-ux@unca.edu.ar">Quiero participar como tester</a>
+              </Button>
+            </div>
           ) : (
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
               {guias.map((guia) => (
