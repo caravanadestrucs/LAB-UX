@@ -12,14 +12,14 @@ import {
 import Image from "next/image";
 import { XIcon, CalendarIcon, MapPinIcon, UserIcon, TagIcon } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { EventoNoticia } from "@/types";
+import type { Evento, EventoAreaInvestigacion } from "@/types/eventoNoticia";
 import { getUserById } from "@/services";
 
 export function EventoDialog({
   evento,
   onClose,
 }: {
-  evento: EventoNoticia | null;
+  evento: Evento | null;
   onClose: () => void;
 }) {
     const [nombreAutor, setNombreAutor] = useState<string | null>(null);
@@ -125,7 +125,7 @@ export function EventoDialog({
                 <p className="font-medium">[Area de Investigacion</p>
                 <p className="text-sm text-muted-foreground">
                   {evento?.areas_investigacion && evento.areas_investigacion.length > 0
-                    ? evento.areas_investigacion.map((area) => area.ID_area).join(", ")
+                    ? evento.areas_investigacion.map((area: EventoAreaInvestigacion) => area.ID_area).join(", ")
                     : "No especificada"}
                 </p>
               </div>

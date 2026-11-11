@@ -11,14 +11,14 @@ import {
 import Image from "next/image";
 import { UserIcon } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { EventoNoticia } from "@/types";
+import type { Evento } from "@/types/eventoNoticia";
 import { getUserById } from "@/services";
 
 export function NoticiaDialog({
   noticia,
   onClose,
 }: {
-  noticia: EventoNoticia | null;
+  noticia: Evento | null;
   onClose: () => void;
 }) {
   const [nombreAutor, setNombreAutor] = useState<string | null>(null);

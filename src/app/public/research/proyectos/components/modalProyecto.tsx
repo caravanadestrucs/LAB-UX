@@ -7,6 +7,15 @@ import { Separator } from "@/components/ui/separator"
 import { getStatusColor } from "@/lib/utils"
 import Image from "next/image"
 import { Proyecto, ProyectoColaborador } from "@/types"
+import { API_URL } from "@/constants/Api"
+
+function resolveImagen(imagen?: string): string {
+  if (!imagen) return "/placeholder.svg"
+  if (imagen.startsWith("http") || imagen.startsWith("/") || imagen.startsWith("blob:") || imagen.startsWith("data:")) {
+    return imagen
+  }
+  return `${API_URL}/uploads/proyectos/${imagen}`
+}
 
 interface ModalProyectoProps {
   selectedProject: Proyecto | null
@@ -40,7 +49,7 @@ export function ModalProyecto({
             <div className="relative w-full max-w-md aspect-video overflow-hidden rounded-lg">
               <Image
                 alt={selectedProject.nombre || "Imagen del proyecto"}
-                src={selectedProject.imagen || "/placeholder.svg"}
+                src={resolveImagen(selectedProject.imagen)}
                 fill
                 className="object-cover"
               />
@@ -88,16 +97,18 @@ export function ModalProyecto({
                 {colaboradores.length === 0 && (
                   <span className="text-sm text-muted-foreground">Sin colaboradores</span>
                 )}
-                {colaboradores.map((colaborador, index) => (
-                  <div key={index} className="flex items-center gap-3">
-                    <div>
-                      <p className="text-sm font-medium">
-                        {colaborador.nombre_externo || `Usuario #${colaborador.ID_usuario}`}
-                      </p>
-                      <p className="text-xs text-muted-foreground">{colaborador.rol}</p>
+                {colaboradores.map((colaborador, index) => {
+                  const nombreCompleto = [colaborador.nombre, colaborador.apellido].filter(Boolean).join(" ")
+                  return (
+                    <div key={index} className="flex items-center gap-3">
+                      <div>
+                        <p className="text-sm font-medium">
+                          {nombreCompleto || `Usuario #${colaborador.ID_usuario}`}
+                        </p>
+                      </div>
                     </div>
-                  </div>
-                ))}
+                  )
+                })}
               </div>
             </div>
           </div>

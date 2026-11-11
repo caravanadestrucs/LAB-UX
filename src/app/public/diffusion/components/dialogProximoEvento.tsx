@@ -10,13 +10,13 @@ import {
 import { XIcon, ClockIcon, MapPinIcon, UserIcon, TagIcon } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";
-import { EventoNoticia } from "@/types";
+import type { Evento } from "@/types/eventoNoticia";
 
 export function ProximoEventoDialog({
   evento,
   onClose,
 }: {
-  evento: EventoNoticia | null;
+  evento: Evento | null;
   onClose: () => void;
 }) {
   return (
@@ -52,7 +52,7 @@ export function ProximoEventoDialog({
           <div className="flex items-center text-sm mb-2">
             <MapPinIcon className="mr-1.5 h-4 w-4" />
             <span className="font-medium">Ubicación:</span>
-            <span className="ml-1">{evento?.lugar }</span>
+            <span className="ml-1">{evento?.lugar || "Por definir"}</span>
           </div>
 
           <Separator className="my-4" />
@@ -83,8 +83,9 @@ export function ProximoEventoDialog({
           <div className="bg-muted/50 p-4 rounded-lg mt-4">
             <p className="text-sm font-medium">Nota importante</p>
             <p className="text-sm text-muted-foreground">
-              {evento?.materiales ||
-                "La inscripción es gratuita pero los cupos son limitados. Se recomienda llegar 15 minutos antes del inicio del evento."}
+              {evento?.materiales && evento.materiales.length > 0
+                ? evento.materiales.map((material) => material.nombre).join(", ")
+                : "La inscripción es gratuita pero los cupos son limitados. Se recomienda llegar 15 minutos antes del inicio del evento."}
             </p>
           </div>
         </div>
