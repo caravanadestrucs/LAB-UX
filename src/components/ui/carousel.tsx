@@ -12,7 +12,7 @@ import { cn } from "@/lib/utils"
 import { Button } from "@/components/ui/button"
 import { fetchContenidos } from "@/services/contenido"
 import { ContenidoSitio } from "@/types/contenidoSitio"
-import { API_URL } from "@/constants/Api"
+import { getMediaUrl } from "@/lib/media"
 
 function usePrefersReducedMotion(): boolean {
   const [prefersReducedMotion, setPrefersReducedMotion] = useState(false)
@@ -131,7 +131,7 @@ export function Carousel() {
             <div className="absolute inset-0 flex items-center justify-center">
               {slide.imagen ? (
                 <img
-                  src={`${API_URL}/uploads/contenido/${slide.imagen}`}
+                  src={getMediaUrl("contenido", slide.imagen)}
                   alt={slide.titulo || `Banner ${index + 1}`}
                   className="object-cover w-full h-full"
                   loading={index === 0 ? "eager" : "lazy"}

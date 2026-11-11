@@ -8,7 +8,7 @@ import { Label } from "@/components/ui/label";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Textarea } from "@/components/ui/textarea";
 import { useState, ChangeEvent } from "react";
-import { API_URL } from "@/constants/Api";
+import { getMediaUrl } from "@/lib/media";
 
 interface ProjectFormProps {
   open: boolean;
@@ -30,7 +30,7 @@ export default function ProjectForm({ open, onOpenChange, project, onSubmit }: P
   });
 
   const [imagePreview, setImagePreview] = useState<string | null>(
-    project?.imagen ? `${API_URL}/uploads/${project.imagen}` : null
+    project?.imagen ? getMediaUrl("proyectos", project.imagen as string) : null
   );
 
   const handleChange = (e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -68,8 +68,8 @@ export default function ProjectForm({ open, onOpenChange, project, onSubmit }: P
     const fileInput = document.getElementById('imagen') as HTMLInputElement;
     if (fileInput?.files?.[0]) {
       formDataObj.append('imagen', fileInput.files[0]);
-    } else if (imagePreview && !imagePreview.includes(API_URL)) {
-      // Si hay una imagen previa pero no es de la API (es una nueva)
+    } else if (imagePreview && (imagePreview.startsWith("blob:") || imagePreview.startsWith("data:"))) {
+      // Si hay una imagen previa pero no es del backend (es una nueva previsualización local)
       const response = await fetch(imagePreview);
       const blob = await response.blob();
       formDataObj.append('imagen', blob, 'imagen-proyecto.png');

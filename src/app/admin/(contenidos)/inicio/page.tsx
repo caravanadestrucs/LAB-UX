@@ -12,7 +12,7 @@ import { ContenidoSitio } from "@/types/contenidoSitio"
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogFooter } from "@/components/ui/dialog"
 import { fetchContenidos, addContenido, updateContenido, deleteContenido } from "@/services/contenido"
 import { useToast } from "@/components/hooks/use-toast"
-import { API_URL } from "@/constants/Api"
+import { getMediaUrl } from "@/lib/media"
 import { Toaster } from "@/components/ui/toaster"
 
 function getMySQLDateTimeString(date: Date) {
@@ -216,7 +216,7 @@ export default function InicioPage() {
                   <CardContent className="space-y-4">
                     <div className="aspect-video relative overflow-hidden rounded-md border">
                       <img
-                        src={banner.imagen ? `${API_URL}/uploads/contenido/${banner.imagen}` : "/placeholder.svg"}
+                        src={getMediaUrl("contenido", banner.imagen)}
                         alt={banner.titulo}
                         className="object-cover w-full h-full"
                       />

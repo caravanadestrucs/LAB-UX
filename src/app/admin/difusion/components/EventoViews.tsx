@@ -6,7 +6,7 @@ import { Badge } from "@/components/ui/badge";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { CalendarIcon, Edit, ExternalLink, FileText, Trash2, Users, Video } from "lucide-react";
 import { Evento } from "@/types/eventoNoticia";
-import { API_URL } from "@/constants/Api";
+import { getMediaUrl } from "@/lib/media";
 import { EVENT_TYPES } from "./utils";
 
 type Props = {
@@ -40,7 +40,7 @@ export function EventoViews({ eventos, onEdit, onDelete, onAsistentes }: Props) 
             <Card key={event.ID} className="overflow-hidden">
               <div className="aspect-video w-full overflow-hidden">
                 <img
-                  src={event.imagen ? `${API_URL}/uploads/eventos/${event.imagen}` : "/placeholder.svg"}
+                  src={getMediaUrl("eventos", event.imagen)}
                   alt={event.titulo}
                   className="object-cover w-full h-full"
                 />
@@ -68,7 +68,7 @@ export function EventoViews({ eventos, onEdit, onDelete, onAsistentes }: Props) 
                         <li key={index} className="flex items-center">
                           {getMaterialIcon(material.tipo)}
                           <a
-                            href={material.archivo ? `${API_URL}/uploads/materiales_evento/${material.archivo}` : "#"}
+                            href={material.archivo ? getMediaUrl("materiales", material.archivo) : "#"}
                             target="_blank"
                             rel="noopener noreferrer"
                             className="text-blue-500 hover:underline flex items-center"
@@ -139,7 +139,7 @@ export function EventoViews({ eventos, onEdit, onDelete, onAsistentes }: Props) 
                         {event.materiales?.map((material, index) => (
                           <a
                             key={index}
-                            href={material.archivo ? `/uploads/materiales_evento/${material.archivo}` : "#"}
+                            href={material.archivo ? getMediaUrl("materiales", material.archivo) : "#"}
                             target="_blank"
                             rel="noopener noreferrer"
                             title={material.nombre}

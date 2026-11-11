@@ -6,7 +6,7 @@ import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Edit, Trash2 } from "lucide-react";
 import { formatDate } from "@/lib/formatDate";
-import { API_URL } from "@/constants/Api";
+import { getMediaUrl } from "@/lib/media";
 
 interface ProjectCardProps {
   projects: Proyecto[];
@@ -57,7 +57,7 @@ export default function ProjectCard({ projects, loading, onEdit, onDelete }: Pro
               <img
                 src={
                   typeof project.imagen === "string"
-                    ? `${API_URL}/uploads/proyectos/${project.imagen}`
+                    ? getMediaUrl("proyectos", project.imagen)
                     : URL.createObjectURL(project.imagen)
                 }
                 alt={project.nombre}

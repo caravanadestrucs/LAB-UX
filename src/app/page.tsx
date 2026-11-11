@@ -4,7 +4,7 @@ import { useEffect, useState } from "react"
 import { Carousel } from "@/components/ui/carousel"
 import { Skeleton } from "@/components/ui/skeleton"
 import { fetchContenidos } from "@/services/contenido"
-import { API_URL } from "@/constants/Api"
+import { getMediaUrl } from "@/lib/media"
 import type { ContenidoSitio } from "@/types/contenidoSitio"
 
 function SkeletonHome() {
@@ -123,7 +123,7 @@ export default function Home() {
                 <div className="relative h-[300px] md:h-[400px] w-full overflow-hidden rounded-lg shadow-lg flex items-center justify-center bg-muted">
                   {mision.imagen && (
                     <img
-                      src={`${API_URL}/uploads/contenido/${mision.imagen}`}
+                      src={getMediaUrl("contenido", mision.imagen)}
                       alt={mision.titulo}
                       className="object-cover w-full h-full"
                       style={{ maxHeight: 400, borderRadius: "0.5rem" }}
@@ -147,7 +147,7 @@ export default function Home() {
                 <div className="relative h-[300px] md:h-[400px] w-full overflow-hidden rounded-lg shadow-lg flex items-center justify-center bg-muted">
                   {vision.imagen && (
                     <img
-                      src={`${API_URL}/uploads/contenido/${vision.imagen}`}
+                      src={getMediaUrl("contenido", vision.imagen)}
                       alt={vision.titulo}
                       className="object-cover w-full h-full"
                       style={{ maxHeight: 400, borderRadius: "0.5rem" }}
@@ -180,7 +180,7 @@ export default function Home() {
                 <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4 overflow-hidden">
                   {valor.imagen ? (
                     <img
-                      src={`${API_URL}/uploads/contenido/${valor.imagen}`}
+                      src={getMediaUrl("contenido", valor.imagen)}
                       alt={valor.titulo}
                       className="h-10 w-10 object-contain mx-auto"
                       loading="lazy"
