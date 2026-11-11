@@ -1,25 +1,64 @@
 import { NextResponse } from "next/server";
 import type { NextRequest } from "next/server";
+import { jwtVerify } from "jose";
 
-export function middleware(req: NextRequest) {
+/**
+ * Guard RBAC real (edge-safe).
+ * Verifica la firma del JWT `authToken` con `jose` + JWT_SECRET.
+ * Sin token o firma inválida/expirada → no hay rol válido.
+ *
+ * Reglas:
+ * - /admin/* sin token válido → redirect "/"
+ * - /public/login con token válido → redirect "/admin/inicio"
+ * - /admin/usuarios* solo tipo_usuario === "admin" → sino redirect "/admin/inicio"
+ * - resto /admin/* solo admin|profesor → alumno (u otro rol) redirect "/"
+ *
+ * Nota: falla cerrado. Sin JWT_SECRET no se puede verificar firma,
+ * por lo que todo token se considera inválido (ver .env.example).
+ */
+
+type VerifiedSession = { valid: boolean; role: string | null };
+
+async function getVerifiedSession(token: string | undefined): Promise<VerifiedSession> {
+  if (!token) return { valid: false, role: null };
+  const secret = process.env.JWT_SECRET;
+  if (!secret) return { valid: false, role: null };
+  try {
+    const { payload } = await jwtVerify(token, new TextEncoder().encode(secret));
+    const role = (payload as { tipo_usuario?: unknown }).tipo_usuario;
+    if (typeof role !== "string" || role.length === 0) return { valid: false, role: null };
+    return { valid: true, role };
+  } catch {
+    return { valid: false, role: null };
+  }
+}
+
+export async function middleware(req: NextRequest) {
   const token = req.cookies.get("authToken")?.value;
   const pathname = req.nextUrl.pathname;
-  const isAdmin = pathname.startsWith("/admin");
+  const isAdminRoute = pathname.startsWith("/admin");
+  const isLogin = pathname === "/public/login";
 
-  // Edge runtime: jsonwebtoken uses Node crypto, not available here.
-  // Use `jose` (jwtVerify) if JWT verification is needed.
-  // Fallback: existence check only. Optionally verify if JWT_SECRET is set.
-  // Example with jose (uncomment after `npm i jose`):
-  //   import { jwtVerify } from 'jose';
-  //   try { await jwtVerify(token, new TextEncoder().encode(process.env.JWT_SECRET)) } catch { token = undefined }
-  const isValid = !!token;
+  const { valid, role } = await getVerifiedSession(token);
 
-  if (isAdmin && !isValid) {
+  if (isAdminRoute && !valid) {
     return NextResponse.redirect(new URL("/", req.url));
   }
 
-  if (!isAdmin && isValid && pathname === "/public/login") {
-    return NextResponse.redirect(new URL("/admin", req.url));
+  if (isLogin && valid) {
+    return NextResponse.redirect(new URL("/admin/inicio", req.url));
+  }
+
+  if (isAdminRoute && valid) {
+    if (pathname === "/admin/usuarios" || pathname.startsWith("/admin/usuarios/")) {
+      if (role !== "admin") {
+        return NextResponse.redirect(new URL("/admin/inicio", req.url));
+      }
+      return NextResponse.next();
+    }
+    if (role !== "admin" && role !== "profesor") {
+      return NextResponse.redirect(new URL("/", req.url));
+    }
   }
 
   return NextResponse.next();

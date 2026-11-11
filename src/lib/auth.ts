@@ -1,9 +1,10 @@
 /**
- * Auth helpers — server & client.
- * Middleware (edge) no puede usar jsonwebtoken (Node crypto).
- * Para verificación real en edge usa `jose`: `await jwtVerify(token, secret)`.
- * Este archivo expone un stub compatible para uso en Route Handlers / Server Components.
+ * Auth helpers — verificación JWT real con `jose` (edge + node safe).
+ * El middleware y los Route Handlers usan este módulo como fuente de verdad.
+ * Falla cerrado: sin JWT_SECRET o firma inválida → null.
  */
+
+import { jwtVerify } from "jose";
 
 export type JwtPayload = {
   id?: number;
@@ -14,35 +15,39 @@ export type JwtPayload = {
   [k: string]: unknown;
 };
 
+const ALLOWED_ROLES = ["admin", "profesor", "alumno"] as const;
+export type AllowedRole = (typeof ALLOWED_ROLES)[number];
+
 /**
- * Verifica un JWT de forma opcional.
- * - Si JWT_SECRET no está definido, solo valida existencia y expiración básica (sin firma).
- * - Si quieres verificación criptográfica, instala `jose` y reemplaza el cuerpo:
- *   `import { jwtVerify } from 'jose'; await jwtVerify(token, new TextEncoder().encode(process.env.JWT_SECRET))`
- * @returns payload si es válido, null si no
+ * Verifica la firma del JWT con JWT_SECRET (HS256).
+ * @returns payload si la firma es válida y no expiró, null si no.
  */
 export async function verifyToken(token: string | undefined | null): Promise<JwtPayload | null> {
   if (!token) return null;
+  const secret = process.env.JWT_SECRET;
+  if (!secret) return null;
 
-  // Stub: existencia + check exp sin verificar firma.
-  // Para prod con JWT_SECRET, descomenta el bloque jose.
   try {
-    // Intento decode base64 payload (no verifica firma) solo para exp
-    const parts = token.split(".");
-    if (parts.length === 3) {
-      const payload = JSON.parse(Buffer.from(parts[1], "base64url").toString("utf8")) as JwtPayload;
-      if (payload.exp && payload.exp * 1000 < Date.now()) return null;
-      // Si hay JWT_SECRET y jose instalado, aquí iría jwtVerify para validar firma
-      return payload;
-    }
-    // Token opaco (dummy) — se considera válido si existe
-    return { token } as JwtPayload;
+    const { payload } = await jwtVerify(token, new TextEncoder().encode(secret));
+    return payload as unknown as JwtPayload;
   } catch {
     return null;
   }
 }
 
-export function isTokenExpired(payload: JwtPayload | null): boolean {
+export function isTokenExpired(payload: JwtPayload | null | undefined): boolean {
   if (!payload?.exp) return false;
   return payload.exp * 1000 < Date.now();
+}
+
+/**
+ * Extrae el rol desde un payload ya verificado.
+ * @returns "admin" | "profesor" | "alumno", o null si el rol falta o no es válido.
+ */
+export function getRoleFromToken(payload: JwtPayload | null | undefined): AllowedRole | null {
+  const role = payload?.tipo_usuario;
+  if (typeof role === "string" && (ALLOWED_ROLES as readonly string[]).includes(role)) {
+    return role as AllowedRole;
+  }
+  return null;
 }
