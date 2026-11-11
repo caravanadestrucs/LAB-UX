@@ -139,8 +139,8 @@ export default function MetodologiasPage() {
                           ? "h-auto aspect-[4/6]"
                           : "h-auto aspect-[4/4]"
                     return (
-                      <Card key={metodologia.ID ?? index} className={`${heightClass} break-inside-avoid mb-6 overflow-hidden`}>
-                        <CardHeader className="bg-gradient-to-br">
+                      <Card key={metodologia.ID ?? index} variant="lab" className={`${heightClass} break-inside-avoid mb-6 overflow-hidden border-t-4 border-t-[#0E7490]`}>
+                        <CardHeader>
                           <CardTitle>{metodologia.nombre}</CardTitle>
                         </CardHeader>
                         <CardContent className="p-6">

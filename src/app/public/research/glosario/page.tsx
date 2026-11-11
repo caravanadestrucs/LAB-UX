@@ -1,7 +1,6 @@
 "use client"
 
 import { useEffect, useState } from "react"
-import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card"
 import { Input } from "@/components/ui/input"
 import { Button } from "@/components/ui/button"
 import { Search } from "lucide-react"
@@ -135,47 +134,52 @@ export default function GlosarioPage() {
           {loading ? "Cargando términos..." : `${terminos.length} término${terminos.length !== 1 ? "s" : ""} encontrado${terminos.length !== 1 ? "s" : ""}`}
         </div>
 
-        <Card>
-          <CardHeader>
-            <CardTitle>Términos del Glosario</CardTitle>
-            <CardDescription>
-              {loading
-                ? "Cargando..."
-                : `${terminos.length} término${terminos.length !== 1 ? "s" : ""} encontrado${terminos.length !== 1 ? "s" : ""}`}
-            </CardDescription>
-          </CardHeader>
-          <CardContent>
-            <div className="space-y-8">
-              {loading ? (
-                <div className="flex justify-center items-center h-32">
-                  <p className="text-muted-foreground">Cargando términos...</p>
-                </div>
-              ) : Object.keys(groupedTerms).length > 0 ? (
-                Object.keys(groupedTerms)
-                  .sort()
-                  .map((letter) => (
-                    <div key={letter} id={`letter-${letter}`} className="scroll-mt-20">
-                      <h3 className="text-2xl font-bold mb-4 border-b pb-2">{letter}</h3>
-                      <div className="space-y-4">
-                        {groupedTerms[letter]
-                          .sort((a, b) => a.termino.localeCompare(b.termino))
-                          .map((term, idx) => (
-                            <div key={term.termino + idx} className="border-b pb-4 last:border-0">
-                              <h4 className="text-lg font-semibold">{term.termino}</h4>
-                              <p className="text-muted-foreground mt-1">{term.descripcion}</p>
-                            </div>
-                          ))}
-                      </div>
-                    </div>
-                  ))
-              ) : (
-                <div className="text-center py-8">
-                  <p className="text-muted-foreground">No se encontraron términos que coincidan con la búsqueda.</p>
-                </div>
-              )}
-            </div>
-          </CardContent>
-        </Card>
+        <div>
+          <p role="status" className="text-sm text-muted-foreground">
+            {loading
+              ? "Cargando..."
+              : `${terminos.length} término${terminos.length !== 1 ? "s" : ""} encontrado${terminos.length !== 1 ? "s" : ""}`}
+          </p>
+          <div className="mt-6 space-y-12">
+            {loading ? (
+              <div className="flex justify-center items-center h-32">
+                <p className="text-muted-foreground">Cargando términos...</p>
+              </div>
+            ) : Object.keys(groupedTerms).length > 0 ? (
+              Object.keys(groupedTerms)
+                .sort()
+                .map((letter) => (
+                  <section
+                    key={letter}
+                    id={`letter-${letter}`}
+                    aria-label={`Términos con la letra ${letter}`}
+                    className="scroll-mt-20 grid gap-4 md:grid-cols-[auto_1fr] md:gap-8"
+                  >
+                    <span
+                      aria-hidden="true"
+                      className="text-7xl font-black leading-none tracking-tight text-[#0F1E33] md:text-8xl"
+                    >
+                      {letter}
+                    </span>
+                    <dl className="divide-y divide-border">
+                      {groupedTerms[letter]
+                        .sort((a, b) => a.termino.localeCompare(b.termino))
+                        .map((term, idx) => (
+                          <div key={term.termino + idx} className="py-4 first:pt-0 last:pb-0">
+                            <dt className="text-lg font-semibold leading-snug">{term.termino}</dt>
+                            <dd className="mt-1 max-w-prose text-muted-foreground">{term.descripcion}</dd>
+                          </div>
+                        ))}
+                    </dl>
+                  </section>
+                ))
+            ) : (
+              <div className="text-center py-8">
+                <p className="text-muted-foreground">No se encontraron términos que coincidan con la búsqueda.</p>
+              </div>
+            )}
+          </div>
+        </div>
       </div>
     </div>
   )

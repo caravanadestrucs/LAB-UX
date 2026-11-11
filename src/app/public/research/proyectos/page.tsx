@@ -119,7 +119,7 @@ export default function ProyectosPage() {
                   </p>
                   <div className="flex flex-wrap gap-2">
                     {proyecto.areas_investigacion?.map((area) => (
-                      <Badge key={area.ID_area} className="bg-blue-100 text-blue-800">
+                      <Badge key={area.ID_area} variant="lab">
                         {area.area_nombre || `Área ${area.ID_area}`}
                       </Badge>
                     ))}
