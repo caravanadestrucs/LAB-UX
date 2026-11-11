@@ -19,5 +19,6 @@ export const ENDPOINTS = {
         return `${API_URL}/usuarios?${urlParams.toString()}`;
         },
       AVATAR2 : (filename: string) => `${API_URL}/uploads/${filename}`,
-    }
+    },
+    SOPORTE: `${API_URL}/soporte`,
 }
