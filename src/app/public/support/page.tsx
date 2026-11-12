@@ -62,8 +62,8 @@ export default function Support() {
       try {
         const data = await fetchPreguntasFrecuentes()
         setFaqs(Array.isArray(data) ? data : [])
-      } catch (err) {
-        setFaqsError(err instanceof Error ? err.message : "No se pudieron cargar las preguntas frecuentes")
+      } catch {
+        setFaqsError("No pudimos cargar los datos. Revisá tu conexión o reintentá.")
       } finally {
         setFaqsLoading(false)
       }
@@ -75,8 +75,8 @@ export default function Support() {
       try {
         const data = await fetchGuias()
         setGuias(Array.isArray(data) ? data : [])
-      } catch (err) {
-        setGuiasError(err instanceof Error ? err.message : "No se pudieron cargar las guías")
+      } catch {
+        setGuiasError("No pudimos cargar los datos. Revisá tu conexión o reintentá.")
       } finally {
         setGuiasLoading(false)
       }
@@ -135,7 +135,7 @@ export default function Support() {
         
     };
   return (
-    <div className="container mx-auto py-10 px-4 md:px-6">
+    <main className="container mx-auto py-10 px-4 md:px-6">
       <div className="mb-10 text-center">
         <h1 className="text-3xl font-bold tracking-tight md:text-4xl mb-2">Soporte y Ayuda</h1>
         <p className="text-muted-foreground max-w-2xl mx-auto">
@@ -165,8 +165,8 @@ export default function Support() {
             {faqsLoading ? "Cargando preguntas frecuentes..." : `${faqs.length} pregunta${faqs.length !== 1 ? "s" : ""} encontrada${faqs.length !== 1 ? "s" : ""}`}
           </div>
           {faqsError && (
-            <div className="bg-destructive/15 p-4 rounded-md border border-destructive">
-              <p className="text-destructive">{faqsError}</p>
+            <div className="bg-destructive/15 p-4 rounded-md border border-destructive" role="alert">
+              <p className="text-destructive">No pudimos cargar los datos. Revisá tu conexión o reintentá.</p>
               <Button variant="outline" size="sm" className="mt-2" onClick={loadFaqs}>
                 Reintentar
               </Button>
@@ -326,8 +326,8 @@ export default function Support() {
             {guiasLoading ? "Cargando guías..." : `${guias.length} guía${guias.length !== 1 ? "s" : ""} encontrada${guias.length !== 1 ? "s" : ""}`}
           </div>
           {guiasError && (
-            <div className="bg-destructive/15 p-4 rounded-md border border-destructive">
-              <p className="text-destructive">{guiasError}</p>
+            <div className="bg-destructive/15 p-4 rounded-md border border-destructive" role="alert">
+              <p className="text-destructive">No pudimos cargar los datos. Revisá tu conexión o reintentá.</p>
               <Button variant="outline" size="sm" className="mt-2" onClick={loadGuias}>
                 Reintentar
               </Button>
@@ -444,6 +444,6 @@ export default function Support() {
         </TabsContent>
   
       </Tabs>
-    </div>
+    </main>
   )
 }

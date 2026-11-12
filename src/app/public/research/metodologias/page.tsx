@@ -26,8 +26,8 @@ export default function MetodologiasPage() {
     try {
       const data = await fetchMetodologiasPruebas()
       setItems(Array.isArray(data) ? data : [])
-    } catch (err) {
-      setError(err instanceof Error ? err.message : "No se pudieron cargar las metodologías")
+    } catch {
+      setError("No pudimos cargar los datos. Revisá tu conexión o reintentá.")
     } finally {
       setLoading(false)
     }
@@ -41,7 +41,7 @@ export default function MetodologiasPage() {
   const metodologias = items.filter((item) => item.tipo !== "prueba")
 
   return (
-    <div className="container mx-auto py-10 px-4 md:px-6">
+    <main className="container mx-auto py-10 px-4 md:px-6">
       <div className="space-y-8">
         <div className="space-y-2">
           <h1 className="text-3xl font-bold tracking-tight">Metodologías y Tipos de Pruebas</h1>
@@ -55,8 +55,8 @@ export default function MetodologiasPage() {
         </div>
 
         {error && (
-          <div className="bg-destructive/15 p-4 rounded-md border border-destructive">
-            <p className="text-destructive">{error}</p>
+          <div className="bg-destructive/15 p-4 rounded-md border border-destructive" role="alert">
+            <p className="text-destructive">No pudimos cargar los datos. Revisá tu conexión o reintentá.</p>
             <Button variant="outline" size="sm" className="mt-2" onClick={loadItems}>
               Reintentar
             </Button>
@@ -89,7 +89,7 @@ export default function MetodologiasPage() {
           </div>
         ) : items.length === 0 && !error ? (
           <p className="text-muted-foreground text-center py-12">No se encontraron metodologías ni pruebas.</p>
-        ) : (
+        ) : !error ? (
           <>
             {/* Sección de Tipos de Pruebas */}
             <section className="space-y-8 mb-12">
@@ -167,8 +167,8 @@ export default function MetodologiasPage() {
               )}
             </section>
           </>
-        )}
+        ) : null}
       </div>
-    </div>
+    </main>
   )
 }

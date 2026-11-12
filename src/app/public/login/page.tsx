@@ -117,7 +117,8 @@ export default function LoginPage() {
   }
 
   return (
-    <div className="container mx-auto flex min-h-[calc(100vh-8rem)] items-center justify-center py-8">
+    <main className="container mx-auto flex min-h-[calc(100vh-8rem)] items-center justify-center py-8">
+      <h1 className="sr-only">Acceso al Laboratorio de Usabilidad</h1>
       <Toaster />
       <div className="w-full max-w-md">
         <Link href="/" className="mb-6 flex items-center text-sm text-muted-foreground hover:text-primary">
@@ -294,6 +295,6 @@ export default function LoginPage() {
           </TabsContent>
         </Tabs>
       </div>
-    </div>
+    </main>
   )
 }
