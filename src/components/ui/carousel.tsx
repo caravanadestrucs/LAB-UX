@@ -14,6 +14,8 @@ import { cn } from "@/lib/utils"
 import { Button } from "@/components/ui/button"
 import { fetchContenidos } from "@/services/contenido"
 import { ContenidoSitio } from "@/types/contenidoSitio"
+import { bannersTEMPORAL, DEMO_BADGE } from "@/constants/data"
+import { Badge } from "@/components/ui/badge"
 import { getMediaUrl } from "@/lib/media"
 
 function usePrefersReducedMotion(): boolean {
@@ -49,6 +51,7 @@ export function Carousel() {
   const [slides, setSlides] = useState<ContenidoSitio[]>([])
   const [currentIndex, setCurrentIndex] = useState(0)
   const [isAutoPlaying, setIsAutoPlaying] = useState(true)
+  const [demo, setDemo] = useState(false)
   const prefersReducedMotion = usePrefersReducedMotion()
 
   // Cargar banners desde el servicio
@@ -56,9 +59,16 @@ export function Carousel() {
     const loadBanners = async () => {
       try {
         const data = await fetchContenidos({ tipo: "banner", estado: "activo" })
-        setSlides(data)
+        if (Array.isArray(data) && data.length > 0) {
+          setSlides(data)
+          setDemo(false)
+        } else {
+          setSlides(bannersTEMPORAL)
+          setDemo(true)
+        }
       } catch {
-        // silente: el hero muestra identidad lab con fondo tinta
+        setSlides(bannersTEMPORAL)
+        setDemo(true)
       }
     }
     loadBanners()
@@ -159,6 +169,11 @@ export function Carousel() {
 
       {/* Contenido hero */}
       <div className="relative z-10 mx-auto flex min-h-[560px] w-full max-w-6xl flex-col justify-center px-4 py-14 md:min-h-[600px] md:px-6">
+        {demo && (
+          <div className="mb-4 flex w-fit items-center gap-2" role="status">
+            <Badge variant="outline" className="border-white/40 bg-white/10 text-white">{DEMO_BADGE}</Badge>
+          </div>
+        )}
         <p className="mb-4 inline-flex w-fit items-center gap-2 rounded-full border border-white/20 bg-white/10 px-3 py-1 text-xs font-semibold tracking-widest text-amber-300">
           Laboratorio de usabilidad — UNCA
         </p>
