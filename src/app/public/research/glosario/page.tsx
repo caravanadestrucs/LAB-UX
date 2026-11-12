@@ -15,6 +15,8 @@ export default function GlosarioPage() {
   const [filter, setFilter] = useState("")
   const debouncedFilter = useDebouncedValue(filter, 300)
   const [selectedLetter, setSelectedLetter] = useState("")
+  const [glosarioError, setGlosarioError] = useState<string | null>(null)
+  const [retryCount, setRetryCount] = useState(0)
 
   const alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".split("")
 
@@ -23,6 +25,7 @@ export default function GlosarioPage() {
 
     const loadTermsFiltered = async () => {
       setLoading(true)
+      setGlosarioError(null)
       try {
         const query: string[] = []
         if (selectedLetter) query.push(`letra=${encodeURIComponent(selectedLetter.toLowerCase())}`)
@@ -38,14 +41,8 @@ export default function GlosarioPage() {
         if (typeof error === "object" && error !== null && "name" in error && (error as { name: string }).name === "AbortError") {
           return
         }
-        const msg =
-          error instanceof Error
-            ? error.message
-            : typeof error === "object" && error !== null && "message" in error
-              ? String((error as { message: unknown }).message)
-              : typeof error === "object" && error !== null && "error" in error
-                ? String((error as { error: unknown }).error)
-                : "No se pudo cargar el glosario"
+        const msg = "No pudimos cargar los datos. Revisá tu conexión o reintentá."
+        setGlosarioError(msg)
         toast({
           title: "Error",
           description: msg,
@@ -61,7 +58,7 @@ export default function GlosarioPage() {
     loadTermsFiltered()
 
     return () => controller.abort()
-  }, [selectedLetter, debouncedFilter, toast])
+  }, [selectedLetter, debouncedFilter, toast, retryCount])
 
   // Agrupar términos por letra inicial
   const groupedTerms = terminos.reduce<Record<string, typeof terminos>>((acc, term) => {
@@ -72,7 +69,7 @@ export default function GlosarioPage() {
   }, {})
 
   return (
-    <div className="container mx-auto py-10 px-4 md:px-6">
+    <main className="container mx-auto py-10 px-4 md:px-6">
       <div className="space-y-6">
         <div className="space-y-2">
           <h1 className="text-3xl font-bold tracking-tight">Glosario de Usabilidad</h1>
@@ -134,18 +131,29 @@ export default function GlosarioPage() {
           {loading ? "Cargando términos..." : `${terminos.length} término${terminos.length !== 1 ? "s" : ""} encontrado${terminos.length !== 1 ? "s" : ""}`}
         </div>
 
+        {glosarioError && (
+          <div className="bg-destructive/15 p-4 rounded-md border border-destructive" role="alert">
+            <p className="text-destructive">No pudimos cargar los datos. Revisá tu conexión o reintentá.</p>
+            <Button variant="outline" size="sm" className="mt-2" onClick={() => { setGlosarioError(null); setRetryCount((c) => c + 1) }}>
+              Reintentar
+            </Button>
+          </div>
+        )}
+
         <div>
           <p role="status" className="text-sm text-muted-foreground">
             {loading
               ? "Cargando..."
-              : `${terminos.length} término${terminos.length !== 1 ? "s" : ""} encontrado${terminos.length !== 1 ? "s" : ""}`}
+              : glosarioError
+                ? "No pudimos cargar los términos."
+                : `${terminos.length} término${terminos.length !== 1 ? "s" : ""} encontrado${terminos.length !== 1 ? "s" : ""}`}
           </p>
           <div className="mt-6 space-y-12">
             {loading ? (
               <div className="flex justify-center items-center h-32">
                 <p className="text-muted-foreground">Cargando términos...</p>
               </div>
-            ) : Object.keys(groupedTerms).length > 0 ? (
+            ) : glosarioError ? null : Object.keys(groupedTerms).length > 0 ? (
               Object.keys(groupedTerms)
                 .sort()
                 .map((letter) => (
@@ -181,6 +189,6 @@ export default function GlosarioPage() {
           </div>
         </div>
       </div>
-    </div>
+    </main>
   )
 }

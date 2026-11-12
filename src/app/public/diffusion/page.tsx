@@ -69,8 +69,8 @@ export default function DifusionPage() {
       setNoticias(normalized.filter((item) => item.tipo === "noticia"));
       setEventos(normalized.filter((item) => item.tipo === "evento"));
       setProximosEventos(normalized.filter((item) => item.tipo === "proximo_evento"));
-    } catch (err) {
-      setError(err instanceof Error ? err.message : "No se pudo cargar la difusión");
+    } catch {
+      setError("No pudimos cargar los datos. Revisá tu conexión o reintentá.");
     } finally {
       setLoading(false);
     }
@@ -83,7 +83,7 @@ export default function DifusionPage() {
   const total = noticias.length + eventos.length + proximosEventos.length;
 
   return (
-    <div className="container mx-auto py-12 px-4">
+    <main className="container mx-auto py-12 px-4">
       <section id="team" className="w-full py-12 md:py-24 lg:py-32">
         <div className="container px-4 md:px-6">
           <div className="flex flex-col items-center justify-center space-y-4 text-center">
@@ -91,7 +91,7 @@ export default function DifusionPage() {
               <Badge variant="outline" className="px-4 py-1 text-sm">
                 Difusión
               </Badge>
-              <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl">Explora lo que está sucediendo en Lab-UX</h2>
+              <h1 className="text-3xl font-bold tracking-tighter sm:text-5xl">Explora lo que está sucediendo en Lab-UX</h1>
               <p className="max-w-[900px] text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
                 Un equipo diverso y apasionado de profesionales, educadores y estudiantes comprometidos con la
                 excelencia.
@@ -106,8 +106,8 @@ export default function DifusionPage() {
       </div>
 
       {error && (
-        <div className="bg-destructive/15 p-4 rounded-md border border-destructive mb-8">
-          <p className="text-destructive">{error}</p>
+        <div className="bg-destructive/15 p-4 rounded-md border border-destructive mb-8" role="alert">
+          <p className="text-destructive">No pudimos cargar los datos. Revisá tu conexión o reintentá.</p>
           <Button variant="outline" size="sm" className="mt-2" onClick={loadDifusion}>
             Reintentar
           </Button>
@@ -122,7 +122,7 @@ export default function DifusionPage() {
             <h2 className="text-3xl font-bold mb-8">Noticias Destacadas</h2>
             {loading ? (
               <SkeletonCards />
-            ) : noticias.length === 0 ? (
+            ) : noticias.length === 0 && !error ? (
               <div className="space-y-3 py-4">
                 <p className="text-muted-foreground">
                   Aún no hay noticias publicadas. Volvé la semana próxima o escribinos
@@ -132,7 +132,7 @@ export default function DifusionPage() {
                   <Link href="/public/support">Escribinos para participar</Link>
                 </Button>
               </div>
-            ) : (
+            ) : !error ? (
               <div className="space-y-12">
                 {noticias.map((noticia, index) => (
                   <div key={noticia.ID ?? index} className="group">
@@ -175,7 +175,7 @@ export default function DifusionPage() {
                   </div>
                 ))}
               </div>
-            )}
+            ) : null}
           </section>
 
           {/* Sección de Eventos */}
@@ -193,7 +193,7 @@ export default function DifusionPage() {
                   </Card>
                 ))}
               </div>
-            ) : eventos.length === 0 ? (
+            ) : eventos.length === 0 && !error ? (
               <div className="space-y-3 py-4">
                 <p className="text-muted-foreground">
                   Aún no hay eventos recientes. Volvé la semana próxima o escribinos
@@ -203,7 +203,7 @@ export default function DifusionPage() {
                   <Link href="/public/support">Escribinos para participar</Link>
                 </Button>
               </div>
-            ) : (
+            ) : !error ? (
               <div className="grid grid-cols-1 gap-4">
                 {eventos.map((evento) => (
                   <div
@@ -226,7 +226,7 @@ export default function DifusionPage() {
                   </div>
                 ))}
               </div>
-            )}
+            ) : null}
             <div className="mt-6">
               <Button variant="outline">Ver todos los eventos</Button>
             </div>
@@ -254,7 +254,7 @@ export default function DifusionPage() {
                   </div>
                 ))}
               </div>
-            ) : proximosEventos.length === 0 ? (
+            ) : proximosEventos.length === 0 && !error ? (
               <div className="space-y-3">
                 <p className="text-muted-foreground text-sm">
                   Aún no hay sesiones publicadas. Volvé la semana próxima o escribinos
@@ -264,7 +264,7 @@ export default function DifusionPage() {
                   <Link href="/public/support">Quiero ser tester</Link>
                 </Button>
               </div>
-            ) : (
+            ) : !error ? (
               <div className="space-y-6">
                 {proximosEventos.map((evento) => (
                   <div
@@ -299,7 +299,7 @@ export default function DifusionPage() {
                   </div>
                 ))}
               </div>
-            )}
+            ) : null}
             <div className="mt-6">
               <Button className="w-full">Ver calendario completo</Button>
             </div>
@@ -322,6 +322,6 @@ export default function DifusionPage() {
         evento={selectedProximoEvento}
         onClose={() => setSelectedProximoEvento(null)}
       />
-    </div>
+    </main>
   );
 }

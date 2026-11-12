@@ -111,17 +111,27 @@ export default function Team() {
   const [respuesta, setRespuesta] = useState<string | null>(null);
   const [loading, setLoading] = useState(false);
   const [users, setUsers] = useState<User[]>([]);
+  const [usersError, setUsersError] = useState<string | null>(null);
   const [activeTab, setActiveTab] = useState<RoleUser>("profesor");
 
   // Cargar usuarios filtrados por tipo
-  useEffect(() => {
+  const loadUsers = () => {
     setLoading(true);
-    fetchUsers("", activeTab === "profesor" ? "profesor" : 
+    setUsersError(null);
+    fetchUsers("", activeTab === "profesor" ? "profesor" :
                activeTab === "admin" ? "admin" : "alumno", "activo")
       .then(data => {
-        setUsers(data);
+        setUsers(Array.isArray(data) ? data : []);
+      })
+      .catch(() => {
+        setUsersError("No pudimos cargar los datos. Revisá tu conexión o reintentá.");
       })
       .finally(() => setLoading(false));
+  };
+
+  useEffect(() => {
+    loadUsers();
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [activeTab]);
 
   // Manejador de cambio de pestaña
@@ -153,7 +163,7 @@ export default function Team() {
             <div className="flex flex-col items-center justify-center space-y-4 text-center">
               <div className="space-y-2">
                 <Badge variant="outline" className="px-4 py-1 text-sm">Equipo</Badge>
-                <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl">Conoce a quienes hacen posible todo</h2>
+                <h1 className="text-3xl font-bold tracking-tighter sm:text-5xl">Conoce a quienes hacen posible todo</h1>
                 <p className="max-w-[900px] text-muted-foreground md:text-xl/relaxed">
                   Un equipo diverso y apasionado de profesionales, educadores y estudiantes comprometidos con la excelencia.
                 </p>
@@ -176,6 +186,13 @@ export default function Team() {
               {loading ? (
                 <div className="flex justify-center py-12">
                   <p>Cargando usuarios...</p>
+                </div>
+              ) : usersError ? (
+                <div className="bg-destructive/15 p-4 rounded-md border border-destructive max-w-md mx-auto" role="alert">
+                  <p className="text-destructive">No pudimos cargar los datos. Revisá tu conexión o reintentá.</p>
+                  <Button variant="outline" size="sm" className="mt-2" onClick={loadUsers}>
+                    Reintentar
+                  </Button>
                 </div>
               ) : (
                 <>
@@ -248,7 +265,7 @@ export default function Team() {
                           value={areaInterest}
                           onChange={(e) => setInterest(e.target.value)}
                         >
-                          <option value="" disabled selected>
+                          <option value="" disabled>
                             Selecciona una opción
                           </option>
                           <option value="teaching">Docencia</option>
