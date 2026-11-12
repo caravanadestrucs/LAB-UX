@@ -58,7 +58,7 @@ export default function ProyectosPage() {
         <div className="space-y-2">
           <h1 className="text-3xl font-bold tracking-tight">Proyectos de Investigación</h1>
           <p className="text-muted-foreground max-w-2xl">
-            Descubrí nuestros proyectos de investigación en el campo de la usabilidad y experiencia de usuario.
+            Descubre nuestros proyectos de investigación en el campo de la usabilidad y experiencia de usuario.
           </p>
         </div>
 
@@ -77,7 +77,7 @@ export default function ProyectosPage() {
 
         {error && (
           <div className="bg-destructive/15 p-4 rounded-md border border-destructive" role="alert">
-            <p className="text-destructive">No pudimos cargar los datos. Revisá tu conexión o reintentá.</p>
+            <p className="text-destructive">No pudimos cargar los datos. Revisa tu conexión o reintenta.</p>
             <Button variant="outline" size="sm" className="mt-2" onClick={loadProyectos}>
               Reintentar
             </Button>

@@ -127,17 +127,17 @@ export default function Support() {
         const resultado = await response.json();
   
         if (response.ok) {
-          const msg = resultado.mensaje || '¡Tu solicitud fue enviada con éxito! Pronto nos pondremos en contacto con vos.';
+          const msg = resultado.mensaje || '¡Tu solicitud fue enviada con éxito! Pronto nos pondremos en contacto contigo.';
           setRespuesta(msg);
           toast({ title: "Solicitud enviada", description: msg });
         } else {
-          const msg = resultado.error || 'Hubo un problema al procesar tu solicitud. Por favor, revisá los datos e intentá nuevamente.';
+          const msg = resultado.error || 'Hubo un problema al procesar tu solicitud. Por favor, revisa los datos e intenta nuevamente.';
           setRespuesta(msg);
           toast({ title: "Error al enviar", description: msg, variant: "destructive" });
         }
         } catch (error) {
           console.error(error);
-          const msg = 'Ocurrió un error inesperado al enviar tu solicitud. Verificá tu conexión o intentá más tarde.';
+          const msg = 'Ocurrió un error inesperado al enviar tu solicitud. Verifica tu conexión o intenta más tarde.';
           setRespuesta(msg);
           toast({ title: "Error de conexión", description: msg, variant: "destructive" });
         }
@@ -148,7 +148,7 @@ export default function Support() {
       <div className="mb-10 text-center">
         <h1 className="text-3xl font-bold tracking-tight md:text-4xl mb-2">Soporte y Ayuda</h1>
         <p className="text-muted-foreground max-w-2xl mx-auto">
-          Encontrá respuestas a tus preguntas, contactanos o consultá nuestras guías y tutoriales.
+          Encuentra respuestas a tus preguntas, contáctanos o consulta nuestras guías y tutoriales.
         </p>
       </div>
 
@@ -183,7 +183,7 @@ export default function Support() {
           </div>
           {faqsError && (
             <div className="bg-destructive/15 p-4 rounded-md border border-destructive" role="alert">
-              <p className="text-destructive">No pudimos cargar los datos. Revisá tu conexión o reintentá.</p>
+              <p className="text-destructive">No pudimos cargar los datos. Revisa tu conexión o reintenta.</p>
               <Button variant="outline" size="sm" className="mt-2" onClick={loadFaqs}>
                 Reintentar
               </Button>
@@ -198,11 +198,11 @@ export default function Support() {
           ) : faqs.length === 0 && !faqsError ? (
             <div className="text-center py-8 space-y-3">
               <p className="text-muted-foreground">
-                Aún no hay preguntas publicadas. Dejanos tu duda desde la pestaña Contacto
+                Aún no hay preguntas publicadas. Déjanos tu duda desde la pestaña Contacto
                 y la respondemos con el equipo del Lab.
               </p>
               <Button asChild variant="outline">
-                <a href="mailto:lab-ux@unca.edu.ar">Escribinos a lab-ux@unca.edu.ar</a>
+                <a href="mailto:lab-ux@unca.edu.ar">Escríbenos a lab-ux@unca.edu.ar</a>
               </Button>
             </div>
           ) : (
@@ -219,9 +219,9 @@ export default function Support() {
         <TabsContent value="contacto">
           <Card>
             <CardHeader>
-              <CardTitle>Contactanos</CardTitle>
+              <CardTitle>Contáctanos</CardTitle>
               <CardDescription>
-                Completá el formulario a continuación y nos pondremos en contacto con vos lo antes posible.
+                Completa el formulario a continuación y nos pondremos en contacto contigo lo antes posible.
               </CardDescription>
             </CardHeader>
             <CardContent className="space-y-4">
@@ -352,7 +352,7 @@ export default function Support() {
           </div>
           {guiasError && (
             <div className="bg-destructive/15 p-4 rounded-md border border-destructive" role="alert">
-              <p className="text-destructive">No pudimos cargar los datos. Revisá tu conexión o reintentá.</p>
+              <p className="text-destructive">No pudimos cargar los datos. Revisa tu conexión o reintenta.</p>
               <Button variant="outline" size="sm" className="mt-2" onClick={loadGuias}>
                 Reintentar
               </Button>
@@ -378,7 +378,7 @@ export default function Support() {
           ) : guias.length === 0 && !guiasError ? (
             <div className="text-center py-8 space-y-3">
               <p className="text-muted-foreground">
-                Aún no hay guías publicadas. Volvé la semana próxima o escribinos
+                Aún no hay guías publicadas. Vuelve la semana próxima o escríbenos
                 para participar como tester.
               </p>
               <Button asChild variant="outline">

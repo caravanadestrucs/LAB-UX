@@ -53,13 +53,13 @@ export const addTermino = async (terminoData: Omit<Glosario, 'ID' | 'fecha_creac
 
     if (!res.ok) {
       const errorData = await res.json().catch(() => null) as { error?: string; message?: string } | null;
-      throw new Error(errorData?.error ?? errorData?.message ?? "No se pudo crear el término. Intentá de nuevo.");
+      throw new Error(errorData?.error ?? errorData?.message ?? "No se pudo crear el término. Intenta de nuevo.");
     }
 
     return await res.json();
   } catch (error) {
     if (error instanceof Error) throw error;
-    throw new Error("No se pudo crear el término. Revisá tu conexión e intentá de nuevo.");
+    throw new Error("No se pudo crear el término. Revisa tu conexión e intenta de nuevo.");
   }
 };
 

@@ -52,7 +52,7 @@ export default function MetodologiasPage() {
         <div className="space-y-2">
           <h1 className="text-3xl font-bold tracking-tight">Metodologías y Tipos de Pruebas</h1>
           <p className="text-muted-foreground max-w-2xl">
-            Conocé las metodologías y tipos de pruebas que utilizamos en nuestros procesos de investigación.
+            Conoce las metodologías y tipos de pruebas que utilizamos en nuestros procesos de investigación.
           </p>
         </div>
 
@@ -71,7 +71,7 @@ export default function MetodologiasPage() {
 
         {error && (
           <div className="bg-destructive/15 p-4 rounded-md border border-destructive" role="alert">
-            <p className="text-destructive">No pudimos cargar los datos. Revisá tu conexión o reintentá.</p>
+            <p className="text-destructive">No pudimos cargar los datos. Revisa tu conexión o reintenta.</p>
             <Button variant="outline" size="sm" className="mt-2" onClick={loadItems}>
               Reintentar
             </Button>
