@@ -123,7 +123,7 @@ export default function DifusionPage() {
 
       {error && (
         <div className="bg-destructive/15 p-4 rounded-md border border-destructive mb-8" role="alert">
-          <p className="text-destructive">No pudimos cargar los datos. Revisá tu conexión o reintentá.</p>
+          <p className="text-destructive">No pudimos cargar los datos. Revisa tu conexión o reintenta.</p>
           <Button variant="outline" size="sm" className="mt-2" onClick={loadDifusion}>
             Reintentar
           </Button>
@@ -141,11 +141,11 @@ export default function DifusionPage() {
             ) : noticias.length === 0 && !error ? (
               <div className="space-y-3 py-4">
                 <p className="text-muted-foreground">
-                  Aún no hay noticias publicadas. Volvé la semana próxima o escribinos
+                  Aún no hay noticias publicadas. Vuelve la semana próxima o escríbenos
                   para participar como tester.
                 </p>
                 <Button asChild variant="outline">
-                  <Link href="/public/support">Escribinos para participar</Link>
+                  <Link href="/public/support">Escríbenos para participar</Link>
                 </Button>
               </div>
             ) : !error ? (
@@ -212,11 +212,11 @@ export default function DifusionPage() {
             ) : eventos.length === 0 && !error ? (
               <div className="space-y-3 py-4">
                 <p className="text-muted-foreground">
-                  Aún no hay eventos recientes. Volvé la semana próxima o escribinos
+                  Aún no hay eventos recientes. Vuelve la semana próxima o escríbenos
                   para participar como tester.
                 </p>
                 <Button asChild variant="outline">
-                  <Link href="/public/support">Escribinos para participar</Link>
+                  <Link href="/public/support">Escríbenos para participar</Link>
                 </Button>
               </div>
             ) : !error ? (
@@ -273,7 +273,7 @@ export default function DifusionPage() {
             ) : proximosEventos.length === 0 && !error ? (
               <div className="space-y-3">
                 <p className="text-muted-foreground text-sm">
-                  Aún no hay sesiones publicadas. Volvé la semana próxima o escribinos
+                  Aún no hay sesiones publicadas. Vuelve la semana próxima o escríbenos
                   para participar como tester.
                 </p>
                 <Button asChild variant="outline" size="sm">

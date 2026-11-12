@@ -178,7 +178,7 @@ export function Carousel() {
           Laboratorio de usabilidad — UNCA
         </p>
         <h1 className="max-w-2xl font-display text-4xl font-bold leading-[1.05] text-white md:text-6xl">
-          Observamos cómo las personas usan lo que construís
+          Observamos cómo las personas usan lo que construyes
         </h1>
         <p className="mt-4 max-w-xl text-lg text-white/85 md:text-xl">{subCopy}</p>
 

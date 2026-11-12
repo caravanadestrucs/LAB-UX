@@ -150,7 +150,7 @@ export default function GlosarioPage() {
 
         {glosarioError && (
           <div className="bg-destructive/15 p-4 rounded-md border border-destructive" role="alert">
-            <p className="text-destructive">No pudimos cargar los datos. Revisá tu conexión o reintentá.</p>
+            <p className="text-destructive">No pudimos cargar los datos. Revisa tu conexión o reintenta.</p>
             <Button variant="outline" size="sm" className="mt-2" onClick={() => { setGlosarioError(null); setRetryCount((c) => c + 1) }}>
               Reintentar
             </Button>

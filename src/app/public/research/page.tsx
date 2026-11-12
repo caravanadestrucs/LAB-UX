@@ -32,7 +32,7 @@ export default function Research() {
           <p className="text-sm font-medium text-muted-foreground">Investigación — Lab-UX · UNCA</p>
           <h1 className="text-3xl font-bold tracking-tight md:text-4xl mt-2">Investigación en usabilidad</h1>
           <p className="mt-3 max-w-2xl text-muted-foreground">
-            Explorá el trabajo del Laboratorio de Usabilidad de la Facultad de Tecnología, UNCA.
+            Explora el trabajo del Laboratorio de Usabilidad de la Facultad de Tecnología, UNCA.
             Testeamos con personas reales de Catamarca.
           </p>
 
@@ -59,9 +59,9 @@ export default function Research() {
           </div>
 
           <p className="mt-8 text-sm text-muted-foreground">
-            ¿Querés participar como tester?{" "}
+            ¿Quieres participar como tester?{" "}
             <Link href="/public/support" className="underline underline-offset-4 decoration-[#0E7490] hover:text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#CA8A04] focus-visible:ring-offset-2 rounded-sm">
-              Escribinos desde Soporte y Ayuda
+              Escríbenos desde Soporte y Ayuda
             </Link>
             .
           </p>

@@ -96,7 +96,7 @@ export async function POST(req: Request) {
   } catch (err) {
     console.error("POST /api/auth/login proxy error:", err);
     return NextResponse.json(
-      { success: false, error: "Error de conexión con el backend. Intentá de nuevo en unos minutos." },
+      { success: false, error: "Error de conexión con el backend. Intenta de nuevo en unos minutos." },
       { status: 502 }
     );
   }
@@ -138,7 +138,7 @@ export async function POST(req: Request) {
     if (!secret) {
       console.error("POST /api/auth/login: JWT_SECRET no configurado");
       return NextResponse.json(
-        { success: false, error: "Sesión no disponible (configuración incompleta). Contactá al administrador." },
+        { success: false, error: "Sesión no disponible (configuración incompleta). Contacta al administrador." },
         { status: 500 }
       );
     }

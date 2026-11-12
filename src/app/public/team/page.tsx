@@ -81,10 +81,10 @@ function TeamEmpty({ label }: { label: string }) {
   return (
     <div className="flex flex-col items-center justify-center gap-3 py-12 text-center">
       <p className="text-muted-foreground">
-        Todavía no hay {label} publicados. El laboratorio sigue creciendo y hay lugar para vos.
+        Todavía no hay {label} publicados. El laboratorio sigue creciendo y hay lugar para ti.
       </p>
       <Button asChild variant="outline">
-        <Link href="/public/support">Escribinos y te presentamos al equipo</Link>
+        <Link href="/public/support">Escríbenos y te presentamos al equipo</Link>
       </Button>
     </div>
   );
@@ -169,7 +169,7 @@ export default function Team() {
             <div className="flex flex-col items-center justify-center space-y-4 text-center">
               <div className="space-y-2">
                 <Badge variant="outline" className="px-4 py-1 text-sm">Equipo</Badge>
-                <h1 className="text-3xl font-bold tracking-tighter sm:text-5xl">Conocé a quienes hacen posible todo</h1>
+                <h1 className="text-3xl font-bold tracking-tighter sm:text-5xl">Conoce a quienes hacen posible todo</h1>
                 <p className="max-w-[900px] text-muted-foreground md:text-xl/relaxed">
                   Un equipo diverso y apasionado de profesionales, educadores y estudiantes comprometidos con la excelencia.
                 </p>
@@ -204,7 +204,7 @@ export default function Team() {
                 </div>
               ) : usersError ? (
                 <div className="bg-destructive/15 p-4 rounded-md border border-destructive max-w-md mx-auto" role="alert">
-                  <p className="text-destructive">No pudimos cargar los datos. Revisá tu conexión o reintentá.</p>
+                  <p className="text-destructive">No pudimos cargar los datos. Revisa tu conexión o reintenta.</p>
                   <Button variant="outline" size="sm" className="mt-2" onClick={loadUsers}>
                     Reintentar
                   </Button>
@@ -232,9 +232,9 @@ export default function Team() {
           <div className="container px-4 md:px-6 mx-auto">
             <div className="grid gap-6 lg:grid-cols-2 lg:gap-12 items-center">
               <div className="space-y-4">
-                <div className="inline-block rounded-lg bg-muted px-3 py-1 text-sm text-primary">Sumate al Lab</div>
+                <div className="inline-block rounded-lg bg-muted px-3 py-1 text-sm text-primary">Súmate al Lab</div>
                 <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">
-                  ¿Querés formar parte de nuestro equipo?
+                  ¿Quieres formar parte de nuestro equipo?
                 </h2>
                 <p className="max-w-[600px] text-muted-foreground md:text-xl">
                   Estamos siempre en búsqueda de talento apasionado por la educación y la innovación.
@@ -245,7 +245,7 @@ export default function Team() {
                   <CardHeader>
                     <CardTitle>Solicitud de Información</CardTitle>
                     <CardDescription>
-                      Completá el formulario y nos pondremos en contacto con vos para brindarte más detalles.
+                      Completa el formulario y nos pondremos en contacto contigo para brindarte más detalles.
                     </CardDescription>
                   </CardHeader>
                   <CardContent>
@@ -281,7 +281,7 @@ export default function Team() {
                           onChange={(e) => setInterest(e.target.value)}
                         >
                           <option value="" disabled>
-                            Seleccioná una opción
+                            Selecciona una opción
                           </option>
                           <option value="teaching">Docencia</option>
                           <option value="research">Investigación</option>
@@ -292,7 +292,7 @@ export default function Team() {
                       <div className="space-y-2">
                         <label htmlFor="mensaje" className="text-sm font-medium">Mensaje</label>
                         <textarea id="mensaje" value={mensaje} onChange={(e) => setMensaje(e.target.value)} rows={4}
-                           className="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50" placeholder="Contanos un poco más sobre vos..." />
+                           className="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50" placeholder="Cuéntanos un poco más sobre ti..." />
                       </div>
                       {respuesta && (
                         <div className={`mt-4 p-3 rounded ${respuesta.includes('✅') ? 'bg-green-100 text-green-800' : 'bg-red-100 text-red-800'}`}>

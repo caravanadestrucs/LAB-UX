@@ -71,13 +71,13 @@ export default function LoginPage() {
       const result = await PasswordReset(loginData)
       if (result.success) {
         setSuccessMessage("Te hemos enviado un correo con instrucciones para restablecer tu contraseña.")
-        toast({ title: "Correo enviado", description: "Revisá tu bandeja para restablecer tu contraseña." })
+        toast({ title: "Correo enviado", description: "Revisa tu bandeja para restablecer tu contraseña." })
       } else {
         setErrorMessage(result.error || "No se pudo enviar el correo de recuperación.")
       }
     } catch (error) {
       console.error("Error en PasswordReset:", error);
-      setErrorMessage("No pudimos procesar tu solicitud. Verificá tu conexión e intentá de nuevo.")
+      setErrorMessage("No pudimos procesar tu solicitud. Verifica tu conexión e intenta de nuevo.")
     } finally {
       setIsSubmitting(false)
     }
@@ -103,14 +103,14 @@ export default function LoginPage() {
       formData.append("tipo_usuario", "alumno")
       const result = await addUser(formData)
       if (result && (result.success !== false)) {
-        setSuccessMessage("Cuenta creada. Ya podés iniciar sesión.")
-        toast({ title: "Registro exitoso", description: "Ya podés iniciar sesión con tu cuenta." })
+        setSuccessMessage("Cuenta creada. Ya puedes iniciar sesión.")
+        toast({ title: "Registro exitoso", description: "Ya puedes iniciar sesión con tu cuenta." })
       } else {
         setErrorMessage(result?.error || result?.message || "No se pudo crear la cuenta.")
       }
     } catch (error) {
       console.error("Error en handleRegister:", error);
-      setErrorMessage("No pudimos crear tu cuenta. Verificá los datos e intentá de nuevo.")
+      setErrorMessage("No pudimos crear tu cuenta. Verifica los datos e intenta de nuevo.")
     } finally {
       setIsSubmitting(false)
     }

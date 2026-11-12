@@ -10,7 +10,7 @@ export const slides: ContenidoSitio[] = [
       ID: 1,
       tipo:"banner",
       titulo: "Investigación UX en la UNCA",
-      texto: "Descubrí cómo evaluamos la usabilidad con usuarios reales en Catamarca",
+      texto: "Descubre cómo evaluamos la usabilidad con usuarios reales en Catamarca",
       imagen: "bg-secondary/90",
       estado: "activo",
       fecha_creacion: "2024-01-01",
@@ -1002,7 +1002,7 @@ export const metodologiasTEMPORAL: MetodologiaPrueba[] = [
   {
     ID: 901,
     nombre: "Entrevista contextual",
-    descripcion: "Conversamos con vos en tu lugar de estudio para entender cómo resolvés un trámite.",
+    descripcion: "Conversamos contigo en tu lugar de estudio para entender cómo resuelves un trámite.",
     tipo: "metodologia",
     fecha_creacion: "2026-01-10",
     caracteristicas: [
@@ -1024,7 +1024,7 @@ export const metodologiasTEMPORAL: MetodologiaPrueba[] = [
   {
     ID: 903,
     nombre: "Test moderado en laboratorio",
-    descripcion: "Te proponemos tareas en el Lab UNCA mientras observamos dónde dudás.",
+    descripcion: "Te proponemos tareas en el Lab UNCA mientras observamos dónde dudas.",
     tipo: "prueba",
     fecha_creacion: "2026-01-10",
     caracteristicas: [
@@ -1035,7 +1035,7 @@ export const metodologiasTEMPORAL: MetodologiaPrueba[] = [
   {
     ID: 904,
     nombre: "Test remoto no moderado",
-    descripcion: "Participá desde tu casa con instrucciones paso a paso.",
+    descripcion: "Participa desde tu casa con instrucciones paso a paso.",
     tipo: "prueba",
     fecha_creacion: "2026-01-10",
     caracteristicas: [
@@ -1056,14 +1056,14 @@ export const faqsTEMPORAL: PreguntaFrecuente[] = [
   {
     ID: 902,
     pregunta: "¿Cómo puedo ser tester?",
-    respuesta: "Escribinos a lab-ux@unca.edu.ar con tu carrera e interés. Te avisamos cuando abrimos una sesión.",
+    respuesta: "Escríbenos a lab-ux@unca.edu.ar con tu carrera e interés. Te avisamos cuando abrimos una sesión.",
     orden: 2,
     fecha_creacion: "2026-01-10",
   },
   {
     ID: 903,
     pregunta: "¿Cuánto dura una sesión?",
-    respuesta: "Entre 20 y 40 minutos. Siempre avisamos antes y podés retirarte cuando quieras.",
+    respuesta: "Entre 20 y 40 minutos. Siempre avisamos antes y puedes retirarte cuando quieras.",
     orden: 3,
     fecha_creacion: "2026-01-10",
   },
@@ -1105,7 +1105,7 @@ export const guiasTEMPORAL: GuiaTutorial[] = [
   {
     ID: 903,
     titulo: "Consentimiento informado",
-    descripcion: "Qué firmás y por qué antes de cada sesión.",
+    descripcion: "Qué firmas y por qué antes de cada sesión.",
     fecha_publicacion: "2026-01-10",
     ID_usuario: 902,
     categoria: "Ética",
@@ -1121,14 +1121,14 @@ export const glosarioTEMPORAL: Glosario[] = [
   { ID: 901, termino: "Usabilidad", descripcion: "Qué tan fácil te resulta lograr tu objetivo con un diseño.", fecha_creacion: "2026-01-10" },
   { ID: 902, termino: "Accesibilidad", descripcion: "Que cualquier persona pueda usar el diseño, con o sin apoyos.", fecha_creacion: "2026-01-10" },
   { ID: 903, termino: "Heurística", descripcion: "Regla práctica para detectar problemas de uso antes del test.", fecha_creacion: "2026-01-10" },
-  { ID: 904, termino: "Prototipo", descripcion: "Versión de prueba para observar cómo la usás antes de programar.", fecha_creacion: "2026-01-10" },
+  { ID: 904, termino: "Prototipo", descripcion: "Versión de prueba para observar cómo la usas antes de programar.", fecha_creacion: "2026-01-10" },
 ];
 
 export const eventosTEMPORAL: Evento[] = [
   {
     ID: 901,
     titulo: "Taller abierto de tests",
-    descripcion: "Vení a probar un trámite de la UNCA y contanos dónde te trabás.",
+    descripcion: "Ven a probar un trámite de la UNCA y cuéntanos dónde te trabas.",
     fecha: "2026-06-10T16:00:00",
     lugar: "Campus UNCA — Catamarca",
     tipo: "evento",
@@ -1160,7 +1160,7 @@ export const proximosEventosTEMPORAL: Evento[] = [
   {
     ID: 903,
     titulo: "Puertas abiertas del Lab",
-    descripcion: "Recorré el laboratorio y probá una demo de 10 minutos.",
+    descripcion: "Recorre el laboratorio y prueba una demo de 10 minutos.",
     fecha: "2026-07-05T10:00:00",
     lugar: "Campus UNCA — Catamarca",
     tipo: "proximo_evento",
