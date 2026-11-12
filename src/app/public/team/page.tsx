@@ -10,6 +10,7 @@ import { MapPin, Users, GraduationCap, BookOpen } from "lucide-react"
 import { ModalCv } from "./components/modalcv"
 import { User, RoleUser } from "@/types/index";
 import { fetchUsers } from "@/services/index";
+import { equipoTEMPORAL, DEMO_BADGE } from "@/constants/data";
 
 function roleLabel(tipo: RoleUser): string {
   return tipo === "profesor"
@@ -66,7 +67,7 @@ function TeamCard({ person }: { person: User }) {
       <CardFooter className="p-4 flex justify-between items-center border-t">
         <div className="flex items-center text-sm text-muted-foreground">
           <MapPin className="mr-1 h-4 w-4" />
-          Campus Principal
+          Campus UNCA — Catamarca
         </div>
         <Button variant="ghost" size="sm" className="text-[#0E7490]">
           <ModalCv perfil={person} />
@@ -83,7 +84,7 @@ function TeamEmpty({ label }: { label: string }) {
         Todavía no hay {label} publicados. El laboratorio sigue creciendo y hay lugar para vos.
       </p>
       <Button asChild variant="outline">
-        <Link href="/public/support">Escríbenos y te presentamos al equipo</Link>
+        <Link href="/public/support">Escribinos y te presentamos al equipo</Link>
       </Button>
     </div>
   );
@@ -112,19 +113,24 @@ export default function Team() {
   const [loading, setLoading] = useState(false);
   const [users, setUsers] = useState<User[]>([]);
   const [usersError, setUsersError] = useState<string | null>(null);
+  const [demo, setDemo] = useState(false);
   const [activeTab, setActiveTab] = useState<RoleUser>("profesor");
 
   // Cargar usuarios filtrados por tipo
   const loadUsers = () => {
     setLoading(true);
     setUsersError(null);
+    setDemo(false);
     fetchUsers("", activeTab === "profesor" ? "profesor" :
                activeTab === "admin" ? "admin" : "alumno", "activo")
       .then(data => {
         setUsers(Array.isArray(data) ? data : []);
+        setDemo(false);
       })
       .catch(() => {
-        setUsersError("No pudimos cargar los datos. Revisá tu conexión o reintentá.");
+        setUsers(equipoTEMPORAL);
+        setUsersError(null);
+        setDemo(true);
       })
       .finally(() => setLoading(false));
   };
@@ -163,12 +169,21 @@ export default function Team() {
             <div className="flex flex-col items-center justify-center space-y-4 text-center">
               <div className="space-y-2">
                 <Badge variant="outline" className="px-4 py-1 text-sm">Equipo</Badge>
-                <h1 className="text-3xl font-bold tracking-tighter sm:text-5xl">Conoce a quienes hacen posible todo</h1>
+                <h1 className="text-3xl font-bold tracking-tighter sm:text-5xl">Conocé a quienes hacen posible todo</h1>
                 <p className="max-w-[900px] text-muted-foreground md:text-xl/relaxed">
                   Un equipo diverso y apasionado de profesionales, educadores y estudiantes comprometidos con la excelencia.
                 </p>
               </div>
             </div>
+
+            {demo && (
+              <div className="mt-6 flex items-center justify-center gap-3 rounded-md border border-dashed p-3" role="status">
+                <Badge variant="outline">{DEMO_BADGE}</Badge>
+                <Button variant="outline" size="sm" onClick={loadUsers}>
+                  Reintentar
+                </Button>
+              </div>
+            )}
 
             <Tabs 
               defaultValue="profesores" 
@@ -217,9 +232,9 @@ export default function Team() {
           <div className="container px-4 md:px-6 mx-auto">
             <div className="grid gap-6 lg:grid-cols-2 lg:gap-12 items-center">
               <div className="space-y-4">
-                <div className="inline-block rounded-lg bg-muted px-3 py-1 text-sm text-primary">Únete a Nosotros</div>
+                <div className="inline-block rounded-lg bg-muted px-3 py-1 text-sm text-primary">Sumate al Lab</div>
                 <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">
-                  ¿Quieres formar parte de nuestro equipo?
+                  ¿Querés formar parte de nuestro equipo?
                 </h2>
                 <p className="max-w-[600px] text-muted-foreground md:text-xl">
                   Estamos siempre en búsqueda de talento apasionado por la educación y la innovación.
@@ -230,7 +245,7 @@ export default function Team() {
                   <CardHeader>
                     <CardTitle>Solicitud de Información</CardTitle>
                     <CardDescription>
-                      Completa el formulario y nos pondremos en contacto contigo para brindarte más detalles.
+                      Completá el formulario y nos pondremos en contacto con vos para brindarte más detalles.
                     </CardDescription>
                   </CardHeader>
                   <CardContent>
@@ -238,18 +253,18 @@ export default function Team() {
                       <div className="grid grid-cols-2 gap-4">
                         <div className="space-y-2">
                           <label htmlFor="first-name" className="text-sm font-medium">Nombre</label>
-                          <input id="first-name" value={nombre} onChange={(e) => setNombre(e.target.value)} placeholder="Juan"
+                          <input id="first-name" value={nombre} onChange={(e) => setNombre(e.target.value)} placeholder="Nombre"
                             className="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"/>
                         </div>
                         <div className="space-y-2">
                           <label htmlFor="last-name" className="text-sm font-medium">Apellido</label>
-                          <input id="last-name" value={apellido} onChange={(e) => setApellido(e.target.value)} placeholder="Pérez"
+                          <input id="last-name" value={apellido} onChange={(e) => setApellido(e.target.value)} placeholder="Apellido"
                            className="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"/>
                         </div>
                       </div>
                       <div className="space-y-2">
                         <label htmlFor="email" className="text-sm font-medium">Correo electrónico</label>
-                        <input id="email" value={correo} onChange={(e) => setCorreo(e.target.value)} placeholder="juan@email.com"
+                        <input id="email" value={correo} onChange={(e) => setCorreo(e.target.value)} placeholder="nombre@unca.edu.ar"
                           type="email" className="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50" />
                       </div>
                       <div className="space-y-2">
@@ -266,7 +281,7 @@ export default function Team() {
                           onChange={(e) => setInterest(e.target.value)}
                         >
                           <option value="" disabled>
-                            Selecciona una opción
+                            Seleccioná una opción
                           </option>
                           <option value="teaching">Docencia</option>
                           <option value="research">Investigación</option>
@@ -277,7 +292,7 @@ export default function Team() {
                       <div className="space-y-2">
                         <label htmlFor="mensaje" className="text-sm font-medium">Mensaje</label>
                         <textarea id="mensaje" value={mensaje} onChange={(e) => setMensaje(e.target.value)} rows={4}
-                           className="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50" placeholder="Cuéntanos un poco más sobre ti..." />
+                           className="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50" placeholder="Contanos un poco más sobre vos..." />
                       </div>
                       {respuesta && (
                         <div className={`mt-4 p-3 rounded ${respuesta.includes('✅') ? 'bg-green-100 text-green-800' : 'bg-red-100 text-red-800'}`}>

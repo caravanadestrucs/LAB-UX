@@ -1,32 +1,36 @@
-// Home
-import { EventoNoticia, Proyecto, ContenidoSitio, Valor, Glosario } from "@/types";
+// TEMPORAL demo pública (NO usar en admin): fallback solo si el backend no responde.
+// Cuando el backend vuelva, estos datos se reemplazan por fetch real.
+export const TEMPORAL_DEMO = true;
+export const DEMO_BADGE = "Datos de demostración — backend no disponible";
+
+import { Evento, Proyecto, ContenidoSitio, Valor, Glosario, User, MetodologiaPrueba, PreguntaFrecuente, GuiaTutorial } from "@/types";
 // Datos de ejemplo para el carrusel
-export const slides = [
+export const slides: ContenidoSitio[] = [
     {
       ID: 1,
       tipo:"banner",
-      titulo: "Soluciones innovadoras para tu negocio",
-      texto: "Descubre cómo podemos ayudarte a crecer y alcanzar tus objetivos",
+      titulo: "Investigación UX en la UNCA",
+      texto: "Descubrí cómo evaluamos la usabilidad con usuarios reales en Catamarca",
       imagen: "bg-secondary/90",
-      estado: "Activo",
+      estado: "activo",
       fecha_creacion: "2024-01-01",
     },
     {
       ID: 2,
       tipo: "banner",
-      titulo: "Productos de alta calidad",
-      texto: "Diseñados para satisfacer las necesidades más exigentes del mercado",
+      titulo: "Formación en usabilidad",
+      texto: "Talleres y pruebas abiertas para estudiantes y equipos de la UNCA",
       imagen: "bg-secondary/90",
-      estado: "Activo",
+      estado: "activo",
       fecha_creacion: "2024-01-01",
     },
     {
       ID: 3,
       tipo:"banner",
-      titulo: "Servicio personalizado",
-      texto: "Atención dedicada para cada uno de nuestros clientes",
+      titulo: "Transferencia a la comunidad",
+      texto: "Acompañamos a organismos y pymes de Catamarca con evidencia de uso",
       imagen: "bg-accent/90",
-      estado: "Activo",
+      estado: "activo",
       fecha_creacion: "2024-01-01",
     },
   ]
@@ -35,7 +39,7 @@ export const Mision: ContenidoSitio ={
     ID: 1,
     tipo: "mision",
     titulo: "Nuestra Misión",
-    texto: "Proporcionar soluciones innovadoras y de alta calidad que transformen la manera en que nuestros clientes interactúan con la tecnología, facilitando su crecimiento y éxito en un mundo digital en constante evolución. Nos comprometemos a ofrecer un servicio excepcional, mantener los más altos estándares éticos y contribuir positivamente a las comunidades en las que operamos.",
+    texto: "Investigar la experiencia de uso con usuarios reales, formar estudiantes y equipos de la UNCA en métodos de usabilidad y transferir evidencia práctica a organismos y pymes de Catamarca.",
     imagen: "/placeholder.svg?height=400&width=600",
     estado: "activo",
     fecha_creacion: "2024-01-01",
@@ -44,7 +48,7 @@ export const Vision: ContenidoSitio = {
     ID: 2,
     tipo: "vision",
     titulo: "Nuestra Visión",
-    texto: "Ser un referente internacional en la investigación de usabilidad y experiencia de usuario, contribuyendo al desarrollo de tecnologías centradas en las personas y formando profesionales capaces de diseñar soluciones que mejoren la calidad de vida de los usuarios.",
+    texto: "Ser el laboratorio de referencia en usabilidad del NOA: investigación abierta con la UNCA, formación continua y diseños centrados en las personas de Catamarca.",
     imagen: "/placeholder.svg?height=400&width=600",
     estado:"activo",
     fecha_creacion: "2024-01-01",
@@ -56,7 +60,7 @@ export const Valores: Valor[] = [
     tipo: "valores",
     imagen: "M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z",
     titulo: "Integridad",
-    texto: "Actuamos con honestidad, transparencia y ética en todas nuestras interacciones, manteniendo los más altos estándares de conducta profesional.",
+    texto: "Investigamos con honestidad y ética: datos reales de uso, consentimiento informado y resultados abiertos para la UNCA.",
     fecha_creacion: "2024-01-01",
     estado: "activo"
   },
@@ -65,7 +69,7 @@ export const Valores: Valor[] = [
     tipo: "valores",
     imagen: "M13 10V3L4 14h7v7l9-11h-7z",
     titulo: "Innovación",
-    texto: "Fomentamos la creatividad y el pensamiento disruptivo, buscando constantemente nuevas formas de resolver problemas y crear valor para nuestros clientes.",
+    texto: "Probamos ideas con usuarios de Catamarca en ciclos cortos: observar, prototipar y volver a probar.",
     fecha_creacion: "2024-01-01",
     estado: "activo"
   },
@@ -74,7 +78,7 @@ export const Valores: Valor[] = [
     tipo: "valores",
     imagen: "M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z",
     titulo: "Colaboración",
-    texto: "Trabajamos juntos como un equipo unificado, valorando la diversidad de perspectivas y habilidades para lograr resultados excepcionales.",
+    texto: "Estudiantes, docentes y comunidad trabajan juntos en cada test: todas las miradas suman evidencia.",
     fecha_creacion: "2024-01-01",
     estado: "activo"
   },
@@ -83,7 +87,7 @@ export const Valores: Valor[] = [
     tipo: "valores",
     imagen: "M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4",
     titulo: "Excelencia",
-    texto: "Nos esforzamos por alcanzar los más altos niveles de calidad en todo lo que hacemos, superando constantemente las expectativas de nuestros clientes.",
+    texto: "Rigor en cada sesión: guion, métricas claras y devolución útil para quien participa.",
     fecha_creacion: "2024-01-01",
     estado: "activo"
   },
@@ -92,7 +96,7 @@ export const Valores: Valor[] = [
     tipo: "valores",
     imagen: "M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z",
     titulo: "Responsabilidad",
-    texto: "Asumimos la responsabilidad de nuestras acciones y decisiones, cumpliendo nuestros compromisos con clientes, empleados y comunidades.",
+    texto: "Cuidamos tus datos y tu tiempo: sesiones breves, aviso previo y resultados compartidos.",
     fecha_creacion: "2024-01-01",
     estado: "activo"
   },
@@ -101,7 +105,7 @@ export const Valores: Valor[] = [
     tipo: "valores",
     imagen: "M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h.5A2.5 2.5 0 0020 5.5v-1.5",
     titulo: "Sostenibilidad",
-    texto: "Nos comprometemos a operar de manera sostenible, minimizando nuestro impacto ambiental y contribuyendo positivamente al bienestar social y económico.",
+    texto: "Conocimiento abierto para Catamarca: guías y hallazgos que quedan en la UNCA.",
     fecha_creacion: "2024-01-01",
     estado: "activo"
   }
@@ -113,7 +117,7 @@ export const team = [
     role: "Profesor de Matemáticas",
     bio: "Doctor en Matemáticas Aplicadas con 15 años de experiencia en educación superior.",
     foto: "/placeholder.svg?height=300&width=300",
-    email: " juan.perez@universidad.edu",
+    email: "equipo.labux@unca.edu.ar",
     oficina: "Edificio de Ciencias, Sala 305",
     formacion: [
       "Doctorado en Ciencias Computacionales; Universidad Nacional, 2010-2014",
@@ -130,7 +134,7 @@ export const team = [
 //Investigacion
 /////Proyectos 
 // Datos de ejemplo
-export const proyectos: Proyecto[] = [
+export const proyectos = [
   {
     ID: 101,
     nombre: "Sistema de Evaluación UX para Apps de Salud",
@@ -523,7 +527,7 @@ export const tiposPruebas = [
     },
   ];
 //difusion
-export const eventos: EventoNoticia[] = [
+export const eventos = [
   {
     ID: 1,
     titulo: "Conferencia de Inteligencia Artificial",
@@ -620,7 +624,7 @@ export const eventos: EventoNoticia[] = [
     ]
   }
 ];
-export const noticias: EventoNoticia[] = [
+export const noticias = [
   {
     ID: 4,
     titulo: "Investigadora gana premio internacional",
@@ -657,7 +661,7 @@ export const noticias: EventoNoticia[] = [
     ]
   }
 ];
-export const proximosEventos: EventoNoticia[] = [
+export const proximosEventos = [
   {
     ID: 7,
     titulo: "Congreso Internacional de Ciencias de Datos 2024",
@@ -880,24 +884,290 @@ export const guides = [
     ],
     datos :
     {
-      email: "labUX@unca.edu.mx",
+      email: "lab-ux@unca.edu.ar",
       horario: "Lunes a Viernes de 9:00 a 17:00",
       redes: [
         {
-          nombre: "Facebook",
-          url: "https://www.facebook.com/labUXUNCA",
-          icono: "facebook-icon.svg",
-        },
-        {
-          nombre: "Twitter",
-          url: "https://twitter.com/labUXUNCA",
-          icono: "twitter-icon.svg",
-        },
-        {
-          nombre: "Instagram",
-          url: "https://www.instagram.com/labUXUNCA",
-          icono: "instagram-icon.svg",
+          nombre: "Sitio UNCA",
+          url: "https://www.unca.edu.ar/",
+          icono: "globe-icon.svg",
         },
       ]
     }
   }
+
+// ── TEMPORAL público (shape NUEVO de types, sin divergencias viejas) ──
+export const bannersTEMPORAL: ContenidoSitio[] = slides;
+
+export const equipoTEMPORAL: User[] = [
+  {
+    ID: 901,
+    correo: "docente.unca@unca.edu.ar",
+    password: "",
+    nombre: "Docente",
+    apellido: "UNCA",
+    tipo_usuario: "profesor",
+    estado: "activo",
+    avatar: "/placeholder.svg",
+    areas_investigacion: [
+      { ID: 1, nombre: "Usabilidad", ID_usuario: 901, ID_area: 1, area_nombre: "Usabilidad" },
+    ],
+    formacion_academica: [
+      { ID: 1, ID_usuario: 901, institucion: "UNCA — Catamarca", titulo: "Docente investigadora" },
+    ],
+  },
+  {
+    ID: 902,
+    correo: "equipo.unca@unca.edu.ar",
+    password: "",
+    nombre: "Equipo",
+    apellido: "Lab",
+    tipo_usuario: "admin",
+    estado: "activo",
+    avatar: "/placeholder.svg",
+    areas_investigacion: [
+      { ID: 2, nombre: "Investigación UX", ID_usuario: 902, ID_area: 2, area_nombre: "Investigación UX" },
+    ],
+    formacion_academica: [
+      { ID: 2, ID_usuario: 902, institucion: "UNCA — Catamarca", titulo: "Coordinación de tests" },
+    ],
+  },
+  {
+    ID: 903,
+    correo: "alumno.unca@unca.edu.ar",
+    password: "",
+    nombre: "Estudiante",
+    apellido: "UNCA",
+    tipo_usuario: "alumno",
+    estado: "activo",
+    avatar: "/placeholder.svg",
+    areas_investigacion: [
+      { ID: 3, nombre: "Accesibilidad", ID_usuario: 903, ID_area: 3, area_nombre: "Accesibilidad" },
+    ],
+    formacion_academica: [
+      { ID: 3, ID_usuario: 903, institucion: "UNCA — Catamarca", titulo: "Tester en formación" },
+    ],
+  },
+];
+
+export const proyectosTEMPORAL: Proyecto[] = [
+  {
+    ID: 901,
+    nombre: "Usabilidad de trámites UNCA",
+    tipo_estudio: "Test con usuarios",
+    imagen: "/placeholder.svg",
+    descripcion: "Evaluamos con estudiantes el trámite de inscripción para simplificarlo.",
+    fecha_inicio: "2026-01-15",
+    fecha_fin: "2026-06-30",
+    progreso: 40,
+    estado: "en_progreso",
+    fecha_creacion: "2026-01-10",
+    fecha_actualizacion: "2026-01-10",
+    areas_investigacion: [{ ID_area: 1, area_nombre: "Usabilidad" }],
+    colaboradores: [{ ID_usuario: 901, nombre: "Docente", apellido: "UNCA" }],
+  },
+  {
+    ID: 902,
+    nombre: "Accesibilidad en aulas virtuales",
+    tipo_estudio: "Heurísticas + lectores",
+    imagen: "/placeholder.svg",
+    descripcion: "Revisamos contraste, foco y navegación por teclado en el campus virtual.",
+    fecha_inicio: "2026-02-01",
+    fecha_fin: "2026-07-31",
+    progreso: 25,
+    estado: "en_progreso",
+    fecha_creacion: "2026-02-01",
+    fecha_actualizacion: "2026-02-01",
+    areas_investigacion: [{ ID_area: 2, area_nombre: "Accesibilidad" }],
+    colaboradores: [{ ID_usuario: 902, nombre: "Equipo", apellido: "Lab" }],
+  },
+  {
+    ID: 903,
+    nombre: "Lenguaje claro en comunicados",
+    tipo_estudio: "Test de comprensión",
+    imagen: "/placeholder.svg",
+    descripcion: "Probamos avisos de la UNCA con estudiantes para que se entiendan a la primera.",
+    fecha_inicio: "2025-09-01",
+    fecha_fin: "2025-12-20",
+    progreso: 100,
+    estado: "completado",
+    fecha_creacion: "2025-09-01",
+    fecha_actualizacion: "2025-12-20",
+    areas_investigacion: [{ ID_area: 3, area_nombre: "Contenidos" }],
+    colaboradores: [{ ID_usuario: 903, nombre: "Estudiante", apellido: "UNCA" }],
+  },
+];
+
+export const metodologiasTEMPORAL: MetodologiaPrueba[] = [
+  {
+    ID: 901,
+    nombre: "Entrevista contextual",
+    descripcion: "Conversamos con vos en tu lugar de estudio para entender cómo resolvés un trámite.",
+    tipo: "metodologia",
+    fecha_creacion: "2026-01-10",
+    caracteristicas: [
+      { ID: 1, ID_metodologia: 901, caracteristica: "Guion breve de 20 minutos" },
+      { ID: 2, ID_metodologia: 901, caracteristica: "Registro con consentimiento" },
+    ],
+  },
+  {
+    ID: 902,
+    nombre: "Evaluación heurística",
+    descripcion: "Revisamos una pantalla con principios de usabilidad antes de testear con usuarios.",
+    tipo: "metodologia",
+    fecha_creacion: "2026-01-10",
+    caracteristicas: [
+      { ID: 3, ID_metodologia: 902, caracteristica: "10 principios de Nielsen" },
+      { ID: 4, ID_metodologia: 902, caracteristica: "Reporte con severidad" },
+    ],
+  },
+  {
+    ID: 903,
+    nombre: "Test moderado en laboratorio",
+    descripcion: "Te proponemos tareas en el Lab UNCA mientras observamos dónde dudás.",
+    tipo: "prueba",
+    fecha_creacion: "2026-01-10",
+    caracteristicas: [
+      { ID: 5, ID_metodologia: 903, caracteristica: "Sesión de 30 minutos" },
+      { ID: 6, ID_metodologia: 903, caracteristica: "Pensar en voz alta" },
+    ],
+  },
+  {
+    ID: 904,
+    nombre: "Test remoto no moderado",
+    descripcion: "Participá desde tu casa con instrucciones paso a paso.",
+    tipo: "prueba",
+    fecha_creacion: "2026-01-10",
+    caracteristicas: [
+      { ID: 7, ID_metodologia: 904, caracteristica: "Sin instalar nada" },
+      { ID: 8, ID_metodologia: 904, caracteristica: "Devolución por correo" },
+    ],
+  },
+];
+
+export const faqsTEMPORAL: PreguntaFrecuente[] = [
+  {
+    ID: 901,
+    pregunta: "¿Qué es el Laboratorio de Usabilidad de la UNCA?",
+    respuesta: "Un espacio de la UNCA en Catamarca donde probamos trámites, aulas virtuales y comunicados con usuarios reales.",
+    orden: 1,
+    fecha_creacion: "2026-01-10",
+  },
+  {
+    ID: 902,
+    pregunta: "¿Cómo puedo ser tester?",
+    respuesta: "Escribinos a lab-ux@unca.edu.ar con tu carrera e interés. Te avisamos cuando abrimos una sesión.",
+    orden: 2,
+    fecha_creacion: "2026-01-10",
+  },
+  {
+    ID: 903,
+    pregunta: "¿Cuánto dura una sesión?",
+    respuesta: "Entre 20 y 40 minutos. Siempre avisamos antes y podés retirarte cuando quieras.",
+    orden: 3,
+    fecha_creacion: "2026-01-10",
+  },
+  {
+    ID: 904,
+    pregunta: "¿Qué pasa con mis datos?",
+    respuesta: "Solo usamos tus respuestas para mejorar el diseño. Pedimos consentimiento y nunca publicamos datos personales.",
+    orden: 4,
+    fecha_creacion: "2026-01-10",
+  },
+];
+
+export const guiasTEMPORAL: GuiaTutorial[] = [
+  {
+    ID: 901,
+    titulo: "Cómo participar en una prueba",
+    descripcion: "Qué esperar antes, durante y después de un test en el Lab UNCA.",
+    fecha_publicacion: "2026-01-10",
+    ID_usuario: 901,
+    categoria: "Participar",
+    recursos: [
+      { ID: 1, ID_guia: 901, tipo: "pdf", recurso: "guia-participar.pdf", recurso_url: "https://www.unca.edu.ar/guia-participar.pdf", descripcion: "Guía en PDF" },
+      { ID: 2, ID_guia: 901, tipo: "link", recurso: "https://www.unca.edu.ar/", recurso_url: "https://www.unca.edu.ar/", descripcion: "Sitio UNCA" },
+    ],
+    areas_investigacion: [{ ID_area: 1, area_nombre: "Usabilidad" }],
+  },
+  {
+    ID: 902,
+    titulo: "Heurísticas en una página",
+    descripcion: "Los 10 puntos que revisamos antes de cada test.",
+    fecha_publicacion: "2026-01-10",
+    ID_usuario: 901,
+    categoria: "Métodos",
+    recursos: [
+      { ID: 3, ID_guia: 902, tipo: "pdf", recurso: "heuristicas.pdf", recurso_url: "https://www.unca.edu.ar/heuristicas.pdf", descripcion: "Checklist PDF" },
+    ],
+    areas_investigacion: [{ ID_area: 2, area_nombre: "Accesibilidad" }],
+  },
+  {
+    ID: 903,
+    titulo: "Consentimiento informado",
+    descripcion: "Qué firmás y por qué antes de cada sesión.",
+    fecha_publicacion: "2026-01-10",
+    ID_usuario: 902,
+    categoria: "Ética",
+    recursos: [
+      { ID: 4, ID_guia: 903, tipo: "pdf", recurso: "consentimiento.pdf", recurso_url: "https://www.unca.edu.ar/consentimiento.pdf", descripcion: "Modelo de consentimiento" },
+      { ID: 5, ID_guia: 903, tipo: "link", recurso: "https://www.unca.edu.ar/", recurso_url: "https://www.unca.edu.ar/", descripcion: "Más info UNCA" },
+    ],
+    areas_investigacion: [{ ID_area: 3, area_nombre: "Ética" }],
+  },
+];
+
+export const glosarioTEMPORAL: Glosario[] = [
+  { ID: 901, termino: "Usabilidad", descripcion: "Qué tan fácil te resulta lograr tu objetivo con un diseño.", fecha_creacion: "2026-01-10" },
+  { ID: 902, termino: "Accesibilidad", descripcion: "Que cualquier persona pueda usar el diseño, con o sin apoyos.", fecha_creacion: "2026-01-10" },
+  { ID: 903, termino: "Heurística", descripcion: "Regla práctica para detectar problemas de uso antes del test.", fecha_creacion: "2026-01-10" },
+  { ID: 904, termino: "Prototipo", descripcion: "Versión de prueba para observar cómo la usás antes de programar.", fecha_creacion: "2026-01-10" },
+];
+
+export const eventosTEMPORAL: Evento[] = [
+  {
+    ID: 901,
+    titulo: "Taller abierto de tests",
+    descripcion: "Vení a probar un trámite de la UNCA y contanos dónde te trabás.",
+    fecha: "2026-06-10T16:00:00",
+    lugar: "Campus UNCA — Catamarca",
+    tipo: "evento",
+    imagen: "/placeholder.svg",
+    fecha_creacion: "2026-01-10 10:00:00",
+    ID_usuario: 901,
+    asistentes: [],
+    areas_investigacion: [{ ID_area: 1, area_nombre: "Usabilidad" }],
+  },
+];
+
+export const noticiasTEMPORAL: Evento[] = [
+  {
+    ID: 902,
+    titulo: "Sumamos testers estudiantes",
+    descripcion: "Abrimos la convocatoria 2026 para participar en pruebas del Lab UNCA.",
+    fecha: "2026-02-10T10:00:00",
+    lugar: "Campus UNCA — Catamarca",
+    tipo: "noticia",
+    imagen: "/placeholder.svg",
+    fecha_creacion: "2026-02-10 10:00:00",
+    ID_usuario: 901,
+    asistentes: [],
+    areas_investigacion: [{ ID_area: 1, area_nombre: "Usabilidad" }],
+  },
+];
+
+export const proximosEventosTEMPORAL: Evento[] = [
+  {
+    ID: 903,
+    titulo: "Puertas abiertas del Lab",
+    descripcion: "Recorré el laboratorio y probá una demo de 10 minutos.",
+    fecha: "2026-07-05T10:00:00",
+    lugar: "Campus UNCA — Catamarca",
+    tipo: "proximo_evento",
+    imagen: "/placeholder.svg",
+    fecha_creacion: "2026-01-10 10:00:00",
+    ID_usuario: 901,
+    asistentes: [],
+    areas_investigacion: [{ ID_area: 1, area_nombre: "Usabilidad" }],
+  },
+];

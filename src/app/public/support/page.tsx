@@ -15,6 +15,7 @@ import { API_URL } from "@/constants/Api"
 import { useToast } from "@/hooks/use-toast"
 import { fetchPreguntasFrecuentes } from "@/services/preguntafrecuente"
 import { fetchGuias } from "@/services/guias"
+import { faqsTEMPORAL, guiasTEMPORAL, DEMO_BADGE } from "@/constants/data"
 import type { PreguntaFrecuente } from "@/types/preguntaFrecuente"
 import type { GuiaTutorial, GuiaRecurso } from "@/types/guiaTutorial"
 import {
@@ -54,16 +55,21 @@ export default function Support() {
     const [guias, setGuias] = useState<GuiaTutorial[]>([])
     const [guiasLoading, setGuiasLoading] = useState(true)
     const [guiasError, setGuiasError] = useState<string | null>(null)
+    const [faqsDemo, setFaqsDemo] = useState(false)
+    const [guiasDemo, setGuiasDemo] = useState(false)
     const { toast } = useToast()
 
     const loadFaqs = async () => {
       setFaqsLoading(true)
       setFaqsError(null)
+      setFaqsDemo(false)
       try {
         const data = await fetchPreguntasFrecuentes()
         setFaqs(Array.isArray(data) ? data : [])
       } catch {
-        setFaqsError("No pudimos cargar los datos. Revisá tu conexión o reintentá.")
+        setFaqs(faqsTEMPORAL)
+        setFaqsError(null)
+        setFaqsDemo(true)
       } finally {
         setFaqsLoading(false)
       }
@@ -72,11 +78,14 @@ export default function Support() {
     const loadGuias = async () => {
       setGuiasLoading(true)
       setGuiasError(null)
+      setGuiasDemo(false)
       try {
         const data = await fetchGuias()
         setGuias(Array.isArray(data) ? data : [])
       } catch {
-        setGuiasError("No pudimos cargar los datos. Revisá tu conexión o reintentá.")
+        setGuias(guiasTEMPORAL)
+        setGuiasError(null)
+        setGuiasDemo(true)
       } finally {
         setGuiasLoading(false)
       }
@@ -118,17 +127,17 @@ export default function Support() {
         const resultado = await response.json();
   
         if (response.ok) {
-          const msg = resultado.mensaje || '¡Tu solicitud fue enviada con éxito! Pronto nos pondremos en contacto contigo.';
+          const msg = resultado.mensaje || '¡Tu solicitud fue enviada con éxito! Pronto nos pondremos en contacto con vos.';
           setRespuesta(msg);
           toast({ title: "Solicitud enviada", description: msg });
         } else {
-          const msg = resultado.error || 'Hubo un problema al procesar tu solicitud. Por favor, revisa los datos e inténtalo nuevamente.';
+          const msg = resultado.error || 'Hubo un problema al procesar tu solicitud. Por favor, revisá los datos e intentá nuevamente.';
           setRespuesta(msg);
           toast({ title: "Error al enviar", description: msg, variant: "destructive" });
         }
         } catch (error) {
           console.error(error);
-          const msg = 'Ocurrió un error inesperado al enviar tu solicitud. Verifica tu conexión o intenta más tarde.';
+          const msg = 'Ocurrió un error inesperado al enviar tu solicitud. Verificá tu conexión o intentá más tarde.';
           setRespuesta(msg);
           toast({ title: "Error de conexión", description: msg, variant: "destructive" });
         }
@@ -139,7 +148,7 @@ export default function Support() {
       <div className="mb-10 text-center">
         <h1 className="text-3xl font-bold tracking-tight md:text-4xl mb-2">Soporte y Ayuda</h1>
         <p className="text-muted-foreground max-w-2xl mx-auto">
-          Encuentra respuestas a tus preguntas, contacta con nosotros o consulta nuestras guías y tutoriales.
+          Encontrá respuestas a tus preguntas, contactanos o consultá nuestras guías y tutoriales.
         </p>
       </div>
 
@@ -161,6 +170,14 @@ export default function Support() {
           </TabsTrigger>
         </TabsList>
         <TabsContent value="faq" className="space-y-4">
+          {faqsDemo && (
+            <div className="flex items-center gap-3 rounded-md border border-dashed p-3" role="status">
+              <Badge>{DEMO_BADGE}</Badge>
+              <Button variant="outline" size="sm" className="mt-0" onClick={loadFaqs}>
+                Reintentar
+              </Button>
+            </div>
+          )}
           <div aria-live="polite" aria-atomic="true" className="sr-only">
             {faqsLoading ? "Cargando preguntas frecuentes..." : `${faqs.length} pregunta${faqs.length !== 1 ? "s" : ""} encontrada${faqs.length !== 1 ? "s" : ""}`}
           </div>
@@ -202,9 +219,9 @@ export default function Support() {
         <TabsContent value="contacto">
           <Card>
             <CardHeader>
-              <CardTitle>Contacta con nosotros</CardTitle>
+              <CardTitle>Contactanos</CardTitle>
               <CardDescription>
-                Completa el formulario a continuación y nos pondremos en contacto contigo lo antes posible.
+                Completá el formulario a continuación y nos pondremos en contacto con vos lo antes posible.
               </CardDescription>
             </CardHeader>
             <CardContent className="space-y-4">
@@ -322,6 +339,14 @@ export default function Support() {
           </div>
         </TabsContent>
         <TabsContent value="guias" className="space-y-6">
+          {guiasDemo && (
+            <div className="flex items-center gap-3 rounded-md border border-dashed p-3" role="status">
+              <Badge>{DEMO_BADGE}</Badge>
+              <Button variant="outline" size="sm" className="mt-0" onClick={loadGuias}>
+                Reintentar
+              </Button>
+            </div>
+          )}
           <div aria-live="polite" aria-atomic="true" className="sr-only">
             {guiasLoading ? "Cargando guías..." : `${guias.length} guía${guias.length !== 1 ? "s" : ""} encontrada${guias.length !== 1 ? "s" : ""}`}
           </div>

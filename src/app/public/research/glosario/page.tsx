@@ -5,6 +5,8 @@ import { Input } from "@/components/ui/input"
 import { Button } from "@/components/ui/button"
 import { Search } from "lucide-react"
 import { fetchTerminos } from "@/services/glosario"
+import { glosarioTEMPORAL, DEMO_BADGE } from "@/constants/data"
+import { Badge } from "@/components/ui/badge"
 import { useToast } from "@/components/hooks/use-toast"
 import { useDebouncedValue } from "@/hooks/useDebouncedValue"
 
@@ -16,6 +18,7 @@ export default function GlosarioPage() {
   const debouncedFilter = useDebouncedValue(filter, 300)
   const [selectedLetter, setSelectedLetter] = useState("")
   const [glosarioError, setGlosarioError] = useState<string | null>(null)
+  const [demo, setDemo] = useState(false)
   const [retryCount, setRetryCount] = useState(0)
 
   const alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".split("")
@@ -26,6 +29,7 @@ export default function GlosarioPage() {
     const loadTermsFiltered = async () => {
       setLoading(true)
       setGlosarioError(null)
+      setDemo(false)
       try {
         const query: string[] = []
         if (selectedLetter) query.push(`letra=${encodeURIComponent(selectedLetter.toLowerCase())}`)
@@ -34,6 +38,7 @@ export default function GlosarioPage() {
         const data = await fetchTerminos(queryString, { signal: controller.signal })
         if (!controller.signal.aborted) {
           setTerminos(data)
+          setDemo(false)
         }
       } catch (error: unknown) {
         if (error instanceof DOMException && error.name === "AbortError") return
@@ -41,13 +46,16 @@ export default function GlosarioPage() {
         if (typeof error === "object" && error !== null && "name" in error && (error as { name: string }).name === "AbortError") {
           return
         }
-        const msg = "No pudimos cargar los datos. Revisá tu conexión o reintentá."
-        setGlosarioError(msg)
-        toast({
-          title: "Error",
-          description: msg,
-          variant: "destructive",
+        if (controller.signal.aborted) return
+        const filtered = glosarioTEMPORAL.filter((t) => {
+          const q = debouncedFilter.toLowerCase()
+          const matchQ = !q || t.termino.toLowerCase().includes(q) || t.descripcion.toLowerCase().includes(q)
+          const matchL = !selectedLetter || t.termino.toUpperCase().startsWith(selectedLetter)
+          return matchQ && matchL
         })
+        setTerminos(filtered.map((t) => ({ termino: t.termino, descripcion: t.descripcion })))
+        setGlosarioError(null)
+        setDemo(true)
       } finally {
         if (!controller.signal.aborted) {
           setLoading(false)
@@ -130,6 +138,15 @@ export default function GlosarioPage() {
         <div aria-live="polite" aria-atomic="true" className="sr-only">
           {loading ? "Cargando términos..." : `${terminos.length} término${terminos.length !== 1 ? "s" : ""} encontrado${terminos.length !== 1 ? "s" : ""}`}
         </div>
+
+        {demo && (
+          <div className="flex items-center gap-3 rounded-md border border-dashed p-3" role="status">
+            <Badge variant="outline">{DEMO_BADGE}</Badge>
+            <Button variant="outline" size="sm" className="mt-0" onClick={() => { setDemo(false); setRetryCount((c) => c + 1) }}>
+              Reintentar
+            </Button>
+          </div>
+        )}
 
         {glosarioError && (
           <div className="bg-destructive/15 p-4 rounded-md border border-destructive" role="alert">

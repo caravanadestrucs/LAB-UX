@@ -13,6 +13,7 @@ import { EventoDialog } from "./components/dialogEvento";
 import { ProximoEventoDialog } from "./components/dialogProximoEvento";
 import type { Evento } from "@/types/eventoNoticia";
 import { fetchEventosNoticias } from "@/services/eventoNoticia";
+import { eventosTEMPORAL, noticiasTEMPORAL, proximosEventosTEMPORAL, DEMO_BADGE } from "@/constants/data";
 import { API_URL } from "@/constants/Api";
 
 function resolveEventoImage(imagen?: string | null): string {
@@ -59,10 +60,12 @@ export default function DifusionPage() {
   const [proximosEventos, setProximosEventos] = useState<Evento[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
+  const [demo, setDemo] = useState(false);
 
   const loadDifusion = async () => {
     setLoading(true);
     setError(null);
+    setDemo(false);
     try {
       const data = await fetchEventosNoticias("", "todos");
       const normalized = normalizeEventos(data);
@@ -70,7 +73,11 @@ export default function DifusionPage() {
       setEventos(normalized.filter((item) => item.tipo === "evento"));
       setProximosEventos(normalized.filter((item) => item.tipo === "proximo_evento"));
     } catch {
-      setError("No pudimos cargar los datos. Revisá tu conexión o reintentá.");
+      setNoticias(noticiasTEMPORAL);
+      setEventos(eventosTEMPORAL);
+      setProximosEventos(proximosEventosTEMPORAL);
+      setError(null);
+      setDemo(true);
     } finally {
       setLoading(false);
     }
@@ -104,6 +111,15 @@ export default function DifusionPage() {
       <div aria-live="polite" aria-atomic="true" className="sr-only">
         {loading ? "Cargando difusión..." : `${total} publicación${total !== 1 ? "es" : ""} encontrada${total !== 1 ? "s" : ""}`}
       </div>
+
+      {demo && (
+        <div className="mb-8 flex items-center gap-3 rounded-md border border-dashed p-3" role="status">
+          <Badge variant="outline">{DEMO_BADGE}</Badge>
+          <Button variant="outline" size="sm" className="mt-0" onClick={loadDifusion}>
+            Reintentar
+          </Button>
+        </div>
+      )}
 
       {error && (
         <div className="bg-destructive/15 p-4 rounded-md border border-destructive mb-8" role="alert">

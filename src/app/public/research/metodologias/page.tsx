@@ -5,6 +5,8 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import { fetchMetodologiasPruebas } from "@/services/metodologiaPrueba"
 import { API_URL } from "@/constants/Api"
+import { metodologiasTEMPORAL, DEMO_BADGE } from "@/constants/data"
+import { Badge } from "@/components/ui/badge"
 import type { MetodologiaPrueba } from "@/types"
 
 function resolveImagen(imagen?: string | null): string {
@@ -19,15 +21,19 @@ export default function MetodologiasPage() {
   const [items, setItems] = useState<MetodologiaPrueba[]>([])
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState<string | null>(null)
+  const [demo, setDemo] = useState(false)
 
   const loadItems = async () => {
     setLoading(true)
     setError(null)
+    setDemo(false)
     try {
       const data = await fetchMetodologiasPruebas()
       setItems(Array.isArray(data) ? data : [])
     } catch {
-      setError("No pudimos cargar los datos. Revisá tu conexión o reintentá.")
+      setItems(metodologiasTEMPORAL)
+      setError(null)
+      setDemo(true)
     } finally {
       setLoading(false)
     }
@@ -46,13 +52,22 @@ export default function MetodologiasPage() {
         <div className="space-y-2">
           <h1 className="text-3xl font-bold tracking-tight">Metodologías y Tipos de Pruebas</h1>
           <p className="text-muted-foreground max-w-2xl">
-            Conoce las metodologías y tipos de pruebas que utilizamos en nuestros procesos de investigación.
+            Conocé las metodologías y tipos de pruebas que utilizamos en nuestros procesos de investigación.
           </p>
         </div>
 
         <div aria-live="polite" aria-atomic="true" className="sr-only">
           {loading ? "Cargando metodologías..." : `${items.length} resultado${items.length !== 1 ? "s" : ""} encontrado${items.length !== 1 ? "s" : ""}`}
         </div>
+
+        {demo && (
+          <div className="flex items-center gap-3 rounded-md border border-dashed p-3" role="status">
+            <Badge variant="outline">{DEMO_BADGE}</Badge>
+            <Button variant="outline" size="sm" className="mt-0" onClick={loadItems}>
+              Reintentar
+            </Button>
+          </div>
+        )}
 
         {error && (
           <div className="bg-destructive/15 p-4 rounded-md border border-destructive" role="alert">

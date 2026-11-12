@@ -9,6 +9,7 @@ import { useProjects } from "@/hooks/useProjects"
 import { ModalProyecto } from "./components/modalProyecto"
 import { fetchProyectos } from "@/services/proyecto"
 import { API_URL } from "@/constants/Api"
+import { proyectosTEMPORAL, DEMO_BADGE } from "@/constants/data"
 import { getStatusColor } from "@/lib/utils"
 import type { Proyecto } from "@/types/proyecto"
 
@@ -29,15 +30,19 @@ export default function ProyectosPage() {
   const [proyectos, setProyectos] = useState<Proyecto[]>([])
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState<string | null>(null)
+  const [demo, setDemo] = useState(false)
 
   const loadProyectos = async () => {
     setLoading(true)
     setError(null)
+    setDemo(false)
     try {
       const data = await fetchProyectos()
       setProyectos(Array.isArray(data) ? data : [])
     } catch {
-      setError("No pudimos cargar los datos. Revisá tu conexión o reintentá.")
+      setProyectos(proyectosTEMPORAL)
+      setError(null)
+      setDemo(true)
     } finally {
       setLoading(false)
     }
@@ -53,13 +58,22 @@ export default function ProyectosPage() {
         <div className="space-y-2">
           <h1 className="text-3xl font-bold tracking-tight">Proyectos de Investigación</h1>
           <p className="text-muted-foreground max-w-2xl">
-            Descubre nuestros proyectos de investigación en el campo de la usabilidad y experiencia de usuario.
+            Descubrí nuestros proyectos de investigación en el campo de la usabilidad y experiencia de usuario.
           </p>
         </div>
 
         <div aria-live="polite" aria-atomic="true" className="sr-only">
           {loading ? "Cargando proyectos..." : `${proyectos.length} proyecto${proyectos.length !== 1 ? "s" : ""} encontrado${proyectos.length !== 1 ? "s" : ""}`}
         </div>
+
+        {demo && (
+          <div className="flex items-center gap-3 rounded-md border border-dashed p-3" role="status">
+            <Badge variant="outline">{DEMO_BADGE}</Badge>
+            <Button variant="outline" size="sm" className="mt-0" onClick={loadProyectos}>
+              Reintentar
+            </Button>
+          </div>
+        )}
 
         {error && (
           <div className="bg-destructive/15 p-4 rounded-md border border-destructive" role="alert">
