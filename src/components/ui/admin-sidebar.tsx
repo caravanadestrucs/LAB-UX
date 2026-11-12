@@ -47,11 +47,13 @@ export function AdminSidebar() {
 
   const [mobileMenuOpen, setMobileOpen] = useState(false)
       const [usuario, setUsuario] = useState<any>(null);
-  
+
       useEffect(() => {
         const user = getUsuarioActual();
         setUsuario(user);
       }, []);
+
+      const isAdmin = usuario?.tipo_usuario === "admin";
       
       const handleLogout = () => {
         cerrarSesion();
@@ -77,8 +79,8 @@ export function AdminSidebar() {
       <SidebarContent>
         <SidebarMenu>
           <SidebarMenuItem>
-            <SidebarMenuButton asChild isActive={isActive("/dashboard")}>
-              <Link href="/dashboard">
+            <SidebarMenuButton asChild isActive={isActive("/admin/inicio")}>
+              <Link href="/admin/inicio">
                 <LayoutDashboard className="h-4 w-4" />
                 <span>Panel de Control</span>
               </Link>
@@ -232,6 +234,7 @@ export function AdminSidebar() {
         </SidebarGroup>
 
         <SidebarMenu>
+          {isAdmin && (
           <SidebarMenuItem>
             <SidebarMenuButton asChild isActive={isActive("/admin/usuarios")}>
               <Link href="/admin/usuarios">
@@ -240,6 +243,8 @@ export function AdminSidebar() {
               </Link>
             </SidebarMenuButton>
           </SidebarMenuItem>
+          )}
+          {isAdmin && (
           <SidebarMenuItem>
             <SidebarMenuButton asChild isActive={isActive("/admin/configuracion")}>
               <Link href="/admin/configuracion">
@@ -248,6 +253,7 @@ export function AdminSidebar() {
               </Link>
             </SidebarMenuButton>
           </SidebarMenuItem>
+          )}
           <SidebarMenuItem>
             <SidebarMenuButton asChild isActive={isActive("/admin/configuracion")}>
               <button onClick={handleLogout} className="flex items-center gap-2 w-full text-left">
@@ -267,8 +273,8 @@ export function AdminSidebar() {
               <AvatarFallback>AD</AvatarFallback>
             </Avatar>
             <div className="flex flex-col">
-              <span className="text-sm font-medium">Admin</span>
-              <span className="text-xs text-muted-foreground">admin@ejemplo.com</span>
+              <span className="text-sm font-medium">{usuario?.nombre ? `${usuario.nombre}${usuario?.apellido ? ` ${usuario.apellido}` : ""}` : "Admin"}</span>
+              <span className="text-xs text-muted-foreground">{usuario?.correo ?? "admin@ejemplo.com"}</span>
             </div>
           </div>
           <ModeToggle />

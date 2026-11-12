@@ -8,6 +8,7 @@ import { Label } from "@/components/ui/label";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Textarea } from "@/components/ui/textarea";
 import { TipoEventoNoticia } from "@/types/eventoNoticia";
+import { getUsuarioActual } from "@/hooks/islogin";
 import { EVENT_TYPES } from "./utils";
 import { Plus } from "lucide-react";
 
@@ -59,8 +60,11 @@ export function EventoForm({ open, onOpenChange, onSubmit }: Props) {
     fd.append("lugar", form.lugar);
     fd.append("tipo", form.tipo);
     fd.append("fecha_creacion", new Date().toISOString().slice(0, 19).replace("T", " "));
-    // TODO: ID_usuario hardcode debe venir de auth
-    fd.append("ID_usuario", "1");
+    // ID real desde sesión; sin sesión se omite (el backend valida con JWT).
+    // TODO: migrar backend a derivar autor desde JWT y no pedir ID_usuario.
+    const session = getUsuarioActual() as { ID?: unknown; id?: unknown } | null;
+    const sessionId = session?.ID ?? session?.id;
+    if (typeof sessionId === "number") fd.append("ID_usuario", String(sessionId));
     if (form.imagen) fd.append("imagen", form.imagen);
     await onSubmit(fd);
   };

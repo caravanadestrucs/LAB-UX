@@ -40,6 +40,12 @@ type SafeUsuario = {
   tipo_usuario?: string;
 };
 
+const ALLOWED_ROLES = ["admin", "profesor", "alumno"] as const;
+
+function isAllowedRole(tipo: unknown): tipo is (typeof ALLOWED_ROLES)[number] {
+  return typeof tipo === "string" && (ALLOWED_ROLES as readonly string[]).includes(tipo);
+}
+
 function buildSafeUsuario(source: BackendUsuario | null): SafeUsuario | null {
   if (!source) return null;
   const safe: SafeUsuario = {};
@@ -122,6 +128,12 @@ export async function POST(req: Request) {
         { status: 502 }
       );
     }
+    if (!isAllowedRole(tipo)) {
+      return NextResponse.json(
+        { success: false, error: "El backend devolvió un rol desconocido." },
+        { status: 502 }
+      );
+    }
     const secret = process.env.JWT_SECRET;
     if (!secret) {
       console.error("POST /api/auth/login: JWT_SECRET no configurado");
@@ -148,6 +160,16 @@ export async function POST(req: Request) {
     } catch {
       safeUsuario = null;
     }
+  }
+
+  // Defensa en profundidad: nunca emitir sesión con rol fuera de la lista
+  // conocida (ej. "tec" u otro valor inesperado del backend). Sin romper login
+  // válido: solo se rechaza lo desconocido.
+  if (safeUsuario?.tipo_usuario && !isAllowedRole(safeUsuario.tipo_usuario)) {
+    return NextResponse.json(
+      { success: false, error: "El backend devolvió un rol desconocido." },
+      { status: 502 }
+    );
   }
 
   const response = NextResponse.json({ success: true, usuario: safeUsuario });

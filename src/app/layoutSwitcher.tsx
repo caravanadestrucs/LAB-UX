@@ -34,7 +34,10 @@ const LayoutSwitcher = ({ children }: LayoutProps) => {
     return <LayoutAdmin>{children}</LayoutAdmin>;
   }
   if (pathname.startsWith("/admin")) {
-    return <LayoutAdmin>{children}</LayoutAdmin>;
+    // Sin usuario no se monta el layout admin (evita flash de UI privada).
+    // El guard real es server-side: src/middleware.ts verifica la cookie
+    // httpOnly `authToken` y redirige; aquí solo se evita el parpadeo + replace.
+    return null;
   }
   return <LayoutNormal>{children}</LayoutNormal>;
 };

@@ -8,6 +8,7 @@ import { Label } from "@/components/ui/label";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Textarea } from "@/components/ui/textarea";
 import { useToast } from "@/hooks/use-toast";
+import { getUsuarioActual } from "@/hooks/islogin";
 import { addAreaToEvento, removeAreaFromEvento } from "@/services/eventoNoticia";
 import { Evento, TipoEventoNoticia } from "@/types/eventoNoticia";
 import { EVENT_TYPES, toDatetimeLocal } from "./utils";
@@ -71,8 +72,11 @@ export function EventoEditDialog({ evento, open, onOpenChange, areas, onSubmit, 
     fd.append("lugar", form.lugar);
     fd.append("tipo", form.tipo);
     fd.append("fecha_actualizacion", new Date().toISOString().slice(0, 19).replace("T", " "));
-    // TODO: ID_usuario hardcode debe venir de auth
-    fd.append("ID_usuario", "1");
+    // ID real desde sesión; sin sesión se omite (el backend valida con JWT).
+    // TODO: migrar backend a derivar autor desde JWT y no pedir ID_usuario.
+    const session = getUsuarioActual() as { ID?: unknown; id?: unknown } | null;
+    const sessionId = session?.ID ?? session?.id;
+    if (typeof sessionId === "number") fd.append("ID_usuario", String(sessionId));
     if (form.imagen) fd.append("imagen", form.imagen);
     // áreas se manejan vía endpoint separado, pero mantenemos compat si el backend las lee de FormData
     form.areas_investigacion.forEach((id, idx) => fd.append(`areas_investigacion[${idx}]`, String(id)));

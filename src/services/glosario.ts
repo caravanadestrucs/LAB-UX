@@ -2,6 +2,7 @@
 "use client";
 import { Glosario } from "../types";
 import { API_URL } from "../constants/Api";
+import { getAuthTokenFromCookie, getUsuarioActual } from "@/hooks/islogin";
 
 export const fetchTerminos = async (
   queryString: string = '',
@@ -29,35 +30,36 @@ export const getTerminoById = async (id: number) => {
 };
 
 export const addTermino = async (terminoData: Omit<Glosario, 'ID' | 'fecha_creacion'>) => {
-  const usuario = localStorage.getItem('usuario');
-  const ID_usuario = usuario ? JSON.parse(usuario).ID : null;
+  // ID real desde la cookie `usuario` de display (el guard real es el middleware).
+  const session = getUsuarioActual() as { ID?: unknown; id?: unknown } | null;
+  const rawId = session?.ID ?? session?.id;
+  const ID_usuario = typeof rawId === "number" ? rawId : null;
   const bodyData = {
     ...terminoData,
     fecha_creacion: getMySQLDateTimeString(new Date()),
     ID_usuario: ID_usuario
   };
-  console.log("Body que se enviará:", bodyData); // <-- Aquí ves lo que envías
 
+  const token = getAuthTokenFromCookie("authToken") ?? (typeof localStorage !== "undefined" ? localStorage.getItem('authToken') : null);
   try {
     const res = await fetch(`${API_URL}/glosario`, {
       method: "POST",
-      headers: { 
+      headers: {
         "Content-Type": "application/json",
-        "Authorization": `Bearer ${localStorage.getItem('authToken')}`
+        "Authorization": `Bearer ${token}`
       },
       body: JSON.stringify(bodyData),
     });
 
     if (!res.ok) {
-      const errorData = await res.json();
-      alert("Error al crear término: " + errorData.error || errorData.message);
-      throw new Error(errorData.message || "Error al crear término");
+      const errorData = await res.json().catch(() => null) as { error?: string; message?: string } | null;
+      throw new Error(errorData?.error ?? errorData?.message ?? "No se pudo crear el término. Intentá de nuevo.");
     }
 
     return await res.json();
   } catch (error) {
-    console.error("Error en addTermino:", error);
-    throw error;
+    if (error instanceof Error) throw error;
+    throw new Error("No se pudo crear el término. Revisá tu conexión e intentá de nuevo.");
   }
 };
 
