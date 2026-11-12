@@ -1,0 +1,2196 @@
+{
+  "base": "http://localhost:3100",
+  "date": "2026-11-12T00:08:20.171Z",
+  "results": [
+    {
+      "route": "home",
+      "url": "/",
+      "width": 375,
+      "shot": "shots/home-375.png",
+      "status": 200,
+      "title": "LAB-Ux | Laboratorio de Usabilidad - UNCA",
+      "ok": true,
+      "err": "",
+      "loadMs": 8734,
+      "console": [
+        {
+          "type": "info",
+          "text": "%cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold"
+        },
+        {
+          "type": "error",
+          "text": "Failed to load resource: net::ERR_NAME_NOT_RESOLVED"
+        },
+        {
+          "type": "error",
+          "text": "Failed to load resource: net::ERR_NAME_NOT_RESOLVED"
+        },
+        {
+          "type": "error",
+          "text": "Failed to load resource: net::ERR_NAME_NOT_RESOLVED"
+        },
+        {
+          "type": "error",
+          "text": "Failed to load resource: net::ERR_NAME_NOT_RESOLVED"
+        },
+        {
+          "type": "error",
+          "text": "Failed to load resource: net::ERR_NAME_NOT_RESOLVED"
+        },
+        {
+          "type": "warning",
+          "text": "Deprecated API for given entry type."
+        }
+      ],
+      "badResponses": [],
+      "eval": {
+        "navMs": 6196,
+        "lcpMs": null,
+        "cls": null,
+        "overflowX": 0,
+        "scrollW": 375,
+        "clientW": 375,
+        "imgsTotal": 0,
+        "missingAlt": 0,
+        "hasMain": true,
+        "hasNav": true,
+        "hasFooter": true,
+        "ariaLive": true,
+        "focusable": 24,
+        "bodyText": "Lab-UX\nAbrir menú\n\nLaboratorio de usabilidad — UNCA\n\nObservamos cómo las personas usan lo que construís\n\nTests con usuarios reales, análisis de cada duda y decisiones de diseño con evidencia.\n\nVer un test\nCómo trabajamos\ntests activos\n12\npromedio\nSUS 84\nWCAG AA\n96%\nDiapositiva 1 de 1\nNuestros Valores\nLab-UX\n\nLaboratorio de Usabilidad — Facultad de Tecnología y Ciencias Aplicadas, UNCA. Testeamos con personas reales de Catamarca para diseñar tecnología centrada en las personas.\n\nEnlaces rápidos\nInicio\nEquipo\nInvestigación\nDifusión\nSoporte y Ayuda\nMetodologías\nGlosario\nLegal\nPolítica de privacidad\nTérminos y condiciones\nPolítica de cookies\nContacto\nSan Fernando del Valle de Catamarca, Catamarca, Argentina\nFacultad de Tecnología y Ciencias Aplicadas — UNCA\nlab-ux@unca.edu.ar\n\n© 2026 Laboratorio de Usabilidad — Facultad de Tecnología, UNCA. Todos los derechos reservados.",
+        "links": [
+          "/public",
+          "/public",
+          "/public/team",
+          "/public/diffusion",
+          "/public/support",
+          "/public/login",
+          "/public/research/metodologias",
+          "/#mision",
+          "https://twitter.com",
+          "https://facebook.com",
+          "https://instagram.com",
+          "/public",
+          "/public/team",
+          "/public/research",
+          "/public/diffusion",
+          "/public/support",
+          "/public/research/metodologias",
+          "/public/research/glosario",
+          "/public/support",
+          "/public/support",
+          "/public/support",
+          "mailto:lab-ux@unca.edu.ar"
+        ]
+      },
+      "axe": {
+        "ran": true,
+        "violations": []
+      }
+    },
+    {
+      "route": "home",
+      "url": "/",
+      "width": 768,
+      "shot": "shots/home-768.png",
+      "status": 200,
+      "title": "LAB-Ux | Laboratorio de Usabilidad - UNCA",
+      "ok": true,
+      "err": "",
+      "loadMs": 2809,
+      "console": [
+        {
+          "type": "info",
+          "text": "%cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold"
+        },
+        {
+          "type": "error",
+          "text": "Failed to load resource: net::ERR_NAME_NOT_RESOLVED"
+        },
+        {
+          "type": "error",
+          "text": "Failed to load resource: net::ERR_NAME_NOT_RESOLVED"
+        },
+        {
+          "type": "error",
+          "text": "Failed to load resource: net::ERR_NAME_NOT_RESOLVED"
+        },
+        {
+          "type": "error",
+          "text": "Failed to load resource: net::ERR_NAME_NOT_RESOLVED"
+        },
+        {
+          "type": "error",
+          "text": "Failed to load resource: net::ERR_NAME_NOT_RESOLVED"
+        },
+        {
+          "type": "warning",
+          "text": "Deprecated API for given entry type."
+        }
+      ],
+      "badResponses": [],
+      "eval": {
+        "navMs": 275,
+        "lcpMs": null,
+        "cls": null,
+        "overflowX": 0,
+        "scrollW": 768,
+        "clientW": 768,
+        "imgsTotal": 0,
+        "missingAlt": 0,
+        "hasMain": true,
+        "hasNav": true,
+        "hasFooter": true,
+        "ariaLive": true,
+        "focusable": 24,
+        "bodyText": "Lab-UX\nInicio\nEquipo\nInvestigación\nDifusión\nSoporte y Ayuda\nIniciar Sesión\n\nLaboratorio de usabilidad — UNCA\n\nObservamos cómo las personas usan lo que construís\n\nTests con usuarios reales, análisis de cada duda y decisiones de diseño con evidencia.\n\nVer un test\nCómo trabajamos\ntests activos\n12\npromedio\nSUS 84\nWCAG AA\n96%\nDiapositiva 1 de 1\nNuestros Valores\nLab-UX\n\nLaboratorio de Usabilidad — Facultad de Tecnología y Ciencias Aplicadas, UNCA. Testeamos con personas reales de Catamarca para diseñar tecnología centrada en las personas.\n\nEnlaces rápidos\nInicio\nEquipo\nInvestigación\nDifusión\nSoporte y Ayuda\nMetodologías\nGlosario\nLegal\nPolítica de privacidad\nTérminos y condiciones\nPolítica de cookies\nContacto\nSan Fernando del Valle de Catamarca, Catamarca, Argentina\nFacultad de Tecnología y Ciencias Aplicadas — UNCA\nlab-ux@unca.edu.ar\n\n© 2026 Laboratorio de Usabilidad — Facultad de Tecnología, UNCA. Todos los derechos reservados.",
+        "links": [
+          "/public",
+          "/public",
+          "/public/team",
+          "/public/diffusion",
+          "/public/support",
+          "/public/login",
+          "/public/research/metodologias",
+          "/#mision",
+          "https://twitter.com",
+          "https://facebook.com",
+          "https://instagram.com",
+          "/public",
+          "/public/team",
+          "/public/research",
+          "/public/diffusion",
+          "/public/support",
+          "/public/research/metodologias",
+          "/public/research/glosario",
+          "/public/support",
+          "/public/support",
+          "/public/support",
+          "mailto:lab-ux@unca.edu.ar"
+        ]
+      },
+      "axe": {
+        "ran": true,
+        "violations": []
+      }
+    },
+    {
+      "route": "home",
+      "url": "/",
+      "width": 1440,
+      "shot": "shots/home-1440.png",
+      "status": 200,
+      "title": "LAB-Ux | Laboratorio de Usabilidad - UNCA",
+      "ok": true,
+      "err": "",
+      "loadMs": 2751,
+      "console": [
+        {
+          "type": "info",
+          "text": "%cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold"
+        },
+        {
+          "type": "error",
+          "text": "Failed to load resource: net::ERR_NAME_NOT_RESOLVED"
+        },
+        {
+          "type": "error",
+          "text": "Failed to load resource: net::ERR_NAME_NOT_RESOLVED"
+        },
+        {
+          "type": "error",
+          "text": "Failed to load resource: net::ERR_NAME_NOT_RESOLVED"
+        },
+        {
+          "type": "error",
+          "text": "Failed to load resource: net::ERR_NAME_NOT_RESOLVED"
+        },
+        {
+          "type": "error",
+          "text": "Failed to load resource: net::ERR_NAME_NOT_RESOLVED"
+        },
+        {
+          "type": "warning",
+          "text": "Deprecated API for given entry type."
+        }
+      ],
+      "badResponses": [],
+      "eval": {
+        "navMs": 221,
+        "lcpMs": null,
+        "cls": null,
+        "overflowX": 0,
+        "scrollW": 1440,
+        "clientW": 1440,
+        "imgsTotal": 0,
+        "missingAlt": 0,
+        "hasMain": true,
+        "hasNav": true,
+        "hasFooter": true,
+        "ariaLive": true,
+        "focusable": 24,
+        "bodyText": "Lab-UX\nInicio\nEquipo\nInvestigación\nDifusión\nSoporte y Ayuda\nIniciar Sesión\n\nLaboratorio de usabilidad — UNCA\n\nObservamos cómo las personas usan lo que construís\n\nTests con usuarios reales, análisis de cada duda y decisiones de diseño con evidencia.\n\nVer un test\nCómo trabajamos\ntests activos\n12\npromedio\nSUS 84\nWCAG AA\n96%\n\n“dudó 3 s en Enviar”\n\nDiapositiva 1 de 1\nNuestros Valores\nLab-UX\n\nLaboratorio de Usabilidad — Facultad de Tecnología y Ciencias Aplicadas, UNCA. Testeamos con personas reales de Catamarca para diseñar tecnología centrada en las personas.\n\nEnlaces rápidos\nInicio\nEquipo\nInvestigación\nDifusión\nSoporte y Ayuda\nMetodologías\nGlosario\nLegal\nPolítica de privacidad\nTérminos y condiciones\nPolítica de cookies\nContacto\nSan Fernando del Valle de Catamarca, Catamarca, Argentina\nFacultad de Tecnología y Ciencias Aplicadas — UNCA\nlab-ux@unca.edu.ar\n\n© 2026 Laboratorio de Usabilidad — Facultad de Tecnología, UNCA. Todos los derechos reservados.",
+        "links": [
+          "/public",
+          "/public",
+          "/public/team",
+          "/public/diffusion",
+          "/public/support",
+          "/public/login",
+          "/public/research/metodologias",
+          "/#mision",
+          "https://twitter.com",
+          "https://facebook.com",
+          "https://instagram.com",
+          "/public",
+          "/public/team",
+          "/public/research",
+          "/public/diffusion",
+          "/public/support",
+          "/public/research/metodologias",
+          "/public/research/glosario",
+          "/public/support",
+          "/public/support",
+          "/public/support",
+          "mailto:lab-ux@unca.edu.ar"
+        ]
+      },
+      "axe": {
+        "ran": true,
+        "violations": []
+      }
+    },
+    {
+      "route": "team",
+      "url": "/public/team",
+      "width": 375,
+      "shot": "shots/team-375.png",
+      "status": 200,
+      "title": "LAB-Ux | Laboratorio de Usabilidad - UNCA",
+      "ok": true,
+      "err": "",
+      "loadMs": 2933,
+      "console": [
+        {
+          "type": "info",
+          "text": "%cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold"
+        },
+        {
+          "type": "error",
+          "text": "Use the `defaultValue` or `value` props on <select> instead of setting `selected` on <option>."
+        },
+        {
+          "type": "error",
+          "text": "Failed to load resource: net::ERR_NAME_NOT_RESOLVED"
+        },
+        {
+          "type": "pageerror",
+          "text": "TypeError: Failed to fetch"
+        },
+        {
+          "type": "warning",
+          "text": "Deprecated API for given entry type."
+        }
+      ],
+      "badResponses": [],
+      "eval": {
+        "navMs": 402,
+        "lcpMs": null,
+        "cls": null,
+        "overflowX": 0,
+        "scrollW": 375,
+        "clientW": 375,
+        "imgsTotal": 0,
+        "missingAlt": 0,
+        "hasMain": true,
+        "hasNav": true,
+        "hasFooter": true,
+        "ariaLive": false,
+        "focusable": 36,
+        "bodyText": "Lab-UX\nAbrir menú\nEquipo\nConoce a quienes hacen posible todo\n\nUn equipo diverso y apasionado de profesionales, educadores y estudiantes comprometidos con la excelencia.\n\nProfesores\nEquipo\nAlumnos\n\nTodavía no hay profesores publicados. El laboratorio sigue creciendo y hay lugar para vos.\n\nEscríbenos y te presentamos al equipo\nÚnete a Nosotros\n¿Quieres formar parte de nuestro equipo?\n\nEstamos siempre en búsqueda de talento apasionado por la educación y la innovación.\n\nSolicitud de Información\nCompleta el formulario y nos pondremos en contacto contigo para brindarte más detalles.\nNombre\nApellido\nCorreo electrónico\nÁrea de interés\nSelecciona una opción\nDocencia\nInvestigación\nAdministración\nProgramas para estudiantes\nMensaje\nEnviar Solicitud\nLab-UX\n\nLaboratorio de Usabilidad — Facultad de Tecnología y Ciencias Aplicadas, UNCA. Testeamos con personas reales de Catamarca para diseñar tecnología centrada en las personas.\n\nEnlaces rápidos\nInicio\nEquipo\nInvestigación\nDifusión\nSoporte y Ayuda\nMetodologías\nGlosario\nLegal\nPolítica de privacidad\nTérminos y condiciones\nPolítica de cookies\nContacto\nSan Fernando del Valle de Catamarca, Catamarca, Argentina\nFacultad de Tecnología y Ciencias Aplicadas — UNCA\nlab-ux@unca.edu.ar\n\n© 2026 Laboratorio de Usabilidad — Facultad de Tecnología, UNCA. Todos los derechos reservados.",
+        "links": [
+          "/public",
+          "/public",
+          "/public/team",
+          "/public/diffusion",
+          "/public/support",
+          "/public/login",
+          "/public/support",
+          "https://twitter.com",
+          "https://facebook.com",
+          "https://instagram.com",
+          "/public",
+          "/public/team",
+          "/public/research",
+          "/public/diffusion",
+          "/public/support",
+          "/public/research/metodologias",
+          "/public/research/glosario",
+          "/public/support",
+          "/public/support",
+          "/public/support",
+          "mailto:lab-ux@unca.edu.ar"
+        ]
+      },
+      "axe": {
+        "ran": true,
+        "violations": [
+          {
+            "id": "color-contrast",
+            "impact": "serious",
+            "nodes": 2,
+            "help": "Elements must meet minimum color contrast ratio thresholds"
+          },
+          {
+            "id": "page-has-heading-one",
+            "impact": "moderate",
+            "nodes": 1,
+            "help": "Page should contain a level-one heading"
+          }
+        ]
+      }
+    },
+    {
+      "route": "team",
+      "url": "/public/team",
+      "width": 768,
+      "shot": "shots/team-768.png",
+      "status": 200,
+      "title": "LAB-Ux | Laboratorio de Usabilidad - UNCA",
+      "ok": true,
+      "err": "",
+      "loadMs": 2721,
+      "console": [
+        {
+          "type": "info",
+          "text": "%cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold"
+        },
+        {
+          "type": "error",
+          "text": "Use the `defaultValue` or `value` props on <select> instead of setting `selected` on <option>."
+        },
+        {
+          "type": "error",
+          "text": "Failed to load resource: net::ERR_NAME_NOT_RESOLVED"
+        },
+        {
+          "type": "pageerror",
+          "text": "TypeError: Failed to fetch"
+        },
+        {
+          "type": "warning",
+          "text": "Deprecated API for given entry type."
+        }
+      ],
+      "badResponses": [],
+      "eval": {
+        "navMs": 196,
+        "lcpMs": null,
+        "cls": null,
+        "overflowX": 0,
+        "scrollW": 768,
+        "clientW": 768,
+        "imgsTotal": 0,
+        "missingAlt": 0,
+        "hasMain": true,
+        "hasNav": true,
+        "hasFooter": true,
+        "ariaLive": false,
+        "focusable": 36,
+        "bodyText": "Lab-UX\nInicio\nEquipo\nInvestigación\nDifusión\nSoporte y Ayuda\nIniciar Sesión\nEquipo\nConoce a quienes hacen posible todo\n\nUn equipo diverso y apasionado de profesionales, educadores y estudiantes comprometidos con la excelencia.\n\nProfesores\nEquipo\nAlumnos\n\nTodavía no hay profesores publicados. El laboratorio sigue creciendo y hay lugar para vos.\n\nEscríbenos y te presentamos al equipo\nÚnete a Nosotros\n¿Quieres formar parte de nuestro equipo?\n\nEstamos siempre en búsqueda de talento apasionado por la educación y la innovación.\n\nSolicitud de Información\nCompleta el formulario y nos pondremos en contacto contigo para brindarte más detalles.\nNombre\nApellido\nCorreo electrónico\nÁrea de interés\nSelecciona una opción\nDocencia\nInvestigación\nAdministración\nProgramas para estudiantes\nMensaje\nEnviar Solicitud\nLab-UX\n\nLaboratorio de Usabilidad — Facultad de Tecnología y Ciencias Aplicadas, UNCA. Testeamos con personas reales de Catamarca para diseñar tecnología centrada en las personas.\n\nEnlaces rápidos\nInicio\nEquipo\nInvestigación\nDifusión\nSoporte y Ayuda\nMetodologías\nGlosario\nLegal\nPolítica de privacidad\nTérminos y condiciones\nPolítica de cookies\nContacto\nSan Fernando del Valle de Catamarca, Catamarca, Argentina\nFacultad de Tecnología y Ciencias Aplicadas — UNCA\nlab-ux@unca.edu.ar\n\n© 2026 Laboratorio de Usabilidad — Facultad de Tecnología, UNCA. Todos los derechos reservados.",
+        "links": [
+          "/public",
+          "/public",
+          "/public/team",
+          "/public/diffusion",
+          "/public/support",
+          "/public/login",
+          "/public/support",
+          "https://twitter.com",
+          "https://facebook.com",
+          "https://instagram.com",
+          "/public",
+          "/public/team",
+          "/public/research",
+          "/public/diffusion",
+          "/public/support",
+          "/public/research/metodologias",
+          "/public/research/glosario",
+          "/public/support",
+          "/public/support",
+          "/public/support",
+          "mailto:lab-ux@unca.edu.ar"
+        ]
+      },
+      "axe": {
+        "ran": true,
+        "violations": [
+          {
+            "id": "color-contrast",
+            "impact": "serious",
+            "nodes": 2,
+            "help": "Elements must meet minimum color contrast ratio thresholds"
+          },
+          {
+            "id": "page-has-heading-one",
+            "impact": "moderate",
+            "nodes": 1,
+            "help": "Page should contain a level-one heading"
+          }
+        ]
+      }
+    },
+    {
+      "route": "team",
+      "url": "/public/team",
+      "width": 1440,
+      "shot": "shots/team-1440.png",
+      "status": 200,
+      "title": "LAB-Ux | Laboratorio de Usabilidad - UNCA",
+      "ok": true,
+      "err": "",
+      "loadMs": 2856,
+      "console": [
+        {
+          "type": "info",
+          "text": "%cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold"
+        },
+        {
+          "type": "error",
+          "text": "Use the `defaultValue` or `value` props on <select> instead of setting `selected` on <option>."
+        },
+        {
+          "type": "error",
+          "text": "Failed to load resource: net::ERR_NAME_NOT_RESOLVED"
+        },
+        {
+          "type": "pageerror",
+          "text": "TypeError: Failed to fetch"
+        },
+        {
+          "type": "warning",
+          "text": "Deprecated API for given entry type."
+        }
+      ],
+      "badResponses": [],
+      "eval": {
+        "navMs": 336,
+        "lcpMs": null,
+        "cls": null,
+        "overflowX": 0,
+        "scrollW": 1440,
+        "clientW": 1440,
+        "imgsTotal": 0,
+        "missingAlt": 0,
+        "hasMain": true,
+        "hasNav": true,
+        "hasFooter": true,
+        "ariaLive": false,
+        "focusable": 36,
+        "bodyText": "Lab-UX\nInicio\nEquipo\nInvestigación\nDifusión\nSoporte y Ayuda\nIniciar Sesión\nEquipo\nConoce a quienes hacen posible todo\n\nUn equipo diverso y apasionado de profesionales, educadores y estudiantes comprometidos con la excelencia.\n\nProfesores\nEquipo\nAlumnos\n\nTodavía no hay profesores publicados. El laboratorio sigue creciendo y hay lugar para vos.\n\nEscríbenos y te presentamos al equipo\nÚnete a Nosotros\n¿Quieres formar parte de nuestro equipo?\n\nEstamos siempre en búsqueda de talento apasionado por la educación y la innovación.\n\nSolicitud de Información\nCompleta el formulario y nos pondremos en contacto contigo para brindarte más detalles.\nNombre\nApellido\nCorreo electrónico\nÁrea de interés\nSelecciona una opción\nDocencia\nInvestigación\nAdministración\nProgramas para estudiantes\nMensaje\nEnviar Solicitud\nLab-UX\n\nLaboratorio de Usabilidad — Facultad de Tecnología y Ciencias Aplicadas, UNCA. Testeamos con personas reales de Catamarca para diseñar tecnología centrada en las personas.\n\nEnlaces rápidos\nInicio\nEquipo\nInvestigación\nDifusión\nSoporte y Ayuda\nMetodologías\nGlosario\nLegal\nPolítica de privacidad\nTérminos y condiciones\nPolítica de cookies\nContacto\nSan Fernando del Valle de Catamarca, Catamarca, Argentina\nFacultad de Tecnología y Ciencias Aplicadas — UNCA\nlab-ux@unca.edu.ar\n\n© 2026 Laboratorio de Usabilidad — Facultad de Tecnología, UNCA. Todos los derechos reservados.",
+        "links": [
+          "/public",
+          "/public",
+          "/public/team",
+          "/public/diffusion",
+          "/public/support",
+          "/public/login",
+          "/public/support",
+          "https://twitter.com",
+          "https://facebook.com",
+          "https://instagram.com",
+          "/public",
+          "/public/team",
+          "/public/research",
+          "/public/diffusion",
+          "/public/support",
+          "/public/research/metodologias",
+          "/public/research/glosario",
+          "/public/support",
+          "/public/support",
+          "/public/support",
+          "mailto:lab-ux@unca.edu.ar"
+        ]
+      },
+      "axe": {
+        "ran": true,
+        "violations": [
+          {
+            "id": "color-contrast",
+            "impact": "serious",
+            "nodes": 2,
+            "help": "Elements must meet minimum color contrast ratio thresholds"
+          },
+          {
+            "id": "page-has-heading-one",
+            "impact": "moderate",
+            "nodes": 1,
+            "help": "Page should contain a level-one heading"
+          }
+        ]
+      }
+    },
+    {
+      "route": "proyectos",
+      "url": "/public/research/proyectos",
+      "width": 375,
+      "shot": "shots/proyectos-375.png",
+      "status": 200,
+      "title": "LAB-Ux | Laboratorio de Usabilidad - UNCA",
+      "ok": true,
+      "err": "",
+      "loadMs": 4897,
+      "console": [
+        {
+          "type": "info",
+          "text": "%cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold"
+        },
+        {
+          "type": "error",
+          "text": "Failed to load resource: net::ERR_NAME_NOT_RESOLVED"
+        },
+        {
+          "type": "error",
+          "text": "Error fetching proyectos: TypeError: Failed to fetch\n    at fetchProyectos (webpack-internal:///(app-pages-browser)/./src/services/proyecto.ts:31:32)\n    at loadProyectos (webpack-internal:///(app-pages-browser)/./src/app/public/research/proyectos/page.tsx:46:98)\n    at ProyectosPage.useEffect (webp"
+        },
+        {
+          "type": "warning",
+          "text": "Deprecated API for given entry type."
+        }
+      ],
+      "badResponses": [],
+      "eval": {
+        "navMs": 2366,
+        "lcpMs": null,
+        "cls": null,
+        "overflowX": 0,
+        "scrollW": 375,
+        "clientW": 375,
+        "imgsTotal": 0,
+        "missingAlt": 0,
+        "hasMain": false,
+        "hasNav": true,
+        "hasFooter": true,
+        "ariaLive": true,
+        "focusable": 23,
+        "bodyText": "Lab-UX\nAbrir menú\nProyectos de Investigación\n\nDescubre nuestros proyectos de investigación en el campo de la usabilidad y experiencia de usuario.\n\n0 proyectos encontrados\n\nFailed to fetch\n\nReintentar\nLab-UX\n\nLaboratorio de Usabilidad — Facultad de Tecnología y Ciencias Aplicadas, UNCA. Testeamos con personas reales de Catamarca para diseñar tecnología centrada en las personas.\n\nEnlaces rápidos\nInicio\nEquipo\nInvestigación\nDifusión\nSoporte y Ayuda\nMetodologías\nGlosario\nLegal\nPolítica de privacidad\nTérminos y condiciones\nPolítica de cookies\nContacto\nSan Fernando del Valle de Catamarca, Catamarca, Argentina\nFacultad de Tecnología y Ciencias Aplicadas — UNCA\nlab-ux@unca.edu.ar\n\n© 2026 Laboratorio de Usabilidad — Facultad de Tecnología, UNCA. Todos los derechos reservados.",
+        "links": [
+          "/public",
+          "/public",
+          "/public/team",
+          "/public/diffusion",
+          "/public/support",
+          "/public/login",
+          "https://twitter.com",
+          "https://facebook.com",
+          "https://instagram.com",
+          "/public",
+          "/public/team",
+          "/public/research",
+          "/public/diffusion",
+          "/public/support",
+          "/public/research/metodologias",
+          "/public/research/glosario",
+          "/public/support",
+          "/public/support",
+          "/public/support",
+          "mailto:lab-ux@unca.edu.ar"
+        ]
+      },
+      "axe": {
+        "ran": true,
+        "violations": [
+          {
+            "id": "color-contrast",
+            "impact": "serious",
+            "nodes": 1,
+            "help": "Elements must meet minimum color contrast ratio thresholds"
+          },
+          {
+            "id": "heading-order",
+            "impact": "moderate",
+            "nodes": 1,
+            "help": "Heading levels should only increase by one"
+          },
+          {
+            "id": "landmark-one-main",
+            "impact": "moderate",
+            "nodes": 1,
+            "help": "Document should have one main landmark"
+          },
+          {
+            "id": "region",
+            "impact": "moderate",
+            "nodes": 2,
+            "help": "All page content should be contained by landmarks"
+          }
+        ]
+      }
+    },
+    {
+      "route": "proyectos",
+      "url": "/public/research/proyectos",
+      "width": 768,
+      "shot": "shots/proyectos-768.png",
+      "status": 200,
+      "title": "LAB-Ux | Laboratorio de Usabilidad - UNCA",
+      "ok": true,
+      "err": "",
+      "loadMs": 2704,
+      "console": [
+        {
+          "type": "info",
+          "text": "%cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold"
+        },
+        {
+          "type": "error",
+          "text": "Failed to load resource: net::ERR_NAME_NOT_RESOLVED"
+        },
+        {
+          "type": "error",
+          "text": "Error fetching proyectos: TypeError: Failed to fetch\n    at fetchProyectos (webpack-internal:///(app-pages-browser)/./src/services/proyecto.ts:31:32)\n    at loadProyectos (webpack-internal:///(app-pages-browser)/./src/app/public/research/proyectos/page.tsx:46:98)\n    at ProyectosPage.useEffect (webp"
+        },
+        {
+          "type": "warning",
+          "text": "Deprecated API for given entry type."
+        }
+      ],
+      "badResponses": [],
+      "eval": {
+        "navMs": 183,
+        "lcpMs": null,
+        "cls": null,
+        "overflowX": 0,
+        "scrollW": 768,
+        "clientW": 768,
+        "imgsTotal": 0,
+        "missingAlt": 0,
+        "hasMain": false,
+        "hasNav": true,
+        "hasFooter": true,
+        "ariaLive": true,
+        "focusable": 23,
+        "bodyText": "Lab-UX\nInicio\nEquipo\nInvestigación\nDifusión\nSoporte y Ayuda\nIniciar Sesión\nProyectos de Investigación\n\nDescubre nuestros proyectos de investigación en el campo de la usabilidad y experiencia de usuario.\n\n0 proyectos encontrados\n\nFailed to fetch\n\nReintentar\nLab-UX\n\nLaboratorio de Usabilidad — Facultad de Tecnología y Ciencias Aplicadas, UNCA. Testeamos con personas reales de Catamarca para diseñar tecnología centrada en las personas.\n\nEnlaces rápidos\nInicio\nEquipo\nInvestigación\nDifusión\nSoporte y Ayuda\nMetodologías\nGlosario\nLegal\nPolítica de privacidad\nTérminos y condiciones\nPolítica de cookies\nContacto\nSan Fernando del Valle de Catamarca, Catamarca, Argentina\nFacultad de Tecnología y Ciencias Aplicadas — UNCA\nlab-ux@unca.edu.ar\n\n© 2026 Laboratorio de Usabilidad — Facultad de Tecnología, UNCA. Todos los derechos reservados.",
+        "links": [
+          "/public",
+          "/public",
+          "/public/team",
+          "/public/diffusion",
+          "/public/support",
+          "/public/login",
+          "https://twitter.com",
+          "https://facebook.com",
+          "https://instagram.com",
+          "/public",
+          "/public/team",
+          "/public/research",
+          "/public/diffusion",
+          "/public/support",
+          "/public/research/metodologias",
+          "/public/research/glosario",
+          "/public/support",
+          "/public/support",
+          "/public/support",
+          "mailto:lab-ux@unca.edu.ar"
+        ]
+      },
+      "axe": {
+        "ran": true,
+        "violations": [
+          {
+            "id": "color-contrast",
+            "impact": "serious",
+            "nodes": 1,
+            "help": "Elements must meet minimum color contrast ratio thresholds"
+          },
+          {
+            "id": "heading-order",
+            "impact": "moderate",
+            "nodes": 1,
+            "help": "Heading levels should only increase by one"
+          },
+          {
+            "id": "landmark-one-main",
+            "impact": "moderate",
+            "nodes": 1,
+            "help": "Document should have one main landmark"
+          },
+          {
+            "id": "region",
+            "impact": "moderate",
+            "nodes": 2,
+            "help": "All page content should be contained by landmarks"
+          }
+        ]
+      }
+    },
+    {
+      "route": "proyectos",
+      "url": "/public/research/proyectos",
+      "width": 1440,
+      "shot": "shots/proyectos-1440.png",
+      "status": 200,
+      "title": "LAB-Ux | Laboratorio de Usabilidad - UNCA",
+      "ok": true,
+      "err": "",
+      "loadMs": 2777,
+      "console": [
+        {
+          "type": "info",
+          "text": "%cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold"
+        },
+        {
+          "type": "error",
+          "text": "Failed to load resource: net::ERR_NAME_NOT_RESOLVED"
+        },
+        {
+          "type": "error",
+          "text": "Error fetching proyectos: TypeError: Failed to fetch\n    at fetchProyectos (webpack-internal:///(app-pages-browser)/./src/services/proyecto.ts:31:32)\n    at loadProyectos (webpack-internal:///(app-pages-browser)/./src/app/public/research/proyectos/page.tsx:46:98)\n    at ProyectosPage.useEffect (webp"
+        },
+        {
+          "type": "warning",
+          "text": "Deprecated API for given entry type."
+        }
+      ],
+      "badResponses": [],
+      "eval": {
+        "navMs": 256,
+        "lcpMs": null,
+        "cls": null,
+        "overflowX": 0,
+        "scrollW": 1440,
+        "clientW": 1440,
+        "imgsTotal": 0,
+        "missingAlt": 0,
+        "hasMain": false,
+        "hasNav": true,
+        "hasFooter": true,
+        "ariaLive": true,
+        "focusable": 23,
+        "bodyText": "Lab-UX\nInicio\nEquipo\nInvestigación\nDifusión\nSoporte y Ayuda\nIniciar Sesión\nProyectos de Investigación\n\nDescubre nuestros proyectos de investigación en el campo de la usabilidad y experiencia de usuario.\n\n0 proyectos encontrados\n\nFailed to fetch\n\nReintentar\nLab-UX\n\nLaboratorio de Usabilidad — Facultad de Tecnología y Ciencias Aplicadas, UNCA. Testeamos con personas reales de Catamarca para diseñar tecnología centrada en las personas.\n\nEnlaces rápidos\nInicio\nEquipo\nInvestigación\nDifusión\nSoporte y Ayuda\nMetodologías\nGlosario\nLegal\nPolítica de privacidad\nTérminos y condiciones\nPolítica de cookies\nContacto\nSan Fernando del Valle de Catamarca, Catamarca, Argentina\nFacultad de Tecnología y Ciencias Aplicadas — UNCA\nlab-ux@unca.edu.ar\n\n© 2026 Laboratorio de Usabilidad — Facultad de Tecnología, UNCA. Todos los derechos reservados.",
+        "links": [
+          "/public",
+          "/public",
+          "/public/team",
+          "/public/diffusion",
+          "/public/support",
+          "/public/login",
+          "https://twitter.com",
+          "https://facebook.com",
+          "https://instagram.com",
+          "/public",
+          "/public/team",
+          "/public/research",
+          "/public/diffusion",
+          "/public/support",
+          "/public/research/metodologias",
+          "/public/research/glosario",
+          "/public/support",
+          "/public/support",
+          "/public/support",
+          "mailto:lab-ux@unca.edu.ar"
+        ]
+      },
+      "axe": {
+        "ran": true,
+        "violations": [
+          {
+            "id": "color-contrast",
+            "impact": "serious",
+            "nodes": 1,
+            "help": "Elements must meet minimum color contrast ratio thresholds"
+          },
+          {
+            "id": "heading-order",
+            "impact": "moderate",
+            "nodes": 1,
+            "help": "Heading levels should only increase by one"
+          },
+          {
+            "id": "landmark-one-main",
+            "impact": "moderate",
+            "nodes": 1,
+            "help": "Document should have one main landmark"
+          },
+          {
+            "id": "region",
+            "impact": "moderate",
+            "nodes": 2,
+            "help": "All page content should be contained by landmarks"
+          }
+        ]
+      }
+    },
+    {
+      "route": "glosario",
+      "url": "/public/research/glosario",
+      "width": 375,
+      "shot": "shots/glosario-375.png",
+      "status": 200,
+      "title": "LAB-Ux | Laboratorio de Usabilidad - UNCA",
+      "ok": true,
+      "err": "",
+      "loadMs": 3932,
+      "console": [
+        {
+          "type": "info",
+          "text": "%cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold"
+        },
+        {
+          "type": "error",
+          "text": "Failed to load resource: net::ERR_NAME_NOT_RESOLVED"
+        },
+        {
+          "type": "warning",
+          "text": "Deprecated API for given entry type."
+        }
+      ],
+      "badResponses": [],
+      "eval": {
+        "navMs": 1419,
+        "lcpMs": null,
+        "cls": null,
+        "overflowX": 0,
+        "scrollW": 375,
+        "clientW": 375,
+        "imgsTotal": 0,
+        "missingAlt": 0,
+        "hasMain": false,
+        "hasNav": true,
+        "hasFooter": true,
+        "ariaLive": true,
+        "focusable": 51,
+        "bodyText": "Lab-UX\nAbrir menú\nGlosario de Usabilidad\n\nConsulta nuestro glosario de términos relacionados con la usabilidad y experiencia de usuario.\n\nBuscar\nTodos\nA\nB\nC\nD\nE\nF\nG\nH\nI\nJ\nK\nL\nM\nN\nO\nP\nQ\nR\nS\nT\nU\nV\nW\nX\nY\nZ\n0 términos encontrados\n\n0 términos encontrados\n\nNo se encontraron términos que coincidan con la búsqueda.\n\nLab-UX\n\nLaboratorio de Usabilidad — Facultad de Tecnología y Ciencias Aplicadas, UNCA. Testeamos con personas reales de Catamarca para diseñar tecnología centrada en las personas.\n\nEnlaces rápidos\nInicio\nEquipo\nInvestigación\nDifusión\nSoporte y Ayuda\nMetodologías\nGlosario\nLegal\nPolítica de privacidad\nTérminos y condiciones\nPolítica de cookies\nContacto\nSan Fernando del Valle de Catamarca, Catamarca, Argentina\nFacultad de Tecnología y Ciencias Aplicadas — UNCA\nlab-ux@unca.edu.ar\n\n© 2026 Laboratorio de Usabilidad — Facultad de Tecnología, UNCA. Todos los derechos reservados.",
+        "links": [
+          "/public",
+          "/public",
+          "/public/team",
+          "/public/diffusion",
+          "/public/support",
+          "/public/login",
+          "https://twitter.com",
+          "https://facebook.com",
+          "https://instagram.com",
+          "/public",
+          "/public/team",
+          "/public/research",
+          "/public/diffusion",
+          "/public/support",
+          "/public/research/metodologias",
+          "/public/research/glosario",
+          "/public/support",
+          "/public/support",
+          "/public/support",
+          "mailto:lab-ux@unca.edu.ar"
+        ]
+      },
+      "axe": {
+        "ran": true,
+        "violations": [
+          {
+            "id": "heading-order",
+            "impact": "moderate",
+            "nodes": 1,
+            "help": "Heading levels should only increase by one"
+          },
+          {
+            "id": "landmark-one-main",
+            "impact": "moderate",
+            "nodes": 1,
+            "help": "Document should have one main landmark"
+          },
+          {
+            "id": "region",
+            "impact": "moderate",
+            "nodes": 3,
+            "help": "All page content should be contained by landmarks"
+          }
+        ]
+      }
+    },
+    {
+      "route": "glosario",
+      "url": "/public/research/glosario",
+      "width": 768,
+      "shot": "shots/glosario-768.png",
+      "status": 200,
+      "title": "LAB-Ux | Laboratorio de Usabilidad - UNCA",
+      "ok": true,
+      "err": "",
+      "loadMs": 2682,
+      "console": [
+        {
+          "type": "info",
+          "text": "%cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold"
+        },
+        {
+          "type": "error",
+          "text": "Failed to load resource: net::ERR_NAME_NOT_RESOLVED"
+        },
+        {
+          "type": "warning",
+          "text": "Deprecated API for given entry type."
+        }
+      ],
+      "badResponses": [],
+      "eval": {
+        "navMs": 159,
+        "lcpMs": null,
+        "cls": null,
+        "overflowX": 0,
+        "scrollW": 768,
+        "clientW": 768,
+        "imgsTotal": 0,
+        "missingAlt": 0,
+        "hasMain": false,
+        "hasNav": true,
+        "hasFooter": true,
+        "ariaLive": true,
+        "focusable": 51,
+        "bodyText": "Lab-UX\nInicio\nEquipo\nInvestigación\nDifusión\nSoporte y Ayuda\nIniciar Sesión\nGlosario de Usabilidad\n\nConsulta nuestro glosario de términos relacionados con la usabilidad y experiencia de usuario.\n\nBuscar\nTodos\nA\nB\nC\nD\nE\nF\nG\nH\nI\nJ\nK\nL\nM\nN\nO\nP\nQ\nR\nS\nT\nU\nV\nW\nX\nY\nZ\n0 términos encontrados\n\n0 términos encontrados\n\nNo se encontraron términos que coincidan con la búsqueda.\n\nLab-UX\n\nLaboratorio de Usabilidad — Facultad de Tecnología y Ciencias Aplicadas, UNCA. Testeamos con personas reales de Catamarca para diseñar tecnología centrada en las personas.\n\nEnlaces rápidos\nInicio\nEquipo\nInvestigación\nDifusión\nSoporte y Ayuda\nMetodologías\nGlosario\nLegal\nPolítica de privacidad\nTérminos y condiciones\nPolítica de cookies\nContacto\nSan Fernando del Valle de Catamarca, Catamarca, Argentina\nFacultad de Tecnología y Ciencias Aplicadas — UNCA\nlab-ux@unca.edu.ar\n\n© 2026 Laboratorio de Usabilidad — Facultad de Tecnología, UNCA. Todos los derechos reservados.",
+        "links": [
+          "/public",
+          "/public",
+          "/public/team",
+          "/public/diffusion",
+          "/public/support",
+          "/public/login",
+          "https://twitter.com",
+          "https://facebook.com",
+          "https://instagram.com",
+          "/public",
+          "/public/team",
+          "/public/research",
+          "/public/diffusion",
+          "/public/support",
+          "/public/research/metodologias",
+          "/public/research/glosario",
+          "/public/support",
+          "/public/support",
+          "/public/support",
+          "mailto:lab-ux@unca.edu.ar"
+        ]
+      },
+      "axe": {
+        "ran": true,
+        "violations": [
+          {
+            "id": "heading-order",
+            "impact": "moderate",
+            "nodes": 1,
+            "help": "Heading levels should only increase by one"
+          },
+          {
+            "id": "landmark-one-main",
+            "impact": "moderate",
+            "nodes": 1,
+            "help": "Document should have one main landmark"
+          },
+          {
+            "id": "region",
+            "impact": "moderate",
+            "nodes": 3,
+            "help": "All page content should be contained by landmarks"
+          }
+        ]
+      }
+    },
+    {
+      "route": "glosario",
+      "url": "/public/research/glosario",
+      "width": 1440,
+      "shot": "shots/glosario-1440.png",
+      "status": 200,
+      "title": "LAB-Ux | Laboratorio de Usabilidad - UNCA",
+      "ok": true,
+      "err": "",
+      "loadMs": 2715,
+      "console": [
+        {
+          "type": "info",
+          "text": "%cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold"
+        },
+        {
+          "type": "error",
+          "text": "Failed to load resource: net::ERR_NAME_NOT_RESOLVED"
+        },
+        {
+          "type": "warning",
+          "text": "Deprecated API for given entry type."
+        }
+      ],
+      "badResponses": [],
+      "eval": {
+        "navMs": 194,
+        "lcpMs": null,
+        "cls": null,
+        "overflowX": 0,
+        "scrollW": 1440,
+        "clientW": 1440,
+        "imgsTotal": 0,
+        "missingAlt": 0,
+        "hasMain": false,
+        "hasNav": true,
+        "hasFooter": true,
+        "ariaLive": true,
+        "focusable": 51,
+        "bodyText": "Lab-UX\nInicio\nEquipo\nInvestigación\nDifusión\nSoporte y Ayuda\nIniciar Sesión\nGlosario de Usabilidad\n\nConsulta nuestro glosario de términos relacionados con la usabilidad y experiencia de usuario.\n\nBuscar\nTodos\nA\nB\nC\nD\nE\nF\nG\nH\nI\nJ\nK\nL\nM\nN\nO\nP\nQ\nR\nS\nT\nU\nV\nW\nX\nY\nZ\n0 términos encontrados\n\n0 términos encontrados\n\nNo se encontraron términos que coincidan con la búsqueda.\n\nLab-UX\n\nLaboratorio de Usabilidad — Facultad de Tecnología y Ciencias Aplicadas, UNCA. Testeamos con personas reales de Catamarca para diseñar tecnología centrada en las personas.\n\nEnlaces rápidos\nInicio\nEquipo\nInvestigación\nDifusión\nSoporte y Ayuda\nMetodologías\nGlosario\nLegal\nPolítica de privacidad\nTérminos y condiciones\nPolítica de cookies\nContacto\nSan Fernando del Valle de Catamarca, Catamarca, Argentina\nFacultad de Tecnología y Ciencias Aplicadas — UNCA\nlab-ux@unca.edu.ar\n\n© 2026 Laboratorio de Usabilidad — Facultad de Tecnología, UNCA. Todos los derechos reservados.",
+        "links": [
+          "/public",
+          "/public",
+          "/public/team",
+          "/public/diffusion",
+          "/public/support",
+          "/public/login",
+          "https://twitter.com",
+          "https://facebook.com",
+          "https://instagram.com",
+          "/public",
+          "/public/team",
+          "/public/research",
+          "/public/diffusion",
+          "/public/support",
+          "/public/research/metodologias",
+          "/public/research/glosario",
+          "/public/support",
+          "/public/support",
+          "/public/support",
+          "mailto:lab-ux@unca.edu.ar"
+        ]
+      },
+      "axe": {
+        "ran": true,
+        "violations": [
+          {
+            "id": "heading-order",
+            "impact": "moderate",
+            "nodes": 1,
+            "help": "Heading levels should only increase by one"
+          },
+          {
+            "id": "landmark-one-main",
+            "impact": "moderate",
+            "nodes": 1,
+            "help": "Document should have one main landmark"
+          },
+          {
+            "id": "region",
+            "impact": "moderate",
+            "nodes": 3,
+            "help": "All page content should be contained by landmarks"
+          }
+        ]
+      }
+    },
+    {
+      "route": "metodologias",
+      "url": "/public/research/metodologias",
+      "width": 375,
+      "shot": "shots/metodologias-375.png",
+      "status": 200,
+      "title": "LAB-Ux | Laboratorio de Usabilidad - UNCA",
+      "ok": true,
+      "err": "",
+      "loadMs": 3714,
+      "console": [
+        {
+          "type": "info",
+          "text": "%cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold"
+        },
+        {
+          "type": "error",
+          "text": "Failed to load resource: net::ERR_NAME_NOT_RESOLVED"
+        },
+        {
+          "type": "warning",
+          "text": "Deprecated API for given entry type."
+        }
+      ],
+      "badResponses": [],
+      "eval": {
+        "navMs": 1193,
+        "lcpMs": null,
+        "cls": null,
+        "overflowX": 0,
+        "scrollW": 375,
+        "clientW": 375,
+        "imgsTotal": 0,
+        "missingAlt": 0,
+        "hasMain": false,
+        "hasNav": true,
+        "hasFooter": true,
+        "ariaLive": true,
+        "focusable": 23,
+        "bodyText": "Lab-UX\nAbrir menú\nMetodologías y Tipos de Pruebas\n\nConoce las metodologías y tipos de pruebas que utilizamos en nuestros procesos de investigación.\n\n0 resultados encontrados\n\nFailed to fetch\n\nReintentar\nTipos de Pruebas\n\nNo hay tipos de pruebas disponibles.\n\nMetodologías de Investigación\n\nNo hay metodologías disponibles.\n\nLab-UX\n\nLaboratorio de Usabilidad — Facultad de Tecnología y Ciencias Aplicadas, UNCA. Testeamos con personas reales de Catamarca para diseñar tecnología centrada en las personas.\n\nEnlaces rápidos\nInicio\nEquipo\nInvestigación\nDifusión\nSoporte y Ayuda\nMetodologías\nGlosario\nLegal\nPolítica de privacidad\nTérminos y condiciones\nPolítica de cookies\nContacto\nSan Fernando del Valle de Catamarca, Catamarca, Argentina\nFacultad de Tecnología y Ciencias Aplicadas — UNCA\nlab-ux@unca.edu.ar\n\n© 2026 Laboratorio de Usabilidad — Facultad de Tecnología, UNCA. Todos los derechos reservados.",
+        "links": [
+          "/public",
+          "/public",
+          "/public/team",
+          "/public/diffusion",
+          "/public/support",
+          "/public/login",
+          "https://twitter.com",
+          "https://facebook.com",
+          "https://instagram.com",
+          "/public",
+          "/public/team",
+          "/public/research",
+          "/public/diffusion",
+          "/public/support",
+          "/public/research/metodologias",
+          "/public/research/glosario",
+          "/public/support",
+          "/public/support",
+          "/public/support",
+          "mailto:lab-ux@unca.edu.ar"
+        ]
+      },
+      "axe": {
+        "ran": true,
+        "violations": [
+          {
+            "id": "color-contrast",
+            "impact": "serious",
+            "nodes": 1,
+            "help": "Elements must meet minimum color contrast ratio thresholds"
+          },
+          {
+            "id": "landmark-one-main",
+            "impact": "moderate",
+            "nodes": 1,
+            "help": "Document should have one main landmark"
+          },
+          {
+            "id": "region",
+            "impact": "moderate",
+            "nodes": 4,
+            "help": "All page content should be contained by landmarks"
+          }
+        ]
+      }
+    },
+    {
+      "route": "metodologias",
+      "url": "/public/research/metodologias",
+      "width": 768,
+      "shot": "shots/metodologias-768.png",
+      "status": 200,
+      "title": "LAB-Ux | Laboratorio de Usabilidad - UNCA",
+      "ok": true,
+      "err": "",
+      "loadMs": 2686,
+      "console": [
+        {
+          "type": "info",
+          "text": "%cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold"
+        },
+        {
+          "type": "error",
+          "text": "Failed to load resource: net::ERR_NAME_NOT_RESOLVED"
+        },
+        {
+          "type": "warning",
+          "text": "Deprecated API for given entry type."
+        }
+      ],
+      "badResponses": [],
+      "eval": {
+        "navMs": 162,
+        "lcpMs": null,
+        "cls": null,
+        "overflowX": 0,
+        "scrollW": 768,
+        "clientW": 768,
+        "imgsTotal": 0,
+        "missingAlt": 0,
+        "hasMain": false,
+        "hasNav": true,
+        "hasFooter": true,
+        "ariaLive": true,
+        "focusable": 23,
+        "bodyText": "Lab-UX\nInicio\nEquipo\nInvestigación\nDifusión\nSoporte y Ayuda\nIniciar Sesión\nMetodologías y Tipos de Pruebas\n\nConoce las metodologías y tipos de pruebas que utilizamos en nuestros procesos de investigación.\n\n0 resultados encontrados\n\nFailed to fetch\n\nReintentar\nTipos de Pruebas\n\nNo hay tipos de pruebas disponibles.\n\nMetodologías de Investigación\n\nNo hay metodologías disponibles.\n\nLab-UX\n\nLaboratorio de Usabilidad — Facultad de Tecnología y Ciencias Aplicadas, UNCA. Testeamos con personas reales de Catamarca para diseñar tecnología centrada en las personas.\n\nEnlaces rápidos\nInicio\nEquipo\nInvestigación\nDifusión\nSoporte y Ayuda\nMetodologías\nGlosario\nLegal\nPolítica de privacidad\nTérminos y condiciones\nPolítica de cookies\nContacto\nSan Fernando del Valle de Catamarca, Catamarca, Argentina\nFacultad de Tecnología y Ciencias Aplicadas — UNCA\nlab-ux@unca.edu.ar\n\n© 2026 Laboratorio de Usabilidad — Facultad de Tecnología, UNCA. Todos los derechos reservados.",
+        "links": [
+          "/public",
+          "/public",
+          "/public/team",
+          "/public/diffusion",
+          "/public/support",
+          "/public/login",
+          "https://twitter.com",
+          "https://facebook.com",
+          "https://instagram.com",
+          "/public",
+          "/public/team",
+          "/public/research",
+          "/public/diffusion",
+          "/public/support",
+          "/public/research/metodologias",
+          "/public/research/glosario",
+          "/public/support",
+          "/public/support",
+          "/public/support",
+          "mailto:lab-ux@unca.edu.ar"
+        ]
+      },
+      "axe": {
+        "ran": true,
+        "violations": [
+          {
+            "id": "color-contrast",
+            "impact": "serious",
+            "nodes": 1,
+            "help": "Elements must meet minimum color contrast ratio thresholds"
+          },
+          {
+            "id": "landmark-one-main",
+            "impact": "moderate",
+            "nodes": 1,
+            "help": "Document should have one main landmark"
+          },
+          {
+            "id": "region",
+            "impact": "moderate",
+            "nodes": 4,
+            "help": "All page content should be contained by landmarks"
+          }
+        ]
+      }
+    },
+    {
+      "route": "metodologias",
+      "url": "/public/research/metodologias",
+      "width": 1440,
+      "shot": "shots/metodologias-1440.png",
+      "status": 200,
+      "title": "LAB-Ux | Laboratorio de Usabilidad - UNCA",
+      "ok": true,
+      "err": "",
+      "loadMs": 2708,
+      "console": [
+        {
+          "type": "info",
+          "text": "%cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold"
+        },
+        {
+          "type": "error",
+          "text": "Failed to load resource: net::ERR_NAME_NOT_RESOLVED"
+        },
+        {
+          "type": "warning",
+          "text": "Deprecated API for given entry type."
+        }
+      ],
+      "badResponses": [],
+      "eval": {
+        "navMs": 180,
+        "lcpMs": null,
+        "cls": null,
+        "overflowX": 0,
+        "scrollW": 1440,
+        "clientW": 1440,
+        "imgsTotal": 0,
+        "missingAlt": 0,
+        "hasMain": false,
+        "hasNav": true,
+        "hasFooter": true,
+        "ariaLive": true,
+        "focusable": 23,
+        "bodyText": "Lab-UX\nInicio\nEquipo\nInvestigación\nDifusión\nSoporte y Ayuda\nIniciar Sesión\nMetodologías y Tipos de Pruebas\n\nConoce las metodologías y tipos de pruebas que utilizamos en nuestros procesos de investigación.\n\n0 resultados encontrados\n\nFailed to fetch\n\nReintentar\nTipos de Pruebas\n\nNo hay tipos de pruebas disponibles.\n\nMetodologías de Investigación\n\nNo hay metodologías disponibles.\n\nLab-UX\n\nLaboratorio de Usabilidad — Facultad de Tecnología y Ciencias Aplicadas, UNCA. Testeamos con personas reales de Catamarca para diseñar tecnología centrada en las personas.\n\nEnlaces rápidos\nInicio\nEquipo\nInvestigación\nDifusión\nSoporte y Ayuda\nMetodologías\nGlosario\nLegal\nPolítica de privacidad\nTérminos y condiciones\nPolítica de cookies\nContacto\nSan Fernando del Valle de Catamarca, Catamarca, Argentina\nFacultad de Tecnología y Ciencias Aplicadas — UNCA\nlab-ux@unca.edu.ar\n\n© 2026 Laboratorio de Usabilidad — Facultad de Tecnología, UNCA. Todos los derechos reservados.",
+        "links": [
+          "/public",
+          "/public",
+          "/public/team",
+          "/public/diffusion",
+          "/public/support",
+          "/public/login",
+          "https://twitter.com",
+          "https://facebook.com",
+          "https://instagram.com",
+          "/public",
+          "/public/team",
+          "/public/research",
+          "/public/diffusion",
+          "/public/support",
+          "/public/research/metodologias",
+          "/public/research/glosario",
+          "/public/support",
+          "/public/support",
+          "/public/support",
+          "mailto:lab-ux@unca.edu.ar"
+        ]
+      },
+      "axe": {
+        "ran": true,
+        "violations": [
+          {
+            "id": "color-contrast",
+            "impact": "serious",
+            "nodes": 1,
+            "help": "Elements must meet minimum color contrast ratio thresholds"
+          },
+          {
+            "id": "landmark-one-main",
+            "impact": "moderate",
+            "nodes": 1,
+            "help": "Document should have one main landmark"
+          },
+          {
+            "id": "region",
+            "impact": "moderate",
+            "nodes": 4,
+            "help": "All page content should be contained by landmarks"
+          }
+        ]
+      }
+    },
+    {
+      "route": "diffusion",
+      "url": "/public/diffusion",
+      "width": 375,
+      "shot": "shots/diffusion-375.png",
+      "status": 200,
+      "title": "LAB-Ux | Laboratorio de Usabilidad - UNCA",
+      "ok": true,
+      "err": "",
+      "loadMs": 4868,
+      "console": [
+        {
+          "type": "info",
+          "text": "%cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold"
+        },
+        {
+          "type": "error",
+          "text": "Failed to load resource: net::ERR_NAME_NOT_RESOLVED"
+        },
+        {
+          "type": "warning",
+          "text": "Deprecated API for given entry type."
+        }
+      ],
+      "badResponses": [],
+      "eval": {
+        "navMs": 2350,
+        "lcpMs": null,
+        "cls": null,
+        "overflowX": 0,
+        "scrollW": 375,
+        "clientW": 375,
+        "imgsTotal": 0,
+        "missingAlt": 0,
+        "hasMain": false,
+        "hasNav": true,
+        "hasFooter": true,
+        "ariaLive": true,
+        "focusable": 28,
+        "bodyText": "Lab-UX\nAbrir menú\nDifusión\nExplora lo que está sucediendo en Lab-UX\n\nUn equipo diverso y apasionado de profesionales, educadores y estudiantes comprometidos con la excelencia.\n\n0 publicaciónes encontradas\n\nFailed to fetch\n\nReintentar\nNoticias Destacadas\n\nAún no hay noticias publicadas. Volvé la semana próxima o escribinos para participar como tester.\n\nEscribinos para participar\nEventos Recientes\n\nAún no hay eventos recientes. Volvé la semana próxima o escribinos para participar como tester.\n\nEscribinos para participar\nVer todos los eventos\nPróximos Eventos\n\nAún no hay sesiones publicadas. Volvé la semana próxima o escribinos para participar como tester.\n\nQuiero ser tester\nVer calendario completo\nLab-UX\n\nLaboratorio de Usabilidad — Facultad de Tecnología y Ciencias Aplicadas, UNCA. Testeamos con personas reales de Catamarca para diseñar tecnología centrada en las personas.\n\nEnlaces rápidos\nInicio\nEquipo\nInvestigación\nDifusión\nSoporte y Ayuda\nMetodologías\nGlosario\nLegal\nPolítica de privacidad\nTérminos y condiciones\nPolítica de cookies\nContacto\nSan Fernando del Valle de Catamarca, Catamarca, Argentina\nFacultad de Tecnología y Ciencias Aplicadas — UNCA\nlab-ux@unca.edu.ar\n\n© 2026 Laboratorio de Usabilidad — Facultad de Tecnología, UNCA. Todos los derechos reservados.",
+        "links": [
+          "/public",
+          "/public",
+          "/public/team",
+          "/public/diffusion",
+          "/public/support",
+          "/public/login",
+          "/public/support",
+          "/public/support",
+          "/public/support",
+          "https://twitter.com",
+          "https://facebook.com",
+          "https://instagram.com",
+          "/public",
+          "/public/team",
+          "/public/research",
+          "/public/diffusion",
+          "/public/support",
+          "/public/research/metodologias",
+          "/public/research/glosario",
+          "/public/support",
+          "/public/support",
+          "/public/support",
+          "mailto:lab-ux@unca.edu.ar"
+        ]
+      },
+      "axe": {
+        "ran": true,
+        "violations": [
+          {
+            "id": "color-contrast",
+            "impact": "serious",
+            "nodes": 1,
+            "help": "Elements must meet minimum color contrast ratio thresholds"
+          },
+          {
+            "id": "landmark-one-main",
+            "impact": "moderate",
+            "nodes": 1,
+            "help": "Document should have one main landmark"
+          },
+          {
+            "id": "page-has-heading-one",
+            "impact": "moderate",
+            "nodes": 1,
+            "help": "Page should contain a level-one heading"
+          },
+          {
+            "id": "region",
+            "impact": "moderate",
+            "nodes": 7,
+            "help": "All page content should be contained by landmarks"
+          }
+        ]
+      }
+    },
+    {
+      "route": "diffusion",
+      "url": "/public/diffusion",
+      "width": 768,
+      "shot": "shots/diffusion-768.png",
+      "status": 200,
+      "title": "LAB-Ux | Laboratorio de Usabilidad - UNCA",
+      "ok": true,
+      "err": "",
+      "loadMs": 2741,
+      "console": [
+        {
+          "type": "info",
+          "text": "%cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold"
+        },
+        {
+          "type": "error",
+          "text": "Failed to load resource: net::ERR_NAME_NOT_RESOLVED"
+        },
+        {
+          "type": "warning",
+          "text": "Deprecated API for given entry type."
+        }
+      ],
+      "badResponses": [],
+      "eval": {
+        "navMs": 218,
+        "lcpMs": null,
+        "cls": null,
+        "overflowX": 0,
+        "scrollW": 768,
+        "clientW": 768,
+        "imgsTotal": 0,
+        "missingAlt": 0,
+        "hasMain": false,
+        "hasNav": true,
+        "hasFooter": true,
+        "ariaLive": true,
+        "focusable": 28,
+        "bodyText": "Lab-UX\nInicio\nEquipo\nInvestigación\nDifusión\nSoporte y Ayuda\nIniciar Sesión\nDifusión\nExplora lo que está sucediendo en Lab-UX\n\nUn equipo diverso y apasionado de profesionales, educadores y estudiantes comprometidos con la excelencia.\n\n0 publicaciónes encontradas\n\nFailed to fetch\n\nReintentar\nNoticias Destacadas\n\nAún no hay noticias publicadas. Volvé la semana próxima o escribinos para participar como tester.\n\nEscribinos para participar\nEventos Recientes\n\nAún no hay eventos recientes. Volvé la semana próxima o escribinos para participar como tester.\n\nEscribinos para participar\nVer todos los eventos\nPróximos Eventos\n\nAún no hay sesiones publicadas. Volvé la semana próxima o escribinos para participar como tester.\n\nQuiero ser tester\nVer calendario completo\nLab-UX\n\nLaboratorio de Usabilidad — Facultad de Tecnología y Ciencias Aplicadas, UNCA. Testeamos con personas reales de Catamarca para diseñar tecnología centrada en las personas.\n\nEnlaces rápidos\nInicio\nEquipo\nInvestigación\nDifusión\nSoporte y Ayuda\nMetodologías\nGlosario\nLegal\nPolítica de privacidad\nTérminos y condiciones\nPolítica de cookies\nContacto\nSan Fernando del Valle de Catamarca, Catamarca, Argentina\nFacultad de Tecnología y Ciencias Aplicadas — UNCA\nlab-ux@unca.edu.ar\n\n© 2026 Laboratorio de Usabilidad — Facultad de Tecnología, UNCA. Todos los derechos reservados.",
+        "links": [
+          "/public",
+          "/public",
+          "/public/team",
+          "/public/diffusion",
+          "/public/support",
+          "/public/login",
+          "/public/support",
+          "/public/support",
+          "/public/support",
+          "https://twitter.com",
+          "https://facebook.com",
+          "https://instagram.com",
+          "/public",
+          "/public/team",
+          "/public/research",
+          "/public/diffusion",
+          "/public/support",
+          "/public/research/metodologias",
+          "/public/research/glosario",
+          "/public/support",
+          "/public/support",
+          "/public/support",
+          "mailto:lab-ux@unca.edu.ar"
+        ]
+      },
+      "axe": {
+        "ran": true,
+        "violations": [
+          {
+            "id": "color-contrast",
+            "impact": "serious",
+            "nodes": 1,
+            "help": "Elements must meet minimum color contrast ratio thresholds"
+          },
+          {
+            "id": "landmark-one-main",
+            "impact": "moderate",
+            "nodes": 1,
+            "help": "Document should have one main landmark"
+          },
+          {
+            "id": "page-has-heading-one",
+            "impact": "moderate",
+            "nodes": 1,
+            "help": "Page should contain a level-one heading"
+          },
+          {
+            "id": "region",
+            "impact": "moderate",
+            "nodes": 7,
+            "help": "All page content should be contained by landmarks"
+          }
+        ]
+      }
+    },
+    {
+      "route": "diffusion",
+      "url": "/public/diffusion",
+      "width": 1440,
+      "shot": "shots/diffusion-1440.png",
+      "status": 200,
+      "title": "LAB-Ux | Laboratorio de Usabilidad - UNCA",
+      "ok": true,
+      "err": "",
+      "loadMs": 2813,
+      "console": [
+        {
+          "type": "info",
+          "text": "%cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold"
+        },
+        {
+          "type": "error",
+          "text": "Failed to load resource: net::ERR_NAME_NOT_RESOLVED"
+        },
+        {
+          "type": "warning",
+          "text": "Deprecated API for given entry type."
+        }
+      ],
+      "badResponses": [],
+      "eval": {
+        "navMs": 297,
+        "lcpMs": null,
+        "cls": null,
+        "overflowX": 0,
+        "scrollW": 1440,
+        "clientW": 1440,
+        "imgsTotal": 0,
+        "missingAlt": 0,
+        "hasMain": false,
+        "hasNav": true,
+        "hasFooter": true,
+        "ariaLive": true,
+        "focusable": 28,
+        "bodyText": "Lab-UX\nInicio\nEquipo\nInvestigación\nDifusión\nSoporte y Ayuda\nIniciar Sesión\nDifusión\nExplora lo que está sucediendo en Lab-UX\n\nUn equipo diverso y apasionado de profesionales, educadores y estudiantes comprometidos con la excelencia.\n\n0 publicaciónes encontradas\n\nFailed to fetch\n\nReintentar\nNoticias Destacadas\n\nAún no hay noticias publicadas. Volvé la semana próxima o escribinos para participar como tester.\n\nEscribinos para participar\nEventos Recientes\n\nAún no hay eventos recientes. Volvé la semana próxima o escribinos para participar como tester.\n\nEscribinos para participar\nVer todos los eventos\nPróximos Eventos\n\nAún no hay sesiones publicadas. Volvé la semana próxima o escribinos para participar como tester.\n\nQuiero ser tester\nVer calendario completo\nLab-UX\n\nLaboratorio de Usabilidad — Facultad de Tecnología y Ciencias Aplicadas, UNCA. Testeamos con personas reales de Catamarca para diseñar tecnología centrada en las personas.\n\nEnlaces rápidos\nInicio\nEquipo\nInvestigación\nDifusión\nSoporte y Ayuda\nMetodologías\nGlosario\nLegal\nPolítica de privacidad\nTérminos y condiciones\nPolítica de cookies\nContacto\nSan Fernando del Valle de Catamarca, Catamarca, Argentina\nFacultad de Tecnología y Ciencias Aplicadas — UNCA\nlab-ux@unca.edu.ar\n\n© 2026 Laboratorio de Usabilidad — Facultad de Tecnología, UNCA. Todos los derechos reservados.",
+        "links": [
+          "/public",
+          "/public",
+          "/public/team",
+          "/public/diffusion",
+          "/public/support",
+          "/public/login",
+          "/public/support",
+          "/public/support",
+          "/public/support",
+          "https://twitter.com",
+          "https://facebook.com",
+          "https://instagram.com",
+          "/public",
+          "/public/team",
+          "/public/research",
+          "/public/diffusion",
+          "/public/support",
+          "/public/research/metodologias",
+          "/public/research/glosario",
+          "/public/support",
+          "/public/support",
+          "/public/support",
+          "mailto:lab-ux@unca.edu.ar"
+        ]
+      },
+      "axe": {
+        "ran": true,
+        "violations": [
+          {
+            "id": "color-contrast",
+            "impact": "serious",
+            "nodes": 1,
+            "help": "Elements must meet minimum color contrast ratio thresholds"
+          },
+          {
+            "id": "landmark-one-main",
+            "impact": "moderate",
+            "nodes": 1,
+            "help": "Document should have one main landmark"
+          },
+          {
+            "id": "page-has-heading-one",
+            "impact": "moderate",
+            "nodes": 1,
+            "help": "Page should contain a level-one heading"
+          },
+          {
+            "id": "region",
+            "impact": "moderate",
+            "nodes": 7,
+            "help": "All page content should be contained by landmarks"
+          }
+        ]
+      }
+    },
+    {
+      "route": "support",
+      "url": "/public/support",
+      "width": 375,
+      "shot": "shots/support-375.png",
+      "status": 200,
+      "title": "LAB-Ux | Laboratorio de Usabilidad - UNCA",
+      "ok": true,
+      "err": "",
+      "loadMs": 4256,
+      "console": [
+        {
+          "type": "info",
+          "text": "%cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold"
+        },
+        {
+          "type": "error",
+          "text": "Failed to load resource: net::ERR_NAME_NOT_RESOLVED"
+        },
+        {
+          "type": "error",
+          "text": "Failed to load resource: net::ERR_NAME_NOT_RESOLVED"
+        },
+        {
+          "type": "warning",
+          "text": "Deprecated API for given entry type."
+        }
+      ],
+      "badResponses": [],
+      "eval": {
+        "navMs": 1732,
+        "lcpMs": null,
+        "cls": null,
+        "overflowX": 0,
+        "scrollW": 375,
+        "clientW": 375,
+        "imgsTotal": 0,
+        "missingAlt": 0,
+        "hasMain": false,
+        "hasNav": true,
+        "hasFooter": true,
+        "ariaLive": true,
+        "focusable": 30,
+        "bodyText": "Lab-UX\nAbrir menú\nSoporte y Ayuda\n\nEncuentra respuestas a tus preguntas, contacta con nosotros o consulta nuestras guías y tutoriales.\n\nFAQ\nContacto\nGuías\n0 preguntas encontradas\n\nFailed to fetch\n\nReintentar\nLab-UX\n\nLaboratorio de Usabilidad — Facultad de Tecnología y Ciencias Aplicadas, UNCA. Testeamos con personas reales de Catamarca para diseñar tecnología centrada en las personas.\n\nEnlaces rápidos\nInicio\nEquipo\nInvestigación\nDifusión\nSoporte y Ayuda\nMetodologías\nGlosario\nLegal\nPolítica de privacidad\nTérminos y condiciones\nPolítica de cookies\nContacto\nSan Fernando del Valle de Catamarca, Catamarca, Argentina\nFacultad de Tecnología y Ciencias Aplicadas — UNCA\nlab-ux@unca.edu.ar\n\n© 2026 Laboratorio de Usabilidad — Facultad de Tecnología, UNCA. Todos los derechos reservados.",
+        "links": [
+          "/public",
+          "/public",
+          "/public/team",
+          "/public/diffusion",
+          "/public/support",
+          "/public/login",
+          "https://twitter.com",
+          "https://facebook.com",
+          "https://instagram.com",
+          "/public",
+          "/public/team",
+          "/public/research",
+          "/public/diffusion",
+          "/public/support",
+          "/public/research/metodologias",
+          "/public/research/glosario",
+          "/public/support",
+          "/public/support",
+          "/public/support",
+          "mailto:lab-ux@unca.edu.ar"
+        ]
+      },
+      "axe": {
+        "ran": true,
+        "violations": [
+          {
+            "id": "color-contrast",
+            "impact": "serious",
+            "nodes": 3,
+            "help": "Elements must meet minimum color contrast ratio thresholds"
+          },
+          {
+            "id": "heading-order",
+            "impact": "moderate",
+            "nodes": 1,
+            "help": "Heading levels should only increase by one"
+          },
+          {
+            "id": "landmark-one-main",
+            "impact": "moderate",
+            "nodes": 1,
+            "help": "Document should have one main landmark"
+          },
+          {
+            "id": "region",
+            "impact": "moderate",
+            "nodes": 5,
+            "help": "All page content should be contained by landmarks"
+          }
+        ]
+      }
+    },
+    {
+      "route": "support",
+      "url": "/public/support",
+      "width": 768,
+      "shot": "shots/support-768.png",
+      "status": 200,
+      "title": "LAB-Ux | Laboratorio de Usabilidad - UNCA",
+      "ok": true,
+      "err": "",
+      "loadMs": 2762,
+      "console": [
+        {
+          "type": "info",
+          "text": "%cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold"
+        },
+        {
+          "type": "error",
+          "text": "Failed to load resource: net::ERR_NAME_NOT_RESOLVED"
+        },
+        {
+          "type": "error",
+          "text": "Failed to load resource: net::ERR_NAME_NOT_RESOLVED"
+        },
+        {
+          "type": "warning",
+          "text": "Deprecated API for given entry type."
+        }
+      ],
+      "badResponses": [],
+      "eval": {
+        "navMs": 240,
+        "lcpMs": null,
+        "cls": null,
+        "overflowX": 0,
+        "scrollW": 768,
+        "clientW": 768,
+        "imgsTotal": 0,
+        "missingAlt": 0,
+        "hasMain": false,
+        "hasNav": true,
+        "hasFooter": true,
+        "ariaLive": true,
+        "focusable": 30,
+        "bodyText": "Lab-UX\nInicio\nEquipo\nInvestigación\nDifusión\nSoporte y Ayuda\nIniciar Sesión\nSoporte y Ayuda\n\nEncuentra respuestas a tus preguntas, contacta con nosotros o consulta nuestras guías y tutoriales.\n\nPreguntas Frecuentes\nContacto\nGuías y Tutoriales\n0 preguntas encontradas\n\nFailed to fetch\n\nReintentar\nLab-UX\n\nLaboratorio de Usabilidad — Facultad de Tecnología y Ciencias Aplicadas, UNCA. Testeamos con personas reales de Catamarca para diseñar tecnología centrada en las personas.\n\nEnlaces rápidos\nInicio\nEquipo\nInvestigación\nDifusión\nSoporte y Ayuda\nMetodologías\nGlosario\nLegal\nPolítica de privacidad\nTérminos y condiciones\nPolítica de cookies\nContacto\nSan Fernando del Valle de Catamarca, Catamarca, Argentina\nFacultad de Tecnología y Ciencias Aplicadas — UNCA\nlab-ux@unca.edu.ar\n\n© 2026 Laboratorio de Usabilidad — Facultad de Tecnología, UNCA. Todos los derechos reservados.",
+        "links": [
+          "/public",
+          "/public",
+          "/public/team",
+          "/public/diffusion",
+          "/public/support",
+          "/public/login",
+          "https://twitter.com",
+          "https://facebook.com",
+          "https://instagram.com",
+          "/public",
+          "/public/team",
+          "/public/research",
+          "/public/diffusion",
+          "/public/support",
+          "/public/research/metodologias",
+          "/public/research/glosario",
+          "/public/support",
+          "/public/support",
+          "/public/support",
+          "mailto:lab-ux@unca.edu.ar"
+        ]
+      },
+      "axe": {
+        "ran": true,
+        "violations": [
+          {
+            "id": "color-contrast",
+            "impact": "serious",
+            "nodes": 3,
+            "help": "Elements must meet minimum color contrast ratio thresholds"
+          },
+          {
+            "id": "heading-order",
+            "impact": "moderate",
+            "nodes": 1,
+            "help": "Heading levels should only increase by one"
+          },
+          {
+            "id": "landmark-one-main",
+            "impact": "moderate",
+            "nodes": 1,
+            "help": "Document should have one main landmark"
+          },
+          {
+            "id": "region",
+            "impact": "moderate",
+            "nodes": 5,
+            "help": "All page content should be contained by landmarks"
+          }
+        ]
+      }
+    },
+    {
+      "route": "support",
+      "url": "/public/support",
+      "width": 1440,
+      "shot": "shots/support-1440.png",
+      "status": 200,
+      "title": "LAB-Ux | Laboratorio de Usabilidad - UNCA",
+      "ok": true,
+      "err": "",
+      "loadMs": 2904,
+      "console": [
+        {
+          "type": "info",
+          "text": "%cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold"
+        },
+        {
+          "type": "error",
+          "text": "Failed to load resource: net::ERR_NAME_NOT_RESOLVED"
+        },
+        {
+          "type": "error",
+          "text": "Failed to load resource: net::ERR_NAME_NOT_RESOLVED"
+        },
+        {
+          "type": "warning",
+          "text": "Deprecated API for given entry type."
+        }
+      ],
+      "badResponses": [],
+      "eval": {
+        "navMs": 375,
+        "lcpMs": null,
+        "cls": null,
+        "overflowX": 0,
+        "scrollW": 1440,
+        "clientW": 1440,
+        "imgsTotal": 0,
+        "missingAlt": 0,
+        "hasMain": false,
+        "hasNav": true,
+        "hasFooter": true,
+        "ariaLive": true,
+        "focusable": 30,
+        "bodyText": "Lab-UX\nInicio\nEquipo\nInvestigación\nDifusión\nSoporte y Ayuda\nIniciar Sesión\nSoporte y Ayuda\n\nEncuentra respuestas a tus preguntas, contacta con nosotros o consulta nuestras guías y tutoriales.\n\nPreguntas Frecuentes\nContacto\nGuías y Tutoriales\n0 preguntas encontradas\n\nFailed to fetch\n\nReintentar\nLab-UX\n\nLaboratorio de Usabilidad — Facultad de Tecnología y Ciencias Aplicadas, UNCA. Testeamos con personas reales de Catamarca para diseñar tecnología centrada en las personas.\n\nEnlaces rápidos\nInicio\nEquipo\nInvestigación\nDifusión\nSoporte y Ayuda\nMetodologías\nGlosario\nLegal\nPolítica de privacidad\nTérminos y condiciones\nPolítica de cookies\nContacto\nSan Fernando del Valle de Catamarca, Catamarca, Argentina\nFacultad de Tecnología y Ciencias Aplicadas — UNCA\nlab-ux@unca.edu.ar\n\n© 2026 Laboratorio de Usabilidad — Facultad de Tecnología, UNCA. Todos los derechos reservados.",
+        "links": [
+          "/public",
+          "/public",
+          "/public/team",
+          "/public/diffusion",
+          "/public/support",
+          "/public/login",
+          "https://twitter.com",
+          "https://facebook.com",
+          "https://instagram.com",
+          "/public",
+          "/public/team",
+          "/public/research",
+          "/public/diffusion",
+          "/public/support",
+          "/public/research/metodologias",
+          "/public/research/glosario",
+          "/public/support",
+          "/public/support",
+          "/public/support",
+          "mailto:lab-ux@unca.edu.ar"
+        ]
+      },
+      "axe": {
+        "ran": true,
+        "violations": [
+          {
+            "id": "color-contrast",
+            "impact": "serious",
+            "nodes": 3,
+            "help": "Elements must meet minimum color contrast ratio thresholds"
+          },
+          {
+            "id": "heading-order",
+            "impact": "moderate",
+            "nodes": 1,
+            "help": "Heading levels should only increase by one"
+          },
+          {
+            "id": "landmark-one-main",
+            "impact": "moderate",
+            "nodes": 1,
+            "help": "Document should have one main landmark"
+          },
+          {
+            "id": "region",
+            "impact": "moderate",
+            "nodes": 5,
+            "help": "All page content should be contained by landmarks"
+          }
+        ]
+      }
+    },
+    {
+      "route": "login",
+      "url": "/public/login",
+      "width": 375,
+      "shot": "shots/login-375.png",
+      "status": 200,
+      "title": "LAB-Ux | Laboratorio de Usabilidad - UNCA",
+      "ok": true,
+      "err": "",
+      "loadMs": 5270,
+      "console": [
+        {
+          "type": "info",
+          "text": "%cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold"
+        },
+        {
+          "type": "warning",
+          "text": "Deprecated API for given entry type."
+        }
+      ],
+      "badResponses": [],
+      "eval": {
+        "navMs": 2748,
+        "lcpMs": null,
+        "cls": null,
+        "overflowX": 0,
+        "scrollW": 375,
+        "clientW": 375,
+        "imgsTotal": 0,
+        "missingAlt": 0,
+        "hasMain": false,
+        "hasNav": true,
+        "hasFooter": true,
+        "ariaLive": false,
+        "focusable": 35,
+        "bodyText": "Lab-UX\nAbrir menú\nVolver a la página principal\nIniciar Sesión\nRegistrarse\nRecuperar\nIniciar Sesión\nIngresa tus credenciales para acceder a tu cuenta.\nCorreo electrónico\nContraseña\nRecordarme\nIniciar Sesión\nLab-UX\n\nLaboratorio de Usabilidad — Facultad de Tecnología y Ciencias Aplicadas, UNCA. Testeamos con personas reales de Catamarca para diseñar tecnología centrada en las personas.\n\nEnlaces rápidos\nInicio\nEquipo\nInvestigación\nDifusión\nSoporte y Ayuda\nMetodologías\nGlosario\nLegal\nPolítica de privacidad\nTérminos y condiciones\nPolítica de cookies\nContacto\nSan Fernando del Valle de Catamarca, Catamarca, Argentina\nFacultad de Tecnología y Ciencias Aplicadas — UNCA\nlab-ux@unca.edu.ar\n\n© 2026 Laboratorio de Usabilidad — Facultad de Tecnología, UNCA. Todos los derechos reservados.",
+        "links": [
+          "/public",
+          "/public",
+          "/public/team",
+          "/public/diffusion",
+          "/public/support",
+          "/public/login",
+          "/",
+          "https://twitter.com",
+          "https://facebook.com",
+          "https://instagram.com",
+          "/public",
+          "/public/team",
+          "/public/research",
+          "/public/diffusion",
+          "/public/support",
+          "/public/research/metodologias",
+          "/public/research/glosario",
+          "/public/support",
+          "/public/support",
+          "/public/support",
+          "mailto:lab-ux@unca.edu.ar"
+        ]
+      },
+      "axe": {
+        "ran": true,
+        "violations": [
+          {
+            "id": "color-contrast",
+            "impact": "serious",
+            "nodes": 2,
+            "help": "Elements must meet minimum color contrast ratio thresholds"
+          },
+          {
+            "id": "landmark-one-main",
+            "impact": "moderate",
+            "nodes": 1,
+            "help": "Document should have one main landmark"
+          },
+          {
+            "id": "page-has-heading-one",
+            "impact": "moderate",
+            "nodes": 1,
+            "help": "Page should contain a level-one heading"
+          },
+          {
+            "id": "region",
+            "impact": "moderate",
+            "nodes": 3,
+            "help": "All page content should be contained by landmarks"
+          }
+        ]
+      }
+    },
+    {
+      "route": "login",
+      "url": "/public/login",
+      "width": 768,
+      "shot": "shots/login-768.png",
+      "status": 200,
+      "title": "LAB-Ux | Laboratorio de Usabilidad - UNCA",
+      "ok": true,
+      "err": "",
+      "loadMs": 2776,
+      "console": [
+        {
+          "type": "info",
+          "text": "%cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold"
+        },
+        {
+          "type": "warning",
+          "text": "Deprecated API for given entry type."
+        }
+      ],
+      "badResponses": [],
+      "eval": {
+        "navMs": 249,
+        "lcpMs": null,
+        "cls": null,
+        "overflowX": 0,
+        "scrollW": 768,
+        "clientW": 768,
+        "imgsTotal": 0,
+        "missingAlt": 0,
+        "hasMain": false,
+        "hasNav": true,
+        "hasFooter": true,
+        "ariaLive": false,
+        "focusable": 35,
+        "bodyText": "Lab-UX\nInicio\nEquipo\nInvestigación\nDifusión\nSoporte y Ayuda\nIniciar Sesión\nVolver a la página principal\nIniciar Sesión\nRegistrarse\nRecuperar\nIniciar Sesión\nIngresa tus credenciales para acceder a tu cuenta.\nCorreo electrónico\nContraseña\nRecordarme\nIniciar Sesión\nLab-UX\n\nLaboratorio de Usabilidad — Facultad de Tecnología y Ciencias Aplicadas, UNCA. Testeamos con personas reales de Catamarca para diseñar tecnología centrada en las personas.\n\nEnlaces rápidos\nInicio\nEquipo\nInvestigación\nDifusión\nSoporte y Ayuda\nMetodologías\nGlosario\nLegal\nPolítica de privacidad\nTérminos y condiciones\nPolítica de cookies\nContacto\nSan Fernando del Valle de Catamarca, Catamarca, Argentina\nFacultad de Tecnología y Ciencias Aplicadas — UNCA\nlab-ux@unca.edu.ar\n\n© 2026 Laboratorio de Usabilidad — Facultad de Tecnología, UNCA. Todos los derechos reservados.",
+        "links": [
+          "/public",
+          "/public",
+          "/public/team",
+          "/public/diffusion",
+          "/public/support",
+          "/public/login",
+          "/",
+          "https://twitter.com",
+          "https://facebook.com",
+          "https://instagram.com",
+          "/public",
+          "/public/team",
+          "/public/research",
+          "/public/diffusion",
+          "/public/support",
+          "/public/research/metodologias",
+          "/public/research/glosario",
+          "/public/support",
+          "/public/support",
+          "/public/support",
+          "mailto:lab-ux@unca.edu.ar"
+        ]
+      },
+      "axe": {
+        "ran": true,
+        "violations": [
+          {
+            "id": "color-contrast",
+            "impact": "serious",
+            "nodes": 2,
+            "help": "Elements must meet minimum color contrast ratio thresholds"
+          },
+          {
+            "id": "landmark-one-main",
+            "impact": "moderate",
+            "nodes": 1,
+            "help": "Document should have one main landmark"
+          },
+          {
+            "id": "page-has-heading-one",
+            "impact": "moderate",
+            "nodes": 1,
+            "help": "Page should contain a level-one heading"
+          },
+          {
+            "id": "region",
+            "impact": "moderate",
+            "nodes": 3,
+            "help": "All page content should be contained by landmarks"
+          }
+        ]
+      }
+    },
+    {
+      "route": "login",
+      "url": "/public/login",
+      "width": 1440,
+      "shot": "shots/login-1440.png",
+      "status": 200,
+      "title": "LAB-Ux | Laboratorio de Usabilidad - UNCA",
+      "ok": true,
+      "err": "",
+      "loadMs": 2808,
+      "console": [
+        {
+          "type": "info",
+          "text": "%cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold"
+        },
+        {
+          "type": "warning",
+          "text": "Deprecated API for given entry type."
+        }
+      ],
+      "badResponses": [],
+      "eval": {
+        "navMs": 294,
+        "lcpMs": null,
+        "cls": null,
+        "overflowX": 0,
+        "scrollW": 1440,
+        "clientW": 1440,
+        "imgsTotal": 0,
+        "missingAlt": 0,
+        "hasMain": false,
+        "hasNav": true,
+        "hasFooter": true,
+        "ariaLive": false,
+        "focusable": 35,
+        "bodyText": "Lab-UX\nInicio\nEquipo\nInvestigación\nDifusión\nSoporte y Ayuda\nIniciar Sesión\nVolver a la página principal\nIniciar Sesión\nRegistrarse\nRecuperar\nIniciar Sesión\nIngresa tus credenciales para acceder a tu cuenta.\nCorreo electrónico\nContraseña\nRecordarme\nIniciar Sesión\nLab-UX\n\nLaboratorio de Usabilidad — Facultad de Tecnología y Ciencias Aplicadas, UNCA. Testeamos con personas reales de Catamarca para diseñar tecnología centrada en las personas.\n\nEnlaces rápidos\nInicio\nEquipo\nInvestigación\nDifusión\nSoporte y Ayuda\nMetodologías\nGlosario\nLegal\nPolítica de privacidad\nTérminos y condiciones\nPolítica de cookies\nContacto\nSan Fernando del Valle de Catamarca, Catamarca, Argentina\nFacultad de Tecnología y Ciencias Aplicadas — UNCA\nlab-ux@unca.edu.ar\n\n© 2026 Laboratorio de Usabilidad — Facultad de Tecnología, UNCA. Todos los derechos reservados.",
+        "links": [
+          "/public",
+          "/public",
+          "/public/team",
+          "/public/diffusion",
+          "/public/support",
+          "/public/login",
+          "/",
+          "https://twitter.com",
+          "https://facebook.com",
+          "https://instagram.com",
+          "/public",
+          "/public/team",
+          "/public/research",
+          "/public/diffusion",
+          "/public/support",
+          "/public/research/metodologias",
+          "/public/research/glosario",
+          "/public/support",
+          "/public/support",
+          "/public/support",
+          "mailto:lab-ux@unca.edu.ar"
+        ]
+      },
+      "axe": {
+        "ran": true,
+        "violations": [
+          {
+            "id": "color-contrast",
+            "impact": "serious",
+            "nodes": 2,
+            "help": "Elements must meet minimum color contrast ratio thresholds"
+          },
+          {
+            "id": "landmark-one-main",
+            "impact": "moderate",
+            "nodes": 1,
+            "help": "Document should have one main landmark"
+          },
+          {
+            "id": "page-has-heading-one",
+            "impact": "moderate",
+            "nodes": 1,
+            "help": "Page should contain a level-one heading"
+          },
+          {
+            "id": "region",
+            "impact": "moderate",
+            "nodes": 3,
+            "help": "All page content should be contained by landmarks"
+          }
+        ]
+      }
+    }
+  ]
+}
